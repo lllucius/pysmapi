@@ -15,11 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class SMAPI_Status_Capture(Smapi_Request_Base):
+class SMAPI_Status_Capture(Request):
     def __init__(self,
                  **kwargs):
-        super(SMAPI_Status_Capture, self). \
-            __init__(b"SMAPI_Status_Capture", **kwargs)
-
+        super(SMAPI_Status_Capture, self).__init__(**kwargs)

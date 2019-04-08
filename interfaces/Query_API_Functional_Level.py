@@ -15,11 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Query_API_Functional_Level(Smapi_Request_Base):
+class Query_API_Functional_Level(Request):
     def __init__(self,
                  **kwargs):
-        super(Query_API_Functional_Level, self). \
-            __init__(b"Query_API_Functional_Level", **kwargs)
-
+        super(Query_API_Functional_Level, self).__init__(**kwargs)

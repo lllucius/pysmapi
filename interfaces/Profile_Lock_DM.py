@@ -15,11 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Profile_Lock_DM(Smapi_Request_Base):
+class Profile_Lock_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Profile_Lock_DM, self). \
-            __init__(b"Profile_Lock_DM", **kwargs)
-
+        super(Profile_Lock_DM, self).__init__(**kwargs)

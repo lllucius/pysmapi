@@ -15,20 +15,19 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Device_Undedicate_DM(Smapi_Request_Base):
+class Image_Device_Undedicate_DM(Request):
 
     # Data security erase
     FALSE = 0
     TRUE = 1
-    readonly_names = ["FALSE", "TRUE"]
+    readonly_names = ["TRUE"]
 
     def __init__(self,
-                 image_device_number = b"",
+                 image_device_number = "",
                  **kwargs):
-        super(Image_Device_Undedicate_DM, self). \
-            __init__(b"Image_Device_Undedicate_DM", **kwargs)
+        super(Image_Device_Undedicate_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._image_device_number = image_device_number
@@ -46,10 +45,9 @@ class Image_Device_Undedicate_DM(Smapi_Request_Base):
 
         # image_device_number_length (int4)
         # image_device_number (string,1-4,char16)
-        fmt = b"!I%ds" % (id_len)
+        fmt = "!I%ds" % (id_len)
         buf = struct.pack(fmt,
                           id_len,
-                          self._image_device_number)
+                          bytes(self._image_device_number, "UTF-8"))
  
-        return super(Image_Device_Undedicate_DM, self).pack(buf)
-
+        return buf

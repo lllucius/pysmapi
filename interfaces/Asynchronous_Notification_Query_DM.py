@@ -15,40 +15,39 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Asynchronous_Notification_Query_DM(Smapi_Request_Base):
+class Asynchronous_Notification_Query_DM(Request):
 
     # Entity type
     DIRECTORY = 1
-    entity_type_names = ["?", "DIRECTORY"]
+    entity_type_names = ["DIRECTORY"]
 
     # Subscription type
     INCLUDE = 1
     EXCLUDE = 2
-    subscription_type_names = ["?", "INCLUDE", "EXCLUDE"]
+    subscription_type_names = ["EXCLUDE"]
 
     # Communication type
     TCP = 1
     UDP = 2
-    communication_type_names = ["?", "TCP", "UDP"]
+    communication_type_names = ["UDP"]
 
     # Encoding
     UNSPECIFIED = 0
     ASCII = 1
     EBCDIC = 2
-    encoding_names = ["UNSPECIFIED", "ASCII", "EBCDIC"]
+    encoding_names = ["EBCDIC"]
 
     def __init__(self,
                  entity_type = DIRECTORY,
                  communication_type = UNSPECIFIED,
                  port_number = 0,
-                 ip_address = b"",
+                 ip_address = "",
                  encoding = UNSPECIFIED,
-                 subscriber_data = b"",
+                 subscriber_data = "",
                  **kwargs):
-        super(Asynchronous_Notification_Query_DM, self). \
-            __init__(b"Asynchronous_Notification_Query_DM", **kwargs)
+        super(Asynchronous_Notification_Query_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._entity_type = entity_type
@@ -130,24 +129,24 @@ class Asynchronous_Notification_Query_DM(Smapi_Request_Base):
         # subscriber_data_length (int4)
         # subscriber_data (string,0-64,charNA)
         #                 (string,1,*)
-        fmt = b"!BBII%dsBI%ds" % (ip_len, sub_len)
+        fmt = "!BBII%dsBI%ds" % (ip_len, sub_len)
         buf = struct.pack(fmt,
                           self._entity_type,
                           self._communication_type,
                           self._port_number,
                           ip_len,
-                          self._ip_address,
+                          bytes(self._ip_address, "UTF-8"),
                           self._encoding,
                           sub_len,
-                          self._subscriber_data)
+                          bytes(self._subscriber_data, "UTF-8"))
  
-        return super(Asynchronous_Notification_Query_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Asynchronous_Notification_Query_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # notification_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         self._notification_array = []
@@ -156,16 +155,16 @@ class Asynchronous_Notification_Query_DM(Smapi_Request_Base):
             self._notification_array.append(entry)
 
             # notification_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # userid_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # userid (string,1-8,char42)
-            entry.userid = buf[offset:offset + nlen]
+            entry.userid = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # subscription_type (int1)
@@ -177,15 +176,15 @@ class Asynchronous_Notification_Query_DM(Smapi_Request_Base):
             offset += 1
 
             # port_number (int4)
-            entry.port_number, = struct.unpack(b"!I", buf[offset:offset + 4])
+            entry.port_number, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # ip_address_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # ip_address (string,7-15,char10 plus .)
-            entry.ip_address = buf[offset:offset + nlen]
+            entry.ip_address = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # encoding (int1)
@@ -197,8 +196,6 @@ class Asynchronous_Notification_Query_DM(Smapi_Request_Base):
             offset += 4
 
             # subscriber_data (string,0-64,charNA)
-            entry.subscriber_data = buf[offset:offset + nlen]
+            entry.subscriber_data = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
-
-        return offset
 

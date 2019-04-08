@@ -15,41 +15,40 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Asynchronous_Notification_Enable_DM(Smapi_Request_Base):
+class Asynchronous_Notification_Enable_DM(Request):
 
     # Entity type
     DIRECTORY = 1
-    entity_type_names = ["?", "DIRECTORY"]
+    entity_type_names = ["DIRECTORY"]
 
     # Subscription type
     INCLUDE = 1
     EXCLUDE = 2
-    subscription_type_names = ["?", "INCLUDE", "EXCLUDE"]
+    subscription_type_names = ["EXCLUDE"]
 
     # Communication type
     TCP = 1
     UDP = 2
-    communication_type_names = ["?", "TCP", "UDP"]
+    communication_type_names = ["UDP"]
 
     # Encoding
     UNSPECIFIED = 0
     ASCII = 1
     EBCDIC = 2
-    encoding_names = ["UNSPECIFIED", "ASCII", "EBCDIC"]
+    encoding_names = ["EBCDIC"]
 
     def __init__(self,
                  entity_type = DIRECTORY,
                  subscription_type = INCLUDE,
                  communication_type = TCP,
                  port_number = 0,
-                 ip_address = b"",
+                 ip_address = "",
                  encoding = UNSPECIFIED,
-                 subscriber_data = b"",
+                 subscriber_data = "",
                  **kwargs):
-        super(Asynchronous_Notification_Enable_DM, self). \
-            __init__(b"Asynchronous_Notification_Enable_DM", **kwargs)
+        super(Asynchronous_Notification_Enable_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._entity_type = entity_type
@@ -130,17 +129,17 @@ class Asynchronous_Notification_Enable_DM(Smapi_Request_Base):
         # subscriber_data_length (int4)
         # subscriber_data (string,0-64,charNA)
         #                 (string,1,*)
-        fmt = b"!BBBII%dsBI%ds" % (ip_len, sub_len)
+        fmt = "!BBBII%dsBI%ds" % (ip_len, sub_len)
         buf = struct.pack(fmt,
                           self._entity_type,
                           self._subscription_type,
                           self._communication_type,
                           self._port_number,
                           ip_len,
-                          self._ip_address,
+                          bytes(self._ip_address, "UTF-8"),
                           self._encoding,
                           sub_len,
-                          self._subscriber_data)
+                          bytes(self._subscriber_data, "UTF-8"))
  
-        return super(Asynchronous_Notification_Enable_DM, self).pack(buf)
+        return buf
 

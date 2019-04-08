@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Metadata_Get(Smapi_Request_Base):
+class Metadata_Get(Request):
     def __init__(self,
-                 metadata_name_list = b"",
+                 metadata_name_list = "",
                  **kwargs):
-        super(Metadata_Get, self). \
-            __init__(b"Metadata_Get", **kwargs)
+        super(Metadata_Get, self).__init__(**kwargs)
 
         # Request parameters
         self._metadata_name_list = metadata_name_list
@@ -48,12 +47,12 @@ class Metadata_Get(Smapi_Request_Base):
 
     def pack(self):
         # id=value (string,1-8,char42) (ASCIIZ)
-        buf = b"%s\x00" % (self._metadata_name_list)
+        buf = "%s\x00" % (self._metadata_name_list)
 
-        return super(Metadata_Get, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(Metadata_Get, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # metadata_entry_array_length (int4)
         alen, = struct.unpack("!I", buf[offset:offset + 4])
@@ -65,25 +64,23 @@ class Metadata_Get(Smapi_Request_Base):
             self._metadata_entry_array.append(entry)
 
             # CPU_info_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # metadata_entry_name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # metadata_entry_name (string,1-1024,charNB)
-            entry.metadata_entry_name = buf[offset:offset + nlen]
+            entry.metadata_entry_name = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # metadata_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # metadata (string,1-maxlength,charNA)
-            entry.metadata = buf[offset:offset + nlen]
+            entry.metadata = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
-
-        return offset
 

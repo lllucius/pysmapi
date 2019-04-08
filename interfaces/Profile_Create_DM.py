@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Profile_Create_DM(Smapi_Request_Base):
+class Profile_Create_DM(Request):
     def __init__(self,
                  profile_record_array = [],
                  **kwargs):
-        super(Profile_Create_DM, self). \
-            __init__(b"Profile_Create_DM", **kwargs)
+        super(Profile_Create_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._profile_record_array = profile_record_array
@@ -37,21 +36,20 @@ class Profile_Create_DM(Smapi_Request_Base):
 
     def pack(self):
         alen = 0
-        buf = b""
+        buf = ""
         for profile_record in self._profile_record_array:
             ir_len = len(profile_record)
 
             # profile_record_length (int4)
             # profile_record (string,1-72,charNA)
-            fmt = b"!I%ds" % (ir_len)
+            fmt = "!I%ds" % (ir_len)
             buf += struct.pack(fmt,
                                ir_len,
-                               profile_record)
+                               bytes(profile_record, "UTF-8"))
             alen += ir_len + 4
 
         # profile_record_array_length (int4)
         # profile_record_array
-        buf = struct.pack("!I", alen) + buf
+        buf = struct.pack(alen) + buf
 
-        return super(Profile_Replace_DM, self).pack(buf)
-
+        return buf

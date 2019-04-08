@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Image_Performance_Query(Smapi_Request_Base):
+class System_Image_Performance_Query(Request):
     def __init__(self,
                  **kwargs):
-        super(System_Image_Performance_Query, self). \
-            __init__(b"System_Image_Performance_Query", **kwargs)
+        super(System_Image_Performance_Query, self).__init__(**kwargs)
 
         # Response values
         self._image_performance_array = []
@@ -34,18 +33,18 @@ class System_Image_Performance_Query(Smapi_Request_Base):
     def image_performance_array(self, value):
         self._image_performance_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(System_Image_Performance_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # image_performance_array_entries (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # prototype_record_array
         self._image_performance_array = []
         while alen > 0:
             # entry_data_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # entry_data (DIAGNOSE x'2FC')
@@ -53,6 +52,4 @@ class System_Image_Performance_Query(Smapi_Request_Base):
             offset += nlen
 
             alen -= 1
-
-        return offset
 

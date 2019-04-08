@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Process_ABEND_Dump(Smapi_Request_Base):
+class Process_ABEND_Dump(Request):
     def __init__(self,
-                 spoolid = b"",
+                 spoolid = "",
                  **kwargs):
-        super(Process_ABEND_Dump, self). \
-            __init__(b"Process_ABEND_Dump", **kwargs)
+        super(Process_ABEND_Dump, self).__init__(**kwargs)
 
         # Request parameters
         self._spoolid = spoolid
@@ -37,7 +36,6 @@ class Process_ABEND_Dump(Smapi_Request_Base):
 
     def pack(self):
         # id=value (string,1-8,char42) (ASCIIZ)
-        buf = b"spoolid=%s\x00" % (self._id)
+        buf = "spoolid=%s\x00" % (self._id)
 
-        return super(Process_ABEND_Dump, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

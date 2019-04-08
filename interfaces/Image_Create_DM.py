@@ -15,17 +15,16 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Create_DM(Smapi_Request_Base):
+class Image_Create_DM(Request):
     def __init__(self,
-                 prototype_name = b"",
-                 initial_password = b"",
-                 initial_account_number = b"",
+                 prototype_name = "",
+                 initial_password = "",
+                 initial_account_number = "",
                  image_record_array = [],
                  **kwargs):
-        super(Image_Create_DM, self). \
-            __init__(b"Image_Create_DM", **kwargs)
+        super(Image_Create_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._prototype_name = prototype_name
@@ -78,16 +77,16 @@ class Image_Create_DM(Smapi_Request_Base):
 
     def pack(self):
         alen = 0
-        buf = b""
+        buf = ""
         for image_record in self._image_record_array:
             ir_len = len(image_record)
 
             # image_record_length (int4)
             # image_record (string,1-72,charNA)
-            fmt = b"!I%ds" % (ir_len)
+            fmt = "!I%ds" % (ir_len)
             buf += struct.pack(fmt,
                                ir_len,
-                               image_record)
+                               bytes(image_record, "UTF-8"))
             alen += ir_len + 4
 
         pn_len = len(self._prototype_name)
@@ -102,24 +101,22 @@ class Image_Create_DM(Smapi_Request_Base):
         # initial_account_number (string,0-8,charNB)
         # image_record_array_length (int4)
         # image_record_array
-        fmt = b"!I%dsI%dsI%dsI" % (pn_len, ip_len, ia_len)
+        fmt = "!I%dsI%dsI%dsI" % (pn_len, ip_len, ia_len)
         buf = struct.pack(fmt,
                           pn_len,
-                          self._prototype_name,
+                          bytes(self._prototype_name, "UTF-8"),
                           ip_len,
-                          self._initial_password,
+                          bytes(self._initial_password, "UTF-8"),
                           ia_len,
-                          self._initial_account_number,
+                          bytes(self._initial_account_number, "UTF-8"),
                           alen) + buf
 
-        return super(Image_Create_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Create_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # operation_id (int4; range -1-2147483647)
-        self._operation_id, = struct.unpack(b"!I", buf[offset:offset + 4])
+        self._operation_id, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
-
-        return offset
 

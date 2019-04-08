@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Recycle(Smapi_Request_Base):
+class Image_Recycle(Request):
     def __init__(self,
                  **kwargs):
-        super(Image_Recycle, self). \
-            __init__(b"Image_Recycle", **kwargs)
+        super(Image_Recycle, self).__init__(**kwargs)
 
         # Response values
         self._recycled = 0
@@ -52,15 +51,15 @@ class Image_Recycle(Smapi_Request_Base):
     def failing_array(self, value):
         self._failing_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Recycle, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # recycled (int4)
         # not_recycled (int4)
         # failing_array_length (int4)
         self._recycled, \
         self._not_recycled, \
-        alen = struct.unpack(b"!III", buf[offset:offset + 12])
+        alen = struct.unpack("!III", buf[offset:offset + 12])
         offset += 12
 
         self._failing_array = []
@@ -69,25 +68,23 @@ class Image_Recycle(Smapi_Request_Base):
             self._failing_array.append(entry)
 
             # failing_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # image_name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # image_name (string,1-8,char42)
-            entry.image_name = buf[offset:offset + nlen]
+            entry.image_name = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # return_code (int4)
-            entry.return_code, = struct.unpack(b"!I", buf[offset:offset + 4])
+            entry.return_code, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # reason_code (int4)
-            entry.reason_code, = struct.unpack(b"!I", buf[offset:offset + 4])
+            entry.reason_code, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
-
-        return offset
 

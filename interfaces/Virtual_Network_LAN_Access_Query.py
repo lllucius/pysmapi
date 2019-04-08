@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Virtual_Network_LAN_Access_Query(Smapi_Request_Base):
+class Virtual_Network_LAN_Access_Query(Request):
     def __init__(self,
-                 lan_name = b"",
-                 lan_owner = b"",
+                 lan_name = "",
+                 lan_owner = "",
                  **kwargs):
-        super(Virtual_Network_LAN_Access_Query, self). \
-            __init__(b"Virtual_Network_LAN_Access_Query", **kwargs)
+        super(Virtual_Network_LAN_Access_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._lan_name = lan_name
@@ -57,23 +56,25 @@ class Virtual_Network_LAN_Access_Query(Smapi_Request_Base):
         self._authorized_users_array = value
 
     def pack(self):
+        buf = ""
 
         # lan_name (string,1-8,char36 plus $#@)
+        buf += f"{self._lan_name}\x00"
+
         # lan_owner (string,1-8,char36)
-        buf = b"%s\x00%s\x00" % \
-            (self._lan_name,
-             self._lan_owner)
+        buf += f"{self._lan_owner}\x00"
 
-        return super(Virtual_Network_LAN_Access_Query, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(Virtual_Network_LAN_Access_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
 
-        # authorized_users_array
-        buf = buf[offset:]
-        offset += len(buf)
+        self._authorized_users_array = []
 
-        self._authorized_users_array = buf[:-1].split(b"\x00")
+        # authorized_user_record (string,1-23,char36)
+        for record in buf[:-1].decode("UTF-8").split("\x00"):
+            entry = Obj()
+            self._authorized_users_array.append(entry)
 
-        return offset
+            entry.name,
+            entry.promiscuity = record.split()
 

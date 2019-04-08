@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Spool_Utilization_Query(Smapi_Request_Base):
+class System_Spool_Utilization_Query(Request):
     def __init__(self,
                  **kwargs):
-        super(System_Spool_Utilization_Query, self). \
-            __init__(b"System_Spool_Utilization_Query", **kwargs)
+        super(System_Spool_Utilization_Query, self).__init__(**kwargs)
 
         # Response values
         self._total_spool_pages = 0
@@ -61,28 +60,28 @@ class System_Spool_Utilization_Query(Smapi_Request_Base):
     def spool_volume_array(self, value):
         self._spool_volume_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(System_Spool_Utilization_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # spool_information_structure_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
         
         # spool_information_structure
-        sis = buf[offset:offset + alen]
+        sis = buf[offset:offset + alen].decode("UTF-8")
         offset += alen
 
         # total_spool_pages (string,1-8,char10 plus 'K')
-        self._total_spool_pages, _, sis = sis.partition(b" ")
+        self._total_spool_pages, _, sis = sis.partition(" ")
 
         # total_spool_pages_in_use (string,1-8,char10)
-        self._total_spool_pages_in_use, _, sis = sis.partition(b" ")
+        self._total_spool_pages_in_use, _, sis = sis.partition(" ")
 
         # total_spool_percent_used (string,1-3,char10)
-        self._total_spool_percent_used, _, sis = sis.partition(b" ")
+        self._total_spool_percent_used, _, sis = sis.partition(" ")
 
         self._spool_volume_array = []
-        for spool_volume in sis[:-1].split(b"\x00"):
+        for spool_volume in sis[:-1].split("\x00"):
             entry = Obj()
             self._spool_volume_array.append(entry)
 
@@ -99,7 +98,5 @@ class System_Spool_Utilization_Query(Smapi_Request_Base):
             entry.pages_in_use, \
             entry.percent_used, \
             entry.dump, \
-            entry.drained = spool_volume.split(b" ")
-
-        return offset
+            entry.drained = spool_volume.split(" ")
 

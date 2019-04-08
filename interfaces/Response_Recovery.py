@@ -15,20 +15,19 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Response_Recovery(Smapi_Request_Base):
+class Response_Recovery(Request):
     def __init__(self,
                  failed_request_id = 0,
                  **kwargs):
-        super(Response_Recovery, self). \
-            __init__(b"Response_Recovery", **kwargs)
+        super(Response_Recovery, self).__init__(**kwargs)
 
         # Request values
         self._failed_request_id = failed_request_id
 
         # Response values
-        self._response_data = b""
+        self._response_data = ""
 
     @property
     def failed_request_id(self):
@@ -48,17 +47,16 @@ class Response_Recovery(Smapi_Request_Base):
 
     def pack(self):
         # failed_request_id (int4)
-        buf = struct.pack("!I", self._failed_request_id)
+        buf = struct.pack(self._failed_request_id)
 
-        return super(Response_Recovery, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Response_Recovery, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
-        # response_data
         nlen = len(buf) - offset 
-        self._response_data = buf[offset:offset + nlen]
-        offset += nlen
 
-        return offset
+        # response_data (string)
+        self._response_data = buf[offset:offset + nlen].decode("UTF-8")
+
 

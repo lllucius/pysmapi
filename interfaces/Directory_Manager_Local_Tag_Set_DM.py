@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Directory_Manager_Local_Tag_Set_DM(Smapi_Request_Base):
+class Directory_Manager_Local_Tag_Set_DM(Request):
     def __init__(self,
-                 tag_name = b"",
+                 tag_name = "",
                  tag_value = 0,
                  **kwargs):
-        super(Directory_Manager_Local_Tag_Set_DM, self). \
-            __init__(b"Directory_Manager_Local_Tag_Set_DM", **kwargs)
+        super(Directory_Manager_Local_Tag_Set_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._tag_name = tag_name
@@ -53,12 +52,11 @@ class Directory_Manager_Local_Tag_Set_DM(Smapi_Request_Base):
         # tag_name (string,1-8,char36)
         # tag_value_length (int4)
         # tag_value (string,1-1024,charNA)
-        fmt = b"!I%dsI%ds" % (tn_len, tv_len)
+        fmt = "!I%dsI%ds" % (tn_len, tv_len)
         buf = struct.pack(fmt,
                           tn_len,
-                          self._tag_name,
+                          bytes(self._tag_name, "UTF-8"),
                           tv_len,
-                          self._tag_value)
+                          bytes(self._tag_value, "UTF-8"))
 
-        return super(Directory_Manager_Local_Tag_Set_DM, self).pack(buf)
-
+        return buf

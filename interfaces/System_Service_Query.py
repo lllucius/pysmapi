@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Service_Query(Smapi_Request_Base):
+class System_Service_Query(Request):
     def __init__(self,
                  system_service_query_list = [],
                  **kwargs):
-        super(System_Service_Query, self). \
-            __init__(b"System_Service_Query", **kwargs)
+        super(System_Service_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._system_service_query_list = system_service_query_list
@@ -47,26 +46,24 @@ class System_Service_Query(Smapi_Request_Base):
         self._system_service_query_data = value
 
     def pack(self):
-        buf = b""
+        buf = ""
         for component in self._system_service_query_list:
             buf += component + "\x00"
 
         # system_service_query_list_length (int4)
         # system_service_query_list (string,1-maxlength,charNA)
-        buf = struct.pack(b"!I", len(buf)) + buf
+        buf = struct.pack("!I", len(buf)) + buf
 
-        return super(System_Service_Query, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(System_Service_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # system_service_query_data_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # system_service_query_data (string) (ASCIIZ ARRAY)
-        self._system_service_query_data = buf[offset:offset + alen].split("\x00")
+        self._system_service_query_data = buf[offset:offset + alen].decode("UTF-8").split("\x00")
         offset += alen
-
-        return offset
 

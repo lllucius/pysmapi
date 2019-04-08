@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Volume_Space_Remove_DM(Smapi_Request_Base):
+class Image_Volume_Space_Remove_DM(Request):
 
     # Function type
     FT_1 = 1
@@ -27,16 +27,15 @@ class Image_Volume_Space_Remove_DM(Smapi_Request_Base):
     FT_5 = 5
     FT_6 = 6
     FT_7 = 7
-    function_type_names = ["?", "FT_1", "FT_2", "FT_3", "FT_4", "FT_5", "FT_6", "FT_7"]
+    function_type_names = ["FT_7"]
 
     def __init__(self,
                  function_type = 0,
-                 region_name = b"",
-                 image_vol_id = b"",
-                 group_name = b"",
+                 region_name = "",
+                 image_vol_id = "",
+                 group_name = "",
                  **kwargs):
-        super(Image_Volume_Space_Remove_DM, self). \
-            __init__(b"Image_Volume_Space_Remove_DM", **kwargs)
+        super(Image_Volume_Space_Remove_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._function_type = function_type
@@ -88,7 +87,7 @@ class Image_Volume_Space_Remove_DM(Smapi_Request_Base):
         # image_vol_id (string,1-6,char42)
         # group_name_length (int4)
         # group_name (string,0-8,char42)
-        fmt = b"!BI%dsI%dsI%ds" % \
+        fmt = "!BI%dsI%dsI%ds" % \
             (rn_len,
              ivi_len,
              gn_len)
@@ -96,11 +95,10 @@ class Image_Volume_Space_Remove_DM(Smapi_Request_Base):
         buf = struct.pack(fmt,
                           self._function_type,
                           rn_len,
-                          self._region_name,
+                          bytes(self._region_name, "UTF-8"),
                           ivi_len,
-                          self._image_vol_id,
+                          bytes(self._image_vol_id, "UTF-8"),
                           gn_len,
-                          self._group_name)
+                          bytes(self._group_name, "UTF-8"))
 
-        return super(Image_Volume_Space_Remove_DM, self).pack(buf)
-
+        return buf

@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Performance_Threshold_Enable(Smapi_Request_Base):
+class System_Performance_Threshold_Enable(Request):
     def __init__(self,
-                 event_type = b"",
+                 event_type = "",
                  **kwargs):
-        super(System_Performance_Threshold_Enable, self). \
-            __init__(b"System_Performance_Threshold_Enable", **kwargs)
+        super(System_Performance_Threshold_Enable, self).__init__(**kwargs)
 
         # Request parameters
         self._event_type = event_type
@@ -37,7 +36,6 @@ class System_Performance_Threshold_Enable(Smapi_Request_Base):
 
     def pack(self):
         # event_type (string,1-26,char42 plus blank plus /)
-        buf = b"%s\x00" % (self._event_type)
+        buf = "%s\x00" % (self._event_type)
         
-        return super(System_Performance_Threshold_Enable, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

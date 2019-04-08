@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Shared_Memory_Access_Query_DM(Smapi_Request_Base):
+class Shared_Memory_Access_Query_DM(Request):
     def __init__(self,
-                 memory_segment_name = b"",
+                 memory_segment_name = "",
                  **kwargs):
-        super(Shared_Memory_Access_Query_DM, self). \
-            __init__(b"Shared_Memory_Access_Query_DM", **kwargs)
+        super(Shared_Memory_Access_Query_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._memory_segment_name = memory_segment_name
@@ -51,19 +50,19 @@ class Shared_Memory_Access_Query_DM(Smapi_Request_Base):
 
         # memory_segment_name_length (int4)
         # memory_segment_name (string,1-8,char42)
-        fmt = b"!I%ds" % (msn_len)
+        fmt = "!I%ds" % (msn_len)
 
         buf = struct.pack(fmt,
                           msn_len,
-                          self._memory_segment_name)
+                          bytes(self._memory_segment_name, "UTF-8"))
 
-        return super(Shared_Memory_Access_Query_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Shared_Memory_Access_Query_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # spool_information_structure_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
         
         self._name_array = []
@@ -72,14 +71,12 @@ class Shared_Memory_Access_Query_DM(Smapi_Request_Base):
             self._name_array.append(entry)
 
             # name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # name (string,1-8,char42)
-            entry.name = buf[offset:offset + nlen]
+            entry.name = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             alen -= (nlen + 4)
-
-        return offset
 

@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Definition_Async_Updates(Smapi_Request_Base):
+class Image_Definition_Async_Updates(Request):
     def __init__(self,
-                 enabled = b"",
+                 enabled = "",
                  **kwargs):
-        super(Image_Definition_Async_Updates, self). \
-            __init__(b"Image_Definition_Async_Updates", **kwargs)
+        super(Image_Definition_Async_Updates, self).__init__(**kwargs)
 
         # Request parameters
         self._enabled = enabled
@@ -36,8 +35,9 @@ class Image_Definition_Async_Updates(Smapi_Request_Base):
         self._enabled = value
 
     def pack(self):
+        buf = ""
+
         # enabled=value (string,0-3,char26)
-        buf = b"enabled=%s\x00" % (self._enabled)
+        buf += "enabled=%s\x00" % (self._enabled)
 
-        return super(Image_Definition_Async_Updates, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

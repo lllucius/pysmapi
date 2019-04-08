@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Shared_Memory_Create(Smapi_Request_Base):
+class Shared_Memory_Create(Request):
 
     # Page access descriptor
     SW = 1
@@ -27,24 +27,23 @@ class Shared_Memory_Create(Smapi_Request_Base):
     SN = 5
     EN = 6
     SC = 7
-    page_access_descriptor_names = ["?", "SW", "EW", "SR", "ER", "SN", "EN", "SC"]
+    page_access_descriptor_names = ["SC"]
 
     # Memory attributes
     UNSPECIFIED = 0
     RSTD = 1
     UNRSTD = 2
-    memory_attributes_names = ["UNSPECIFIED", "RSTD", "UNRSTD"]
+    memory_attributes_names = ["UNRSTD"]
     
     def __init__(self,
                  memory_segment_name = 0,
-                 begin_page = b"",
-                 end_page = b"",
+                 begin_page = "",
+                 end_page = "",
                  page_access_descriptor = 0,
                  memory_attributes = 0,
-                 memory_access_identifier = b"",
+                 memory_access_identifier = "",
                  **kwargs):
-        super(Shared_Memory_Create, self). \
-            __init__(b"Shared_Memory_Create", **kwargs)
+        super(Shared_Memory_Create, self).__init__(**kwargs)
 
         # Request parameters
         self._memory_segment_name = memory_segment_name
@@ -114,19 +113,18 @@ class Shared_Memory_Create(Smapi_Request_Base):
         # memory_attributes (int1)
         # memory_access_identifier_length (int4)
         # memory_access_identifier (string,0-8,char42)
-        fmt = b"!I%dsQQBBI%ds" % \
+        fmt = "!I%dsQQBBI%ds" % \
             (msn_len,
              mai_len)
 
         buf = struct.pack(fmt,
                           msn_len,
-                          self._memory_segment_name,
+                          bytes(self._memory_segment_name, "UTF-8"),
                           self._begin_page,
                           self._end_page,
                           self._page_access_descriptor,
                           self._memory_attributes,
                           mai_len,
-                          self._memory_access_identifier)
+                          bytes(self._memory_access_identifier, "UTF-8"))
 
-        return super(Shared_Memory_Create, self).pack(buf)
-
+        return buf

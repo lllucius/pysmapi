@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Metadata_Set(Smapi_Request_Base):
+class Metadata_Set(Request):
     def __init__(self,
                  metadata_entry_array = [],
                  **kwargs):
-        super(Metadata_Set, self). \
-            __init__(b"Metadata_Set", **kwargs)
+        super(Metadata_Set, self).__init__(**kwargs)
 
         # Request parameters
         self._metadata_entry_array = metadata_entry_array
@@ -36,8 +35,8 @@ class Metadata_Set(Smapi_Request_Base):
         self._metadata_entry_array = value
 
     def pack(self):
-        buf = b""
-        print(self._metadata_entry_array)
+        buf = ""
+
         for metadata_entry_name, metadata in self._metadata_entry_array:
             men_len = len(metadata_entry_name)
             m_len = len(metadata)
@@ -50,16 +49,15 @@ class Metadata_Set(Smapi_Request_Base):
 
             entry = struct.pack(fmt,
                                 men_len,
-                                metadata_entry_name,
+                                bytes(metadata_entry_name, "UTF-8"),
                                 m_len,
-                                metadata)
+                                bytes(metadata, "UTF-8"))
 
             # metadata_entry_structure_length (int4)
-            buf += struct.pack("!I", len(entry)) + entry
+            buf += struct.pack(len(entry)) + entry
 
         # metadata_entry_array_length (int4)
         # metadata_entry_array (array)
-        buf = struct.pack("!I", len(buf)) + buf
+        buf = struct.pack(len(buf)) + buf
 
-        return super(Metadata_Set, self).pack(buf)
-
+        return buf

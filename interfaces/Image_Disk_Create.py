@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Disk_Create(Smapi_Request_Base):
+class Image_Disk_Create(Request):
     def __init__(self,
-                 image_disk_number = b"",
-                 image_disk_mode = b"",
+                 image_disk_number = "",
+                 image_disk_mode = "",
                  **kwargs):
-        super(Image_Disk_Create, self). \
-            __init__(b"Image_Disk_Create", **kwargs)
+        super(Image_Disk_Create, self).__init__(**kwargs)
 
         # Request parameters
         self._image_disk_number = image_disk_number
@@ -53,13 +52,12 @@ class Image_Disk_Create(Smapi_Request_Base):
         # image_disk_number (string,1-4,char16)
         # image_disk_mode_length (int4)
         # image_disk_mode (string,0-5,char26)
-        fmt = b"!I%dsI%ds" % (idn_len, idm_len)
+        fmt = "!I%dsI%ds" % (idn_len, idm_len)
 
         buf = struct.pack(fmt,
                           idn_len,
-                          self._image_disk_number,
+                          bytes(self._image_disk_number, "UTF-8"),
                           idm_len,
-                          self._image_disk_mode)
+                          bytes(self._image_disk_mode, "UTF-8"))
  
-        return super(Image_Disk_Create, self).pack(buf)
-
+        return buf

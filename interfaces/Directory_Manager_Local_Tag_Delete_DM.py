@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Directory_Manager_Local_Tag_Delete_DM(Smapi_Request_Base):
+class Directory_Manager_Local_Tag_Delete_DM(Request):
     def __init__(self,
-                 tag_name = b"",
+                 tag_name = "",
                  **kwargs):
-        super(Directory_Manager_Local_Tag_Delete_DM, self). \
-            __init__(b"Directory_Manager_Local_Tag_Delete_DM", **kwargs)
+        super(Directory_Manager_Local_Tag_Delete_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._tag_name = tag_name
@@ -40,10 +39,9 @@ class Directory_Manager_Local_Tag_Delete_DM(Smapi_Request_Base):
 
         # tag_name_length (int4)
         # tag_name (string,1-8,char36)
-        fmt = b"!I%ds" % (tn_len)
+        fmt = "!I%ds" % (tn_len)
         buf = struct.pack(fmt,
                           tn_len,
-                          self._tag_name)
+                          bytes(self._tag_name, "UTF-8"))
 
-        return super(Directory_Manager_Local_Tag_Delete_DM, self).pack(buf)
-
+        return buf

@@ -15,27 +15,27 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Active_Configuration_Query(Smapi_Request_Base):
+class Image_Active_Configuration_Query(Request):
 
     # Memory unit
     KB = 1
     MB = 2
     GB = 3
-    memory_unit_names = ["?", "KB", "MB", "GB"]
+    memory_unit_names = ["GB"]
 
     # Share type
     RELATIVE = 1
     ABSOLUTE = 2
-    share_type_names = ["?", "RELATIVE", "ABSOLUTE"]
+    share_type_names = ["ABSOLUTE"]
 
     # CPU Status
     BASE = 1
     STOPPED = 2
     CHECK_STOPPED = 3
     NON_BASE_ACTIVE = 4
-    cpu_state_names = ["?", "BASE", "STOPPED", "CHECK STOPPED", "NON-BASE, ACTIVE"]
+    cpu_state_names = ["NON-BASE, ACTIVE"]
 
     # Device type
     CONS = 1
@@ -43,18 +43,17 @@ class Image_Active_Configuration_Query(Smapi_Request_Base):
     PUN = 3
     PRT = 4
     DASD = 5
-    device_type_names = ["?", "CONS", "RDR", "PUN", "PRT", "DASD"]
+    device_type_names = ["DASD"]
 
     def __init__(self,
                  **kwargs):
-        super(Image_Active_Configuration_Query, self). \
-            __init__(b"Image_Active_Configuration_Query", **kwargs)
+        super(Image_Active_Configuration_Query, self).__init__(**kwargs)
 
         # Response values
         self._memory_size = 0
         self._memory_unit = 0
         self._share_type = 0
-        self._share_value = b""
+        self._share_value = ""
         self._number_cpus = 0
         self._cpu_info_array = []
         self._device_info_array = []
@@ -115,8 +114,8 @@ class Image_Active_Configuration_Query(Smapi_Request_Base):
     def device_info_array(self, value):
         self._device_info_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Active_Configuration_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # memory_size (int4)
         # memory_unit (int1)
@@ -125,11 +124,11 @@ class Image_Active_Configuration_Query(Smapi_Request_Base):
         self._memory_size, \
         self._memory_unit, \
         self._share_type, \
-        alen = struct.unpack(b"!IBBI", buf[offset:offset + 10])
+        alen = struct.unpack("!IBBI", buf[offset:offset + 10])
         offset += 10
 
         # share_value(string,1-5,char10 plus .)
-        self._share_value = buf[offset:offset + alen]
+        self._share_value = buf[offset:offset + alen].decode("UTF-8")
         offset += alen
 
         # number_CPUs (int4)
@@ -144,26 +143,26 @@ class Image_Active_Configuration_Query(Smapi_Request_Base):
             self._cpu_info_array.append(entry)
 
             # CPU_info_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # CPU_number (int4)
             # CPU_id_length (int4)
             entry.cpu_number, \
-            nlen = struct.unpack(b"!II", buf[offset:offset + 8])
+            nlen = struct.unpack("!II", buf[offset:offset + 8])
             offset += 8
 
             # CPU_id (string,1-16,char16)
-            entry.cpu_id = buf[offset:offset + nlen]
+            entry.cpu_id = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # CPU_status (int1)
-            entry.cpu_status = ord(buf[offset])
+            entry.cpu_status = buf[offset]
             offset += 1
 
         # device_info_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         self._device_info_array = []
@@ -172,21 +171,19 @@ class Image_Active_Configuration_Query(Smapi_Request_Base):
             self._device_info_array.append(entry)
 
             # device_info_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4]) 
+            slen, = struct.unpack("!I", buf[offset:offset + 4]) 
             offset += 4
             alen -= (slen + 4)
 
             # device_type (int1)
-            entry.device_type = ord(buf[offset])
+            entry.device_type = buf[offset]
             offset += 1
 
             # device_address_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # device_address (string,4,char16)
-            entry.device_address = buf[offset:offset + nlen]
+            entry.device_address = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
-
-        return offset
 

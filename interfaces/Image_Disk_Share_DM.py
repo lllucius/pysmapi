@@ -15,18 +15,17 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Disk_Share_DM(Smapi_Request_Base):
+class Image_Disk_Share_DM(Request):
     def __init__(self,
-                 target_image_disk_number = b"",
-                 target_image_name = b"",
-                 image_disk_number = b"",
-                 read_write_mode = b"",
-                 optional_password = b"",
+                 target_image_disk_number = "",
+                 target_image_name = "",
+                 image_disk_number = "",
+                 read_write_mode = "",
+                 optional_password = "",
                  **kwargs):
-        super(Image_Disk_Share_DM, self). \
-            __init__(b"Image_Disk_Share_DM", **kwargs)
+        super(Image_Disk_Share_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._target_image_name = target_image_name
@@ -92,7 +91,7 @@ class Image_Disk_Share_DM(Smapi_Request_Base):
         # read_write_mode (string,0-4,char26)
         # optional_password_length (int4)
         # optional_password (string,0-8,charNB)
-        fmt = b"!I%dsI%dsI%dsI%dsI%dsI%ds" % \
+        fmt = "!I%dsI%dsI%dsI%dsI%dsI%ds" % \
             (tin_len,
              tidn_len,
              idn_len,
@@ -101,15 +100,14 @@ class Image_Disk_Share_DM(Smapi_Request_Base):
 
         buf = struct.pack(fmt,
                           sin_len,
-                          self._target_image_name,
+                          bytes(self._target_image_name, "UTF-8"),
                           tidn_len,
-                          self._target_image_disk_number,
+                          bytes(self._target_image_disk_number, "UTF-8"),
                           idn_len,
-                          self._image_disk_number,
+                          bytes(self._image_disk_number, "UTF-8"),
                           rp_len,
-                          self._read_write_mode,
+                          bytes(self._read_write_mode, "UTF-8"),
                           wp_len,
-                          self._optional_password)
+                          bytes(self._optional_password, "UTF-8"))
  
-        return super(Image_Disk_Share_DM, self).pack(buf)
-
+        return buf

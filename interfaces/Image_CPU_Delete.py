@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_CPU_Delete(Smapi_Request_Base):
+class Image_CPU_Delete(Request):
     def __init__(self,
-                 cpu_address = b"",
+                 cpu_address = "",
                  **kwargs):
-        super(Image_CPU_Delete, self). \
-            __init__(b"Image_CPU_Delete", **kwargs)
+        super(Image_CPU_Delete, self).__init__(**kwargs)
 
         # Request parameters
         self._cpu_address = cpu_address
@@ -40,10 +39,9 @@ class Image_CPU_Delete(Smapi_Request_Base):
 
         # cpu_address_length (int4)
         # cpu_address (string,1-2,char16)
-        fmt = b"!I%ds" % (ca_len)
+        fmt = "!I%ds" % (ca_len)
         buf = struct.pack(fmt,
                           ca_len,
-                          self._cpu_address)
+                          bytes(self._cpu_address, "UTF-8"))
 
-        return super(Image_CPU_Delete, self).pack(buf)
-
+        return buf

@@ -15,38 +15,37 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_CPU_Query_DM(Smapi_Request_Base):
+class Image_CPU_Query_DM(Request):
 
     # shared
     UNSPECIFIED = 0
 
     # Base cpu
     BASE = 1
-    base_cpu_names = ["UNSPECIFIED", "BASE"]
+    base_cpu_names = ["BASE"]
 
     # Dedicate cpu
     NODEDICATE = 1
     DEDICATE = 2
-    dedicate_cpu_names = ["UNSPECIFIED", "NODEDICATE", "DEDICATE"]
+    dedicate_cpu_names = ["DEDICATE"]
 
     # Crypto
     CRYPTO = 1
-    crypto_names = ["UNSPECIFIED", "CRYPTO"]
+    crypto_names = ["CRYPTO"]
 
     def __init__(self,
-                 cpu_address = b"",
+                 cpu_address = "",
                  **kwargs):
-        super(Image_CPU_Query_DM, self). \
-            __init__(b"Image_CPU_Query_DM", **kwargs)
+        super(Image_CPU_Query_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._cpu_address = cpu_address
 
         # Response values
         self._base_cpu = 0
-        self._cpuid = b""
+        self._cpuid = ""
         self._dedicate_cpu = 0
         self._crypto = 0
 
@@ -95,22 +94,22 @@ class Image_CPU_Query_DM(Smapi_Request_Base):
 
         # cpu_address_length (int4)
         # cpu_address (string,1-2,char16)
-        fmt = b"!I%ds" % (ca_len)
+        fmt = "!I%ds" % (ca_len)
         buf = struct.pack(fmt,
                           ca_len,
-                          self._cpu_address)
+                          bytes(self._cpu_address, "UTF-8"))
 
-        return super(Image_CPU_Define_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Image_CPU_Query_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # cpu_address_length (int4)
         nlen = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # cpu_address (string,2,char16)
-        self._cpu_address = buf[offset:offset + nlen]
+        self._cpu_address = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
 
         # base_cpu (int1)
@@ -122,7 +121,7 @@ class Image_CPU_Query_DM(Smapi_Request_Base):
         offset += 4
 
         # cpuid (string,6,char16)
-        self._cpuid = buf[offset:offset + nlen]
+        self._cpuid = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
 
         # dedicate_cpu (int1)
@@ -132,6 +131,4 @@ class Image_CPU_Query_DM(Smapi_Request_Base):
         # crypto (int1)
         entry._crypto = ord(buf[offset])
         offset += 1
-
-        return offset
 

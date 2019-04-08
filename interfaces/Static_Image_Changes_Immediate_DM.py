@@ -15,11 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Static_Image_Changes_Immediate_DM(Smapi_Request_Base):
+class Static_Image_Changes_Immediate_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Static_Image_Changes_Immediate_DM, self). \
-            __init__(b"Static_Image_Changes_Immediate_DM", **kwargs)
-
+        super(Static_Image_Changes_Immediate_DM, self).__init__(**kwargs)

@@ -15,16 +15,16 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Shared_Memory_Query(Smapi_Request_Base):
+class Shared_Memory_Query(Request):
 
     # Memory segment status
     SKELETON = 1
     NONRESTRICTED = 2
     RESTRICTED = 3
     PENDINGPURGE = 4
-    memory_segment_status_names = ["?", "SKELETON", "NONRESTRICTED", "RESTRICTED", "PENDINGPURGE"]
+    memory_segment_status_names = ["PENDINGPURGE"]
 
     # Page access descriptor
     SW = 1
@@ -34,13 +34,12 @@ class Shared_Memory_Query(Smapi_Request_Base):
     SN = 5
     EN = 6
     SC = 7
-    page_access_descriptor_names = ["?", "SW", "EW", "SR", "ER", "SN", "EN", "SC"]
+    page_access_descriptor_names = ["SC"]
 
     def __init__(self,
                  memory_segment_name = 0,
                  **kwargs):
-        super(Shared_Memory_Query, self). \
-            __init__(b"Shared_Memory_Query", **kwargs)
+        super(Shared_Memory_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._memory_segment_name = memory_segment_name
@@ -69,19 +68,19 @@ class Shared_Memory_Query(Smapi_Request_Base):
 
         # memory_segment_name_length (int4)
         # memory_segment_name (string,1-8,char42)
-        fmt = b"!I%ds" % (msn_len)
+        fmt = "!I%ds" % (msn_len)
   
         buf = struct.pack(fmt,
                           msn_len,
-                          self._memory_segment_name)
+                          bytes(self._memory_segment_name, "UTF-8"))
 
-        return super(Shared_Memory_Query, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Shared_Memory_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # memory_segment_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         self._memory_segment_array = []
@@ -90,16 +89,16 @@ class Shared_Memory_Query(Smapi_Request_Base):
             self._memory_segment_array.append(entry)
 
             # memory_segment_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # memory_segment_name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # memory_segment_name (string,1-8,char42)
-            entry.userid = buf[offset:offset + nlen]
+            entry.userid = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # memory_segment_status (int1)
@@ -107,7 +106,7 @@ class Shared_Memory_Query(Smapi_Request_Base):
             offset += 1
 
             # page_range_array_length (int4)
-            pralen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            pralen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             entry.page_range_array = []
@@ -116,7 +115,7 @@ class Shared_Memory_Query(Smapi_Request_Base):
                 entry.page_range_array.append(praent)
 
                 # page_range_structure_length (int4)
-                prslen, = struct.unpack(b"!I", buf[offset:offset + 4])
+                prslen, = struct.unpack("!I", buf[offset:offset + 4])
                 offset += 4
                 pralen -= (prslen + 4)
 
@@ -125,8 +124,6 @@ class Shared_Memory_Query(Smapi_Request_Base):
                 # page_access_descriptor (int1)
                 praent.begin_page, \
                 praent.end_page, \
-                praent.page_access_descriptor = struct.unpack(b"!QQB", buf[offset:offset + prslen])
+                praent.page_access_descriptor = struct.unpack("!QQB", buf[offset:offset + prslen])
                 offset += prslen
-
-        return offset
 

@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Shared_Memory_Replace(Smapi_Request_Base):
+class Shared_Memory_Replace(Request):
     def __init__(self,
                  memory_segment_name = 0,
-                 memory_access_identifier = b"",
+                 memory_access_identifier = "",
                  **kwargs):
-        super(Shared_Memory_Replace, self). \
-            __init__(b"Shared_Memory_Replace", **kwargs)
+        super(Shared_Memory_Replace, self).__init__(**kwargs)
 
         # Request parameters
         self._memory_segment_name = memory_segment_name
@@ -53,15 +52,14 @@ class Shared_Memory_Replace(Smapi_Request_Base):
         # memory_segment_name (string,1-8,char42)
         # memory_access_identifier_length (int4)
         # memory_access_identifier (string,0-8,char42)
-        fmt = b"!I%dsI%ds" % \
+        fmt = "!I%dsI%ds" % \
             (msn_len,
              mai_len)
   
         buf = struct.pack(fmt,
                           msn_len,
-                          self._memory_segment_name,
+                          bytes(self._memory_segment_name, "UTF-8"),
                           mai_len,
-                          self._memory_access_identifier)
+                          bytes(self._memory_access_identifier, "UTF-8"))
 
-        return super(Shared_Memory_Replace, self).pack(buf)
-
+        return buf

@@ -15,16 +15,15 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Disk_Unshare_DM(Smapi_Request_Base):
+class Image_Disk_Unshare_DM(Request):
     def __init__(self,
-                 image_disk_number = b"",
-                 target_image_name = b"",
-                 target_image_disk_number = b"",
+                 image_disk_number = "",
+                 target_image_name = "",
+                 target_image_disk_number = "",
                  **kwargs):
-        super(Image_Disk_Unshare_DM, self). \
-            __init__(b"Image_Disk_Unshare_DM", **kwargs)
+        super(Image_Disk_Unshare_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._image_disk_number = image_disk_number
@@ -66,18 +65,17 @@ class Image_Disk_Unshare_DM(Smapi_Request_Base):
         # target_image_name (string,1-8,char42)
         # target_image_disk_number_length (int4)
         # target_image_disk_number (string,1-4,char16)
-        fmt = b"!I%dsI%dsI%dsI%ds" % \
+        fmt = "!I%dsI%dsI%dsI%ds" % \
             (idn_len,
              tin_len,
              tidn_len)
 
         buf = struct.pack(fmt,
                           idn_len,
-                          self._image_disk_number,
+                          bytes(self._image_disk_number, "UTF-8"),
                           sin_len,
-                          self._target_image_name,
+                          bytes(self._target_image_name, "UTF-8"),
                           tidn_len,
-                          self._target_image_disk_number)
+                          bytes(self._target_image_disk_number, "UTF-8"))
  
-        return super(Image_Disk_Unshare_DM, self).pack(buf)
-
+        return buf

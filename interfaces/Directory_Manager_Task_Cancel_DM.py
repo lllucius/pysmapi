@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Directory_Manager_Task_Cancel_DM(Smapi_Request_Base):
+class Directory_Manager_Task_Cancel_DM(Request):
     def __init__(self,
-                 operation_id = b"",
+                 operation_id = "",
                  **kwargs):
-        super(Directory_Manager_Task_Cancel_DM, self). \
-            __init__(b"Directory_Manager_Task_Cancel_DM", **kwargs)
+        super(Directory_Manager_Task_Cancel_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._operation_id = operation_id
@@ -37,7 +36,6 @@ class Directory_Manager_Task_Cancel_DM(Smapi_Request_Base):
 
     def pack(self):
         # operation_id (int4; range 0-2147483647)
-        buf = struct.pack(b"!I", self._operation_id)
+        buf = struct.pack("!I", self._operation_id)
 
-        return super(Directory_Manager_Task_Cancel_DM, self).pack(buf)
-
+        return buf

@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Password_Set_DM(Smapi_Request_Base):
+class Image_Password_Set_DM(Request):
     def __init__(self,
-                 image_password = b"",
+                 image_password = "",
                  **kwargs):
-        super(Image_Password_Set_DM, self). \
-            __init__(b"Image_Password_Set_DM", **kwargs)
+        super(Image_Password_Set_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._image_password = image_password
@@ -40,11 +39,10 @@ class Image_Password_Set_DM(Smapi_Request_Base):
 
         # image_password_length (int4)
         # image_password (string,1-200,charNA)
-        fmt = b"!I%ds" % (ip_len)
+        fmt = "!I%ds" % (ip_len)
 
         buf = struct.pack(fmt,
                           ip_len,
-                          self._image_password)
+                          bytes(self._image_password, "UTF-8"))
  
-        return super(Image_Password_Set_DM, self).pack(buf)
-
+        return buf

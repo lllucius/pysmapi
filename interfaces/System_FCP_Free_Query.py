@@ -15,21 +15,20 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_FCP_Free_Query(Smapi_Request_Base):
+class System_FCP_Free_Query(Request):
 
     # dev status
     ACTIVE = 1
     FREE = 2
     OFFLINE = 3
-    dev_status_names = ["?", "ACTIVE", "FREE", "OFFLINE"]
+    dev_status_names = ["OFFLINE"]
 
     def __init__(self,
-                 fcp_dev = b"",
+                 fcp_dev = "",
                  **kwargs):
-        super(System_FCP_Free_Query, self). \
-            __init__(b"System_FCP_Free_Query", **kwargs)
+        super(System_FCP_Free_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._fcp_dev = fcp_dev
@@ -57,21 +56,21 @@ class System_FCP_Free_Query(Smapi_Request_Base):
         # fcp_dev=value (string,1-4,char16) (ASCIIZ)
         buf = "fcp_dev=%s\x00" % (self._fcp_dev)
 
-        return super(System_FCP_Free_Query, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(System_FCP_Free_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # fcp_array
         buf = buf[offset:]
         offset += len(buf)
 
         self._fcp_array = []
-        for fcp in buf[:-1].split(b"\x00"):
+        for fcp in buf[:-1].decode("UTF-8").split("\x00"):
             entry = Obj()
             self._fcp_array.append(entry)
 
-            fcp = fcp.split(b";")
+            fcp = fcp.split(";")
 
             # fcp_dev (string,4,char16)
             entry.fcp_Dev = fcp[0]
@@ -108,6 +107,4 @@ class System_FCP_Free_Query(Smapi_Request_Base):
 
             # lun_size (string,1-20,char10)
             entry.lun_size = fcp[11]
-
-        return offset
 

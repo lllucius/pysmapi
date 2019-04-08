@@ -15,25 +15,24 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Disk_Query(Smapi_Request_Base):
+class Image_Disk_Query(Request):
 
     # Vdasd access type
     RO = 1
     RW = 2
-    vdasd_access_type_names = ["?", "RO", "RW"]
+    vdasd_access_type_names = ["RW"]
 
     # Vdasd unit
     CYLINDERS = 1
     BLOCKS = 2
-    vdasd_unit_names = ["?", "CYLINDERS", "BLOCKS"]
+    vdasd_unit_names = ["BLOCKS"]
 
     def __init__(self,
-                 vdasd_id = b"",
+                 vdasd_id = "",
                  **kwargs):
-        super(Image_Disk_Query, self). \
-            __init__(b"Image_Disk_Query", **kwargs)
+        super(Image_Disk_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._vdasd_id = vdasd_id
@@ -58,13 +57,15 @@ class Image_Disk_Query(Smapi_Request_Base):
         self._vdasd_array = value
 
     def pack(self):
+        buf = ""
+
         # vdasd_id=value (string,1-4,char36)
-        buf = b"vdasd_id=%s\x00" % (self._vdasd_id)
+        buf += "vdasd_id=%s\x00" % (self._vdasd_id)
 
-        return super(Image_Disk_Query, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Disk_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # vdasd_array
         buf = buf[offset:]
@@ -85,7 +86,7 @@ class Image_Disk_Query(Smapi_Request_Base):
             # vdasd_volid (string,1-6,char37)
             #             (string,6,(TEMP))
             #             (string,6,(VDSK))
-            fmt = b"!4s4sB4sQB6sB"
+            fmt = "!4s4sB4sQB6sB"
             entry.vdasd_vdev, \
             entry.vdasd_rdev, \
             entry.vdasd_access_type, \
@@ -97,6 +98,4 @@ class Image_Disk_Query(Smapi_Request_Base):
 
             offset += 29
             alen -= 29
-
-        return offset
 

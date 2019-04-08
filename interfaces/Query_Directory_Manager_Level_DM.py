@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Query_Directory_Manager_Level_DM(Smapi_Request_Base):
+class Query_Directory_Manager_Level_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Query_Directory_Manager_Level_DM, self). \
-            __init__(b"Query_Directory_Manager_Level_DM", **kwargs)
+        super(Query_Directory_Manager_Level_DM, self).__init__(**kwargs)
 
         # Response Values
         self._directory_manager_level = []
@@ -34,16 +33,14 @@ class Query_Directory_Manager_Level_DM(Smapi_Request_Base):
     def directory_manager_level(self, value):
         self._directory_manager_level = value
 
-    def unpack(self, buf, offset):
-        offset = super(Query_Directory_Manager_Level_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # directory_manager_level_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # directory_manager_level (string,1-100,charNA)
-        self._directory_manager_level = buf[offset:offset + nlen]
+        self._directory_manager_level = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
-
-        return offset
 

@@ -15,29 +15,28 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Volume_Space_Query_Extended_DM(Smapi_Request_Base):
+class Image_Volume_Space_Query_Extended_DM(Request):
 
     # Query type
     DEFINITION = 1
     FREE = 2
     USED = 3
-    query_type_names = ["?", "DEFINITION", "FREE", "USED"]
+    query_type_names = ["USED"]
 
     # Entry type
     VOLUME = 1
     REGION = 2
     GROUP = 3
-    entry_type_names = ["?", "VOLUME", "REGION", "GROUP"]
+    entry_type_names = ["GROUP"]
     
     def __init__(self,
                  query_type = 0,
-                 entry_type = b"",
-                 entry_names = b"",
+                 entry_type = "",
+                 entry_names = "",
                  **kwargs):
-        super(Image_Volume_Space_Query_Extended_DM, self). \
-            __init__(b"Image_Volume_Space_Query_Extended_DM", **kwargs)
+        super(Image_Volume_Space_Query_Extended_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._query_type = query_type
@@ -79,28 +78,29 @@ class Image_Volume_Space_Query_Extended_DM(Smapi_Request_Base):
     def record_array(self, value):
         self._record_array = value
 
-    def pack(self):
-        buf = b""
+    def pack(self, **kwargs):
+        buf = ""
 
         # query_type=value (string,1,char10)
-        buf += b"query_type=%s\x00" % (self._query_type)
+        buf += "query_type=%s\x00" % (self._query_type)
 
         # entry_type=value (string,1,char10)
-        buf += b"entry_type=%s\x00" % (self._entry_type)
+        buf += "entry_type=%s\x00" % (self._entry_type)
 
         # entry_names=value (string,0-255,char42 plus blank)
-        buf += b"entry_names=%s\x00" % (self._entry_names)
+        buf += "entry_names=%s\x00" % (self._entry_names)
+
+        # Convert to bytes
+        buf = bytes(buf, "UTF-8")
 
         # image_volume_space_query_names_length (int4)
-        buf = struct.pack(b"!I", len(buf)) + buf
+        buf = struct.pack("!I", len(buf)) + buf
 
-        return super(Image_Volume_Space_Query_Extended_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Volume_Space_Query_Extended_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
-        self._record_array = buf[offset:-1].split(b"\x00")
+        self._record_array = buf[offset:-1].decode("UTF-8").split("\x00")
         offset += len(buf)
-
-        return offset
 

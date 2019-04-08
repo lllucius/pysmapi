@@ -15,21 +15,20 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Device_Dedicate(Smapi_Request_Base):
+class Image_Device_Dedicate(Request):
 
     # readonly
     FALSE = 0
     TRUE = 1
 
     def __init__(self,
-                 image_device_number = b"",
-                 real_device_number = b"",
+                 image_device_number = "",
+                 real_device_number = "",
                  readonly = FALSE,
                  **kwargs):
-        super(Image_Device_Dedicate, self). \
-            __init__(b"Image_Device_Dedicate", **kwargs)
+        super(Image_Device_Dedicate, self).__init__(**kwargs)
 
         # Request parameters
         self._image_device_number = image_device_number
@@ -69,13 +68,12 @@ class Image_Device_Dedicate(Smapi_Request_Base):
         # read_device_number_length (int4)
         # real_device_number (string,1-4,char16)
         # readonly (int1)
-        fmt = b"!I%dsI%dsB" % (id_len, rd_len)
+        fmt = "!I%dsI%dsB" % (id_len, rd_len)
         buf = struct.pack(fmt,
                           id_len,
-                          self._image_device_number,
+                          bytes(self._image_device_number, "UTF-8"),
                           rd_len,
-                          self._real_device_number,
+                          bytes(self._real_device_number, "UTF-8"),
                           self._readonly)
  
-        return super(Image_Device_Dedicate, self).pack(buf)
-
+        return buf

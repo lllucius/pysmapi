@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Authorization_List_Remove(Smapi_Request_Base):
+class Authorization_List_Remove(Request):
     def __init__(self,
-                 for_id = b"=",
-                 function_id = b"",
+                 for_id = "=",
+                 function_id = "",
                  **kwargs):
-        super(Authorization_List_Remove, self). \
-            __init__(b"Authorization_List_Remove", **kwargs)
+        super(Authorization_List_Remove, self).__init__(**kwargs)
 
         # Request parameters
         self._for_id = for_id
@@ -57,12 +56,12 @@ class Authorization_List_Remove(Smapi_Request_Base):
         # function_id_length (int4)
         # function_id (string,1-64,char43)
         #             (string,1,*)
-        fmt = b"!I%dsI%ds" % (for_len, func_len)
+        fmt = "!I%dsI%ds" % (for_len, func_len)
         buf = struct.pack(fmt,
                           for_len,
-                          self._for_id,
+                          bytes(self._for_id, "UTF-8"),
                           func_len,
-                          self._function_id)
+                          bytes(self._function_id, "UTF-8"))
  
-        return super(Authorization_List_Remove, self).pack(buf)
+        return buf
 

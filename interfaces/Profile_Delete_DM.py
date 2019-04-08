@@ -15,12 +15,10 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Profile_Delete_DM(Smapi_Request_Base):
+class Profile_Delete_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Profile_Delete_DM, self). \
-            __init__(b"Profile_Delete_DM", **kwargs)
-
+        super(Profile_Delete_DM, self).__init__(**kwargs)
 

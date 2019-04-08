@@ -15,16 +15,15 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_IPL_Set_DM(Smapi_Request_Base):
+class Image_IPL_Set_DM(Request):
     def __init__(self,
-                 saved_system = b"",
-                 load_parameter = b"",
-                 parameter_string = b"",
+                 saved_system = "",
+                 load_parameter = "",
+                 parameter_string = "",
                  **kwargs):
-        super(Image_IPL_Set_DM, self). \
-            __init__(b"Image_IPL_Set_DM", **kwargs)
+        super(Image_IPL_Set_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._saved_system = saved_system
@@ -66,18 +65,17 @@ class Image_IPL_Set_DM(Smapi_Request_Base):
         # load_parameter (string,0-10,char)
         # parameter_string_length (int4)
         # parameter_string (string,0-64,char)
-        fmt = b"!I%dsI%dsI%ds" % \
+        fmt = "!I%dsI%dsI%ds" % \
             (ss_len,
              lp_len,
              ps_len)
 
         buf = struct.pack(fmt,
                           ss_len,
-                          self._saved_system,
+                          bytes(self._saved_system, "UTF-8"),
                           lp_len,
-                          self._load_parameter,
+                          bytes(self._load_parameter, "UTF-8"),
                           ps_len,
-                          self._parameter_string)
+                          bytes(self._parameter_string, "UTF-8"))
  
-        return super(Image_IPL_Set_DM, self).pack(buf)
-
+        return buf

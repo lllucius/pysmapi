@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_MDISK_Link_Query(Smapi_Request_Base):
+class Image_MDISK_Link_Query(Request):
     def __init__(self,
-                 vdev = b"",
+                 vdev = "",
                  **kwargs):
-        super(Image_MDISK_Link_Query, self). \
-            __init__(b"Image_MDISK_Link_Query", **kwargs)
+        super(Image_MDISK_Link_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._vdev = vdev
@@ -48,19 +47,19 @@ class Image_MDISK_Link_Query(Smapi_Request_Base):
 
     def pack(self):
         # vdev=value (string,1-4,char36)
-        buf = b"vdev=%s\x00" % (self._vdev)
+        buf = f"vdev={self._vdev}\x00"
 
-        return super(Image_MDISK_Link_Query, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(Image_MDISK_Link_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # link_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # link_array
-        for link in buf[offset:-1].split(b"\x00"):
+        for link in buf[offset:-1].decode("UTF-8").split("\x00"):
             entry = Obj()
             self._link_array.append(entry)
 
@@ -71,7 +70,7 @@ class Image_MDISK_Link_Query(Smapi_Request_Base):
             entry.system_name, \
             entry.user, \
             entry.vaddr, \
-            entry.access_mode = link.split(b" ")
+            entry.access_mode = link.split()
 
-        return offset
+        offset += alen
 

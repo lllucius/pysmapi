@@ -15,21 +15,20 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Page_or_Spool_Volume_Add(Smapi_Request_Base):
+class Page_or_Spool_Volume_Add(Request):
     def __init__(self,
                  vol_addr = 0,
-                 volume_label = b"",
-                 volume_use = b"",
-                 system_config_name = b"",
-                 system_config_type = b"",
-                 parm_disk_owner = b"",
-                 parm_disk_number = b"",
-                 parm_disk_password = b"",
+                 volume_label = "",
+                 volume_use = "",
+                 system_config_name = "",
+                 system_config_type = "",
+                 parm_disk_owner = "",
+                 parm_disk_number = "",
+                 parm_disk_password = "",
                  **kwargs):
-        super(Page_or_Spool_Volume_Add, self). \
-            __init__(b"Page_or_Spool_Volume_Add", **kwargs)
+        super(Page_or_Spool_Volume_Add, self).__init__(**kwargs)
 
         # Request parameters
         self._vol_addr = vol_addr
@@ -106,36 +105,35 @@ class Page_or_Spool_Volume_Add(Smapi_Request_Base):
         self._parm_disk_password = value
 
     def pack(self):
-        buf = b""
+        buf = ""
 
         # vol_addr=value (string,1-4,char16)
-        buf += b"vol_addr=%s\x00" % (self._vol_addr)
+        buf += "vol_addr=%s\x00" % (self._vol_addr)
 
         # volume_label=value (string,1-6,char36)
-        buf += b"volume_label=%s\x00" % (self._volume_label)
+        buf += "volume_label=%s\x00" % (self._volume_label)
 
         # volume_use=value (string,4-5,char26)
-        buf += b"volume_use=%s\x00" % (self._volume_use)
+        buf += "volume_use=%s\x00" % (self._volume_use)
 
         # system_config_name (string,0-8,char42)
         if len(self._system_config_name) > 0:
-            buf += b"system_config_name=%s\x00" % (self._system_config_name)
+            buf += "system_config_name=%s\x00" % (self._system_config_name)
 
         # system_config_type (string,0-8,char42)
         if len(self._system_config_type) > 0:
-            buf += b"system_config_type=%s\x00" % (self._system_config_type)
+            buf += "system_config_type=%s\x00" % (self._system_config_type)
 
         # parm_disk_owner (string,0-8,char42)
         if len(self._parm_disk_owner) > 0:
-            buf += b"parm_disk_owner=%s\x00" % (self._parm_disk_owner)
+            buf += "parm_disk_owner=%s\x00" % (self._parm_disk_owner)
 
         # parm_disk_number (string,0-4,char16)
         if len(self._parm_disk_number) > 0:
-            buf += b"parm_disk_number=%s\x00" % (self._parm_disk_number)
+            buf += "parm_disk_number=%s\x00" % (self._parm_disk_number)
 
         # parm_disk_password (string,0-8,charNB)
         if len(self._parm_disk_password) > 0:
-            buf += b"parm_disk_password=%s\x00" % (self._parm_disk_password)
+            buf += "parm_disk_password=%s\x00" % (self._parm_disk_password)
 
-        return super(Page_or_Spool_Volume_Add, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

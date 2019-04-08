@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Metadata_Delete(Smapi_Request_Base):
+class Metadata_Delete(Request):
     def __init__(self,
-                 metadata_name_list = b"",
+                 metadata_name_list = "",
                  **kwargs):
-        super(Metadata_Delete, self). \
-            __init__(b"Metadata_Delete", **kwargs)
+        super(Metadata_Delete, self).__init__(**kwargs)
 
         # Request parameters
         self._metadata_name_list = metadata_name_list
@@ -37,7 +36,6 @@ class Metadata_Delete(Smapi_Request_Base):
 
     def pack(self):
         # id=value (string,1-8,char42) (ASCIIZ)
-        buf = b"%s\x00" % (self._metadata_name_list)
+        buf = "%s\x00" % (self._metadata_name_list)
 
-        return super(Metadata_Delete, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

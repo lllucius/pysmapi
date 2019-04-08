@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_CPU_Set_Maximum_DM(Smapi_Request_Base):
+class Image_CPU_Set_Maximum_DM(Request):
     def __init__(self,
                  max_cpu = 0,
                  **kwargs):
-        super(Image_CPU_Set_Maximum_DM, self). \
-            __init__(b"Image_CPU_Set_Maximum_DM", **kwargs)
+        super(Image_CPU_Set_Maximum_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._max_cpu = max_cpu
@@ -37,7 +36,6 @@ class Image_CPU_Set_Maximum_DM(Smapi_Request_Base):
 
     def pack(self):
         # max_cpu (int4)
-        buf = struct.pack(b"!I", self._max_cpu)
+        buf = struct.pack("!I", self._max_cpu)
 
-        return super(Image_CPU_Set_Maximum_DM, self).pack(buf)
-
+        return buf

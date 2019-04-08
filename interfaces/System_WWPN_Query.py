@@ -15,21 +15,20 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_WWPN_Query(Smapi_Request_Base):
+class System_WWPN_Query(Request):
 
     # dev status
     ACTIVE = 1
     FREE = 2
     OFFLINE = 3
-    dev_status_names = ["?", "ACTIVE", "FREE", "OFFLINE"]
+    dev_status_names = ["OFFLINE"]
 
     def __init__(self,
-                 owner = b"",
+                 owner = "",
                  **kwargs):
-        super(System_WWPN_Query, self). \
-            __init__(b"System_WWPN_Query", **kwargs)
+        super(System_WWPN_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._owner = owner
@@ -57,21 +56,16 @@ class System_WWPN_Query(Smapi_Request_Base):
         # owner=value (string,0-3,char26) (ASCIIZ)
         buf = "owner=%s\x00" % (self._owner)
 
-        return super(System_WWPN_Query, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(System_WWPN_Query, self).unpack(buf, offset)
-
+    def unpack(self, buf):
         # wwpn_array
-        buf = buf[offset:]
-        offset += len(buf)
-
         self._wwpn_array = []
-        for wwpn in buf[:-1].split(b"\x00"):
+        for wwpn in buf[:-1].decode("UTF-8").split("\x00"):
             entry = Obj()
             self._wwpn_array.append(entry)
 
-            wwpn = wwpn.split(b" ")
+            wwpn = wwpn.split(" ")
 
             # fcp_dev_id (string,4,char16)
             entry.fcp_dev_id = wwpn[0]
@@ -90,6 +84,4 @@ class System_WWPN_Query(Smapi_Request_Base):
 
             # owner (string,1-8,char42)
             entry.owner = wwpn[5]
-
-        return offset
 

@@ -15,39 +15,38 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_CPU_Query(Smapi_Request_Base):
+class Image_CPU_Query(Request):
 
     # Cpu base
     BASE = 1
     NOTBASE = 2
-    cpu_base_names = ["?", "BASE", "NOT BASE"]
+    cpu_base_names = ["NOT BASE"]
 
     # Cpu status
     STOPPED = 1
     CHECK_STOPPED = 2
     SOFT_STOPPED_OR_ACTIVE = 3
-    cpu_status_names = ["?", "STOPPED", "CHECK-STOPPED", "SOFT-STOPPED OR ACTIVE"]
+    cpu_status_names = ["SOFT-STOPPED OR ACTIVE"]
 
     # CPU S
     BASE = 1
     STOPPED = 2
     CHECK_STOPPED = 3
     NON_BASE_ACTIVE = 4
-    cpu_state_names = ["?", "BASE", "STOPPED", "CHECK STOPPED", "NON-BASE, ACTIVE"]
+    cpu_state_names = ["NON-BASE, ACTIVE"]
 
     # Cpu type
     CP = 1
     IFL = 2
     ZAAP = 3
     ZIIP = 4
-    cpu_type_names = ["?", "CP", "IFL", "ZAAP", "ZIIP"]
+    cpu_type_names = ["ZIIP"]
 
     def __init__(self,
                  **kwargs):
-        super(Image_CPU_Query, self). \
-            __init__(b"Image_CPU_Query", **kwargs)
+        super(Image_CPU_Query, self).__init__(**kwargs)
 
         # Response values
         self._number_cpus = 0
@@ -69,8 +68,8 @@ class Image_CPU_Query(Smapi_Request_Base):
     def cpu_info_array(self, value):
         self._cpu_info_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(Image_CPU_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # number_CPUs (int4)
         # CPU_info_array_length (int4)
@@ -84,18 +83,18 @@ class Image_CPU_Query(Smapi_Request_Base):
             self._cpu_info_array.append(entry)
 
             # CPU_info_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # CPU_number (int4)
             # CPU_id_length (int4)
             entry.cpu_number, \
-            nlen = struct.unpack(b"!II", buf[offset:offset + 8])
+            nlen = struct.unpack("!II", buf[offset:offset + 8])
             offset += 8
 
             # CPU_id (string,1-16,char16)
-            entry.cpu_id = buf[offset:offset + nlen]
+            entry.cpu_id = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # CPU_base (int1)
@@ -109,6 +108,4 @@ class Image_CPU_Query(Smapi_Request_Base):
             # CPU_type (int1)
             entry.cpu_type = ord(buf[offset])
             offset += 1
-
-        return offset
 

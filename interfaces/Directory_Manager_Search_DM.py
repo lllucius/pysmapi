@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Directory_Manager_Search_DM(Smapi_Request_Base):
+class Directory_Manager_Search_DM(Request):
     def __init__(self,
-                 search_pattern = b"",
+                 search_pattern = "",
                  **kwargs):
-        super(Directory_Manager_Search_DM, self). \
-            __init__(b"Directory_Manager_Search_DM", **kwargs)
+        super(Directory_Manager_Search_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._search_pattern = search_pattern
@@ -59,18 +58,18 @@ class Directory_Manager_Search_DM(Smapi_Request_Base):
 
         # search_pattern_length (int4)
         # search_pattern (string,1-72,charNA)
-        fmt = b"!I%ds" % (sp_len)
+        fmt = "!I%ds" % (sp_len)
         buf = struct.pack(fmt,
                           sp_len,
-                          self._search_pattern)
+                          bytes(self._search_pattern, "UTF-8"))
  
-        return super(Directory_Manager_Search_DM, self).pack(buf)
+        return buf
         
-    def unpack(self, buf, offset):
-        offset = super(Directory_Manager_Search_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # statement_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         self._statement_array = []
@@ -79,24 +78,22 @@ class Directory_Manager_Search_DM(Smapi_Request_Base):
             self._statement_array.append(entry)
 
             # target_id_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= 4
 
             # target_id (string,1-8,char42)
-            entry.target_id = buf[offset:offset + nlen]
+            entry.target_id = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
             alen -= nlen
 
             #statement_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= 4
 
             # statement (string,1-72,charNA)
-            entry.statement = buf[offset:offset + nlen]
+            entry.statement = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
             alen -= nlen
-
-        return offset
 

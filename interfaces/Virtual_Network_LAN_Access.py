@@ -15,18 +15,17 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Virtual_Network_LAN_Access(Smapi_Request_Base):
+class Virtual_Network_LAN_Access(Request):
     def __init__(self,
-                 lan_name = b"",
-                 lan_owner = b"",
-                 access_op = b"",
-                 access_user = b"",
-                 promiscuity = b"",
+                 lan_name = "",
+                 lan_owner = "",
+                 access_op = "",
+                 access_user = "",
+                 promiscuity = "",
                  **kwargs):
-        super(Virtual_Network_LAN_Access, self). \
-            __init__(b"Virtual_Network_LAN_Access", **kwargs)
+        super(Virtual_Network_LAN_Access, self).__init__(**kwargs)
 
         # Request parameters
         self._lan_name = lan_name
@@ -76,20 +75,23 @@ class Virtual_Network_LAN_Access(Smapi_Request_Base):
         self._promiscuity = value
 
     def pack(self):
+        buf = ""
 
         # lan_name (string,1-8,char36 plus $#@)
+        buf += f"{self._lan_name}\x00"
+
         # lan_owner (string,1-8,char36)
+        buf += f"self._lan_owner\x00"
+
         # access_op (string,5,GRANT)
         #           (string,6,REVOKE)
+        buf += f"{self._access_op}\x00"
+
         # access_user (string,1-8,char36)
+        buf += f"{self._access_user}\x00"
+
         # promiscuity (string,14,NONPROMISCUOUS)
         #             (string,11,PROMISCUOUS)
-        buf = b"%s\x00%s\x00%s\x00%s\x00%s\x00" % \
-            (self._lan_name,
-             self._lan_owner,
-             self._access_op,
-             self._access_user,
-             self._promiscuity)
+        buf += f"{self._promiscuity}\x00"
 
-        return super(Virtual_Network_LAN_Access, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

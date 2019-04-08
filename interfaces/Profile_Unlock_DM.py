@@ -15,12 +15,10 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Profile_Unlock_DM(Smapi_Request_Base):
+class Profile_Unlock_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Profile_Unlock_DM, self). \
-            __init__(b"Profile_Unlock_DM", **kwargs)
-
+        super(Profile_Unlock_DM, self).__init__(**kwargs)
 

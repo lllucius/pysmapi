@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Disk_Add(Smapi_Request_Base):
+class System_Disk_Add(Request):
     def __init__(self,
-                 dev_num = b"",
+                 dev_num = "",
                  **kwargs):
-        super(System_Disk_Add, self). \
-            __init__(b"System_Disk_Add", **kwargs)
+        super(System_Disk_Add, self).__init__(**kwargs)
 
         # Request parameters
         self._dev_num = dev_num
@@ -37,7 +36,6 @@ class System_Disk_Add(Smapi_Request_Base):
 
     def pack(self):
         # dev_num=value (string,1-4,char36)
-        buf = b"dev_num=%s\x00" % (self._dev_num)
+        buf = "dev_num=%s\x00" % (self._dev_num)
 
-        return super(System_Disk_Add, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

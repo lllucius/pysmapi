@@ -15,11 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_IPL_Delete_DM(Smapi_Request_Base):
+class Image_IPL_Delete_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Image_IPL_Delete_DM, self). \
-            __init__(b"Image_IPL_Delete_DM", **kwargs)
-
+        super(Image_IPL_Delete_DM, self).__init__(**kwargs)

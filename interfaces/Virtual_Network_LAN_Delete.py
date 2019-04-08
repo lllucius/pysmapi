@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Virtual_Network_LAN_Delete(Smapi_Request_Base):
+class Virtual_Network_LAN_Delete(Request):
     def __init__(self,
-                 lan_name = b"",
-                 lan_owner = b"",
+                 lan_name = "",
+                 lan_owner = "",
                  **kwargs):
-        super(Virtual_Network_LAN_Delete, self). \
-            __init__(b"Virtual_Network_LAN_Delete", **kwargs)
+        super(Virtual_Network_LAN_Delete, self).__init__(**kwargs)
 
         # Request parameters
         self._lan_name = lan_name
@@ -54,13 +53,12 @@ class Virtual_Network_LAN_Delete(Smapi_Request_Base):
         # lan_owner_length (int4)
         # lan_owner (string,1-8,char42)
         #           (string,6,SYSTEM)
-        fmt = b"!I%dsI%ds" % (ln_len, lo_len)
+        fmt = "!I%dsI%ds" % (ln_len, lo_len)
 
         buf = struct.pack(fmt,
                           ln_len,
-                          self._lan_name,
+                          bytes(self._lan_name, "UTF-8"),
                           lo_len,
-                          self._lan_owner)
+                          bytes(self._lan_owner, "UTF-8"))
 
-        return super(Virtual_Network_LAN_Delete, self).pack(buf)
-
+        return buf

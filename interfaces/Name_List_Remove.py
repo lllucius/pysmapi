@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Name_List_Remove(Smapi_Request_Base):
+class Name_List_Remove(Request):
     def __init__(self,
-                 name = b"",
+                 name = "",
                  **kwargs):
-        super(Name_List_Remove, self). \
-            __init__(b"Name_List_Remove", **kwargs)
+        super(Name_List_Remove, self).__init__(**kwargs)
 
         # Request parameters
         self._name = name
@@ -41,10 +40,9 @@ class Name_List_Remove(Smapi_Request_Base):
         # name_length (int4)
         # name (string,1-8,char42)
         #      (string,1-64,char43)
-        fmt = b"!I%ds" % (n_len)
+        fmt = "!I%ds" % (n_len)
         buf = struct.pack(fmt,
                           n_len,
-                          self._name)
+                          bytes(self._name, "UTF-8"))
 
-        return super(Name_List_Remove, self).pack(buf)
-
+        return buf

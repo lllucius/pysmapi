@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Volume_Space_Define_DM(Smapi_Request_Base):
+class Image_Volume_Space_Define_DM(Request):
 
     # Function type
     FT_1 = 1
@@ -25,7 +25,7 @@ class Image_Volume_Space_Define_DM(Smapi_Request_Base):
     FT_3 = 3
     FT_4 = 4
     FT_5 = 5
-    function_type_names = ["?", "FT_1", "FT_2", "FT_3", "FT_4", "FT_5"]
+    function_type_names = ["FT_5"]
 
     # Device type
     DT_UNSPECIFIED = 0
@@ -33,19 +33,18 @@ class Image_Volume_Space_Define_DM(Smapi_Request_Base):
     DT_9336 = 2
     DT_3380 = 3
     DT_FB_512 = 4
-    device_type_names = ["UNSPECIFIED", "3390", "9336", "3380", "FB-512"]
+    device_type_names = ["FB-512"]
     
     def __init__(self,
                  function_type = 0,
-                 region_name = b"",
-                 image_vol_id = b"",
+                 region_name = "",
+                 image_vol_id = "",
                  start_cylinder = 0,
                  size = 0,
-                 group_name = b"",
+                 group_name = "",
                  device_type = 0,
                  **kwargs):
-        super(Image_Volume_Space_Define_DM, self). \
-            __init__(b"Image_Volume_Space_Define_DM", **kwargs)
+        super(Image_Volume_Space_Define_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._function_type = function_type
@@ -127,7 +126,7 @@ class Image_Volume_Space_Define_DM(Smapi_Request_Base):
         # group_name_length (int4)
         # group_name (string,0-8,char42)
         # device_type (int1)
-        fmt = b"!BI%dsI%dsIII%dsB" % \
+        fmt = "!BI%dsI%dsIII%dsB" % \
             (rn_len,
              ivi_len,
              gn_len)
@@ -135,14 +134,13 @@ class Image_Volume_Space_Define_DM(Smapi_Request_Base):
         buf = struct.pack(fmt,
                           self._function_type,
                           rn_len,
-                          self._region_name,
+                          bytes(self._region_name, "UTF-8"),
                           ivi_len,
-                          self._image_vol_id,
+                          bytes(self._image_vol_id, "UTF-8"),
                           self._start_cylinder,
                           self._size,
                           gn_len,
-                          self._group_name,
+                          bytes(self._group_name, "UTF-8"),
                           self._device_type)
 
-        return super(Image_Volume_Space_Define_DM, self).pack(buf)
-
+        return buf

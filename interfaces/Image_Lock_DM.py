@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Lock_DM(Smapi_Request_Base):
+class Image_Lock_DM(Request):
     def __init__(self,
-                 device_address = b"",
+                 device_address = "",
                  **kwargs):
-        super(Image_Lock_DM, self). \
-            __init__(b"Image_Lock_DM", **kwargs)
+        super(Image_Lock_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._device_address = device_address
@@ -40,11 +39,10 @@ class Image_Lock_DM(Smapi_Request_Base):
 
         # device_address_length (int4)
         # device_address (string,1-8,char42)
-        fmt = b"!I%ds" % (da_len)
+        fmt = "!I%ds" % (da_len)
 
         buf = struct.pack(fmt,
                           da_len,
-                          self._device_address)
+                          bytes(self._device_address, "UTF-8"))
  
-        return super(Image_Lock_DM, self).pack(buf)
-
+        return buf

@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Query_Activate_Time(Smapi_Request_Base):
+class Image_Query_Activate_Time(Request):
 
     # Date format indicator
     MMDDYY = 1
@@ -28,18 +28,17 @@ class Image_Query_Activate_Time(Smapi_Request_Base):
     DDMMYYYY = 6
 
     def __init__(self,
-                 date_format_indicator = 0,
+                 date_format_indicator = YYYYMMDD,
                  **kwargs):
-        super(Image_Query_Activate_Time, self). \
-            __init__(b"Image_Query_Activate_Time", **kwargs)
+        super(Image_Query_Activate_Time, self).__init__(**kwargs)
 
         # Request parameters
         self._date_format_indicator = date_format_indicator
 
         # Response values
-        self._image_name = b""
-        self._activation_date = b""
-        self._activation_time = b""
+        self._image_name = ""
+        self._activation_date = ""
+        self._activation_time = ""
 
     @property
     def date_format_indicator(self):
@@ -73,37 +72,35 @@ class Image_Query_Activate_Time(Smapi_Request_Base):
     def activation_time(self, value):
         self._activation_time = value
 
-    def pack(self):
+    def pack(self, **kwargs):
         # date_format_indicator (int1)
-        buf = struct.pack("B", self._date_format_indicator)
+        buf = struct.pack(self._date_format_indicator)
 
-        return super(Image_Query_Activate_Time, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Query_Activate_Time, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # image_name_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # image_name (string,1-8,char42)
-        self._image_name = buf[offset:offset + nlen]
+        self._image_name = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
 
         # activation_date_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # activation_date (string,8-10,char)
-        self._activation_date = buf[offset:offset + nlen]
+        self._activation_date = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
 
         # activation_time_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # activation_time (string,8,char)
-        self._activation_time = buf[offset:offset + nlen]
+        self._activation_time = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
-
-        return offset

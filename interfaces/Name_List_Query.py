@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Name_List_Query(Smapi_Request_Base):
+class Name_List_Query(Request):
     def __init__(self,
                  **kwargs):
-        super(Name_List_Query, self). \
-            __init__(b"Name_List_Query", **kwargs)
+        super(Name_List_Query, self).__init__(**kwargs)
 
         # Response Values
         self._name_array = []
@@ -34,11 +33,11 @@ class Name_List_Query(Smapi_Request_Base):
     def name_array(self, value):
         self._name_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(Name_List_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # name_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         self._name_array = []
@@ -47,13 +46,13 @@ class Name_List_Query(Smapi_Request_Base):
             self._name_array.append(entry)
 
             # name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= 4
 
-            entry.name = buf[offset:offset + nlen]
+            # name (string,1-8,char42)
+            #      (string,1-64,char43)
+            entry.name = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
             alen -= nlen
-
-        return offset
 

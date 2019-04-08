@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Query_Asynchronous_Operation_DM(Smapi_Request_Base):
+class Query_Asynchronous_Operation_DM(Request):
     def __init__(self,
-                 operation_id = b"",
+                 operation_id = "",
                  **kwargs):
-        super(Query_Asynchronous_Operation_DM, self). \
-            __init__(b"Query_Asynchronous_Operation_DM", **kwargs)
+        super(Query_Asynchronous_Operation_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._operation_id = operation_id
@@ -35,9 +34,8 @@ class Query_Asynchronous_Operation_DM(Smapi_Request_Base):
     def operation_id(self, value):
         self._operation_id = value
 
-    def pack(self):
+    def pack(self, **kwargs):
         # operation_id (int4; range 0-2147483647)
-        buf = struct.pack("!I", self._operation_id)
+        buf = struct.pack(self._operation_id)
  
-        return super(Query_Asynchronous_Operation_DM, self).pack(buf)
-
+        return buf

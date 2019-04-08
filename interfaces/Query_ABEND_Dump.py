@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Query_ABEND_Dump(Smapi_Request_Base):
+class Query_ABEND_Dump(Request):
 
     # Abend dump loc
     READER = 1
@@ -25,10 +25,9 @@ class Query_ABEND_Dump(Smapi_Request_Base):
     abend_dump_loc_names = ["?", "READER", "SFS DIRECTORY"]
 
     def __init__(self,
-                 location = b"",
+                 location = "",
                  **kwargs):
-        super(Query_ABEND_Dump, self). \
-            __init__(b"Query_ABEND_Dump", **kwargs)
+        super(Query_ABEND_Dump, self).__init__(**kwargs)
 
         # Request parameters
         self._location = location
@@ -54,15 +53,15 @@ class Query_ABEND_Dump(Smapi_Request_Base):
 
     def pack(self):
         # id=value (string,1-8,char42) (ASCIIZ)
-        buf = b"location=%s\x00" % (self._location)
+        buf = "location=%s\x00" % (self._location)
 
-        return super(Query_ABEND_Dump, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(Query_ABEND_Dump, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # abend_dump_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         self._abend_dump_array = []
@@ -71,19 +70,18 @@ class Query_ABEND_Dump(Smapi_Request_Base):
             self._abend_dump_array.append(entry)
 
             # abend_dump_loc (int1)
+            entry.abend_dump_loc, = struct.unpack("!B", buf[offset:offset + 1])
+
             # abend_dump_id (string,8,char42)
             # abend_dump_date (string,10,char42)
             # abend_dump_dist (string,8,char42 plus blank)
-            fmt = b"!B8s10s8s"
+            fmt = "!8s10s8s"
             size = struct.calcsize(fmt)
 
-            entry.abend_dump_loc,
             entry.abend_dump_id,
             entry.abend_dump_date,
-            entry.abend_dump_dist = struct.unpack(fmt, buf[offset:offset + size])
+            entry.abend_dump_dist = struct.unpack(fmt, buf[offset:offset + size].decode("UTF-8"))
             offset += size
             alen -= size
-
-        return offset
 
 

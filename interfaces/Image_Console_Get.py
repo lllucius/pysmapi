@@ -15,11 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Console_Get(Smapi_Request_Base):
+class Image_Console_Get(Request):
     def __init__(self,
                  **kwargs):
-        super(Image_Console_Get, self). \
-            __init__(b"Image_Console_Get", **kwargs)
-
+        super(Image_Console_Get, self).__init__(**kwargs)

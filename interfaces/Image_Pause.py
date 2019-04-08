@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Pause(Smapi_Request_Base):
+class Image_Pause(Request):
     def __init__(self,
-                 action = b"",
+                 action = "",
                  **kwargs):
-        super(Image_Pause, self). \
-            __init__(b"Image_Pause", **kwargs)
+        super(Image_Pause, self).__init__(**kwargs)
 
         # Request parameters
         self._action = action
@@ -37,7 +36,6 @@ class Image_Pause(Smapi_Request_Base):
 
     def pack(self):
         # id=value (string,1-8,char42) (ASCIIZ)
-        buf = b"action=%s\x00" % (self._action)
+        buf = "action=%s\x00" % (self._action)
 
-        return super(Image_Pause, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

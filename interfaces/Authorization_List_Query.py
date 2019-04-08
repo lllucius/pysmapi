@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Authorization_List_Query(Smapi_Request_Base):
+class Authorization_List_Query(Request):
     def __init__(self,
-                 for_id = b"=",
-                 function_id = b"",
+                 for_id = "=",
+                 function_id = "",
                  **kwargs):
-        super(Authorization_List_Query, self). \
-            __init__(b"Authorization_List_Query", **kwargs)
+        super(Authorization_List_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._for_id = for_id
@@ -68,17 +67,17 @@ class Authorization_List_Query(Smapi_Request_Base):
         # function_id_length (int4)
         # function_id (string,0-64,char43)
         #             (string,1,*)
-        fmt = b"!I%dsI%ds" % (for_len, func_len)
+        fmt = "!I%dsI%ds" % (for_len, func_len)
         buf = struct.pack(fmt,
                           for_len,
-                          self._for_id,
+                          bytes(self._for_id, "UTF-8"),
                           func_len,
-                          self._function_id)
+                          bytes(self._function_id, "UTF-8"))
  
-        return super(Authorization_List_Query, self).pack(buf)
+        return buf
         
-    def unpack(self, buf, offset):
-        offset = super(Authorization_List_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # auth_record_array_length (int4)
         alen, = struct.unpack("!I", buf[offset:offset + 4])
@@ -90,47 +89,45 @@ class Authorization_List_Query(Smapi_Request_Base):
             self._auth_record_array.append(entry)
 
             # auth_record_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # requesting_userid_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # requesting_userid (string,1-8,char42)
             #                   (string,1-64,char43)
-            entry.requesting_userid = buf[offset:offset + nlen]
+            entry.requesting_userid = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # requesting_list_indicator (int1)
-            entry.requesting_list_indicator = ord(buf[offset])
+            entry.requesting_list_indicator = buf[offset]
             offset += 1
 
             # for_userid_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset +4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # for_userid (string,1-8,char42)
             #            (string,1-64,char43)
-            entry.for_userid = buf[offset:offset + nlen]
+            entry.for_userid = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
-            # for_list_indicator (int1
-            entry.for_list_indicator = ord(buf[offset])
+            # for_list_indicator (int1)
+            entry.for_list_indicator = buf[offset]
             offset += 1
 
             # function_name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # function_name (string,1-64,char43)
-            entry.function_userid = buf[offset:offset + nlen]
+            entry.function_userid = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # function_list_indicator (int1)
-            entry.function_list_indicator = ord(buf[offset])
+            entry.function_list_indicator = buf[offset]
             offset += 1
-
-        return offset
 

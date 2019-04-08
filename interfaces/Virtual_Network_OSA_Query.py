@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Virtual_Network_OSA_Query(Smapi_Request_Base):
+class Virtual_Network_OSA_Query(Request):
     def __init__(self,
                  **kwargs):
-        super(Virtual_Network_OSA_Query, self). \
-            __init__(b"Virtual_Network_OSA_Query", **kwargs)
+        super(Virtual_Network_OSA_Query, self).__init__(**kwargs)
 
         # Response values
         self._osa_info_array = []
@@ -34,14 +33,25 @@ class Virtual_Network_OSA_Query(Smapi_Request_Base):
     def osa_info_array(self, value):
         self._osa_info_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(Virtual_Network_OSA_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        for info in buf[:-1].decode("UTF-8").split("\x00"):
+            entry = Obj()
+            self._osa_info_array.append(entry)
 
-        buf = buf[offset:]
+            fields = info.split()
 
-        self._osa_info_array = buf[:-1].split(b"\x00")
+            # osa_address (string,4,char16)
+            entry.osa_address = fields[0]
 
-        offset += len(buf)
+            # osa_status(string,4-16,char42)
+            entry.osa_status = fields[1]
 
-        return offset
+            # osa_type (string,3-7,char26)
+            entry.osa_type = fields[2]
+
+            # chpid_address (string,2,char16)
+            entry.chpid_address = fields[3]
+
+            # agent_status (string,2-3,char42)
+            entry.agent_status = fields[4]
 

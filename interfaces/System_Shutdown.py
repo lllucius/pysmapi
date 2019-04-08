@@ -15,18 +15,17 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Shutdown(Smapi_Request_Base):
+class System_Shutdown(Request):
     def __init__(self,
-                 within = b"",
-                 by = b"",
-                 immediate = b"",
-                 reipl = b"",
-                 cancel = b"",
+                 within = "",
+                 by = "",
+                 immediate = "",
+                 reipl = "",
+                 cancel = "",
                  **kwargs):
-        super(System_Shutdown, self). \
-            __init__(b"System_Shutdown", **kwargs)
+        super(System_Shutdown, self).__init__(**kwargs)
 
         # Request parameters
         self._within = within
@@ -87,42 +86,38 @@ class System_Shutdown(Smapi_Request_Base):
         self._error_data = value
 
     def pack(self):
-        parms = []
+        buf = []
 
         # Within=value (string,0-5,char10)
         if len(self._within) > 0:
-            parms.append("within=%s" % (self._within))
+            buf += f"within={self._within}\x00"
 
         # By=value (string,0-8,char10 plus :)
         if len(self._by) > 0:
-            parms.append("by=%s" % (self._by))
+            buf += f"by={self._by}\x00"
 
         # Immediate=value (string,0-11,char36)
         if len(self._immediate) > 0:
-            parms.append("immediate=%s" % (self._immediate))
+            buf += f"immediate={self._immediate}\x00"
 
         # Reipl=value (string,0-7,char26)
         if len(self._reipl) > 0:
-            parms.append("reipl=%s" % (self._reipl))
+            buf += f"reipl={self._reipl}\x00"
 
         # Cancel=value (string,0-8,char26)
         if len(self._cancel) > 0:
-            parms.append("cancel=%s" % (self._cancel))
+            buf += f"cancel={self._cancel}\x00"
 
-        buf = (" ".join(parms)) + "\x00"
+        return bytes(buf, "UTF-8")
 
-        return super(System_Shutdown, self).pack(buf)
-
-    def unpack(self, buf, offset):
-        offset = super(System_Shutdown, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # error_data_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # error_data (string) (ASCIIZ)
-        self._error_data = buf[offset:offset + alen - 1]
+        self._error_data = buf[offset:offset + alen - 1].decode("UTF-8")
         offset += alen
-
-        return offset
 

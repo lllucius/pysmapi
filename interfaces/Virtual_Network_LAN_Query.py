@@ -15,22 +15,26 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Virtual_Network_LAN_Query(Smapi_Request_Base):
+class Virtual_Network_LAN_Query(Request):
+    # LAN type
+    HIPERSOCKET = 1
+    QDIO = 2
+    lan_type_names = ["?", "HIPERSOCKET", "QDIO"]
+
     def __init__(self,
-                 lan_name = b"",
-                 lan_owner = b"",
+                 lan_name = "",
+                 lan_owner = "",
                  **kwargs):
-        super(Virtual_Network_LAN_Query, self). \
-            __init__(b"Virtual_Network_LAN_Query", **kwargs)
+        super(Virtual_Network_LAN_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._lan_name = lan_name
         self._lan_owner = lan_owner
 
         # Response values
-        self._lan_owner = []
+        self._lan_info_array = []
 
     @property
     def lan_name(self):
@@ -65,18 +69,18 @@ class Virtual_Network_LAN_Query(Smapi_Request_Base):
         # lan_owner_length (int4)
         # lan_owner (string,1-8,char42)
         #           (string,6,SYSTEM)
-        fmt = b"!I%dsI%ds" % (ln_len, lo_len)
+        fmt = "!I%dsI%ds" % (ln_len, lo_len)
 
         buf = struct.pack(fmt,
                           ln_len,
-                          self._lan_name,
+                          bytes(self._lan_name, "UTF-8"),
                           lo_len,
-                          self._lan_owner)
+                          bytes(self._lan_owner, "UTF-8"))
 
-        return super(Virtual_Network_LAN_Query, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Virtual_Network_LAN_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # lan_info_array_length (int4)
         alen, = struct.unpack("!I", buf[offset:offset + 4])
@@ -88,28 +92,28 @@ class Virtual_Network_LAN_Query(Smapi_Request_Base):
             self._lan_info_array.append(entry)
 
             # lan_info_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # lan_name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # lan_name (string,1-8,char36 plus $#@)
-            entry.lan_name = buf[offset:offset + nlen]
+            entry.lan_name = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # lan_owner_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # lan_owner (string,1-8,char42)
-            entry.lan_owner = buf[offset:offset + nlen]
+            entry.lan_owner = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # lan_type (int1)
-            entry.lan_type = ord(buf[offset])
+            entry.lan_type = buf[offset]
             offset += 1
 
             # connected_adapter_array_length (int4)
@@ -123,25 +127,23 @@ class Virtual_Network_LAN_Query(Smapi_Request_Base):
                 entry.connected_adapter_array.append(adapter)
 
                 # connected_adapter_structure_length (int4)
-                slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+                slen, = struct.unpack("!I", buf[offset:offset + 4])
                 offset += 4
                 clen -= (slen + 4)
 
                 # adapter_owner_length (int4)
-                nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+                nlen, = struct.unpack("!I", buf[offset:offset + 4])
                 offset += 4
 
                 # adapter_owner (string,1-8,char42)
-                adapter.adapter_owner = buf[offset:offset + nlen]
+                adapter.adapter_owner = buf[offset:offset + nlen].decode("UTF-8")
                 offset += nlen
 
                 # image_device_number_length (int4)
-                nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+                nlen, = struct.unpack("!I", buf[offset:offset + 4])
                 offset += 4
 
                 # image_device_number (string,1-4,char16)
-                adapter.image_device_number = buf[offset:offset + nlen]
+                adapter.image_device_number = buf[offset:offset + nlen].decode("UTF-8")
                 offset += nlen
-
-        return offset
 

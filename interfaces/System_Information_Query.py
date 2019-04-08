@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Information_Query(Smapi_Request_Base):
+class System_Information_Query(Request):
     def __init__(self,
                  **kwargs):
-        super(System_Information_Query, self). \
-            __init__(b"System_Information_Query", **kwargs)
+        super(System_Information_Query, self).__init__(**kwargs)
 
         # Response values
         self._system_information_data = []
@@ -34,16 +33,14 @@ class System_Information_Query(Smapi_Request_Base):
     def system_information_data(self, value):
         self._system_information_data = value
 
-    def unpack(self, buf, offset):
-        offset = super(System_Information_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # system_information_data_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # system_information_data (string)
-        self._system_information_data = buf[offset:offset + alen].split("\x00")
+        self._system_information_data = buf[offset:offset + alen].decode("UTF-8").split("\x00")
         offset += alen
-
-        return offset
 

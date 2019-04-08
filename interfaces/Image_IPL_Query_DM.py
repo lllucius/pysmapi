@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_IPL_Query_DM(Smapi_Request_Base):
+class Image_IPL_Query_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Image_IPL_Query_DM, self). \
-            __init__(b"Image_IPL_Query_DM", **kwargs)
+        super(Image_IPL_Query_DM, self).__init__(**kwargs)
 
         # Response values
         self._saved_system = 0
@@ -52,31 +51,30 @@ class Image_IPL_Query_DM(Smapi_Request_Base):
     def parameter_string(self, value):
         self._parameter_string = value
 
-    def unpack(self, buf, offset):
-        offset = super(Image_IPL_Query_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # saved_system_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # saved_system (string,0-10,char)
-        self._saved_system = buf[offset:offset + nlen]
+        self._saved_system = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
 
         # load_parameter_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # load_parameter (string,0-10,char)
-        self._load_parameter = buf[offset:offset + nlen]
+        self._load_parameter = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
 
         # parameter_string_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # parameter_string (string,0-10,char)
-        self._parameter_string = buf[offset:offset + nlen]
+        self._parameter_string = buf[offset:offset + nlen].decode("UTF-8")
         offset += nlen
 
-        return offset

@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Shared_Memory_Access_Remove_DM(Smapi_Request_Base):
+class Shared_Memory_Access_Remove_DM(Request):
     def __init__(self,
-                 memory_segment_name = b"",
+                 memory_segment_name = "",
                  **kwargs):
-        super(Shared_Memory_Access_Remove_DM, self). \
-            __init__(b"Shared_Memory_Access_Remove_DM", **kwargs)
+        super(Shared_Memory_Access_Remove_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._memory_segment_name = memory_segment_name
@@ -40,11 +39,10 @@ class Shared_Memory_Access_Remove_DM(Smapi_Request_Base):
 
         # memory_segment_name_length (int4)
         # memory_segment_name (string,1-8,char42)
-        fmt = b"!I%ds" % (msn_len)
+        fmt = "!I%ds" % (msn_len)
 
         buf = struct.pack(fmt,
                           msn_len,
-                          self._memory_segment_name)
+                          bytes(self._memory_segment_name, "UTF-8"))
 
-        return super(Shared_Memory_Access_Remove_DM, self).pack(buf)
-
+        return buf

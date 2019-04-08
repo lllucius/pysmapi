@@ -15,11 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Name_List_Destroy(Smapi_Request_Base):
+class Name_List_Destroy(Request):
     def __init__(self,
                  **kwargs):
-        super(Name_List_Destroy, self). \
-            __init__(b"Name_List_Destroy", **kwargs)
-
+        super(Name_List_Destroy, self).__init__(**kwargs)

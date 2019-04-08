@@ -16,20 +16,19 @@
 import struct
 import copy
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Event_Subscribe(Smapi_Request_Base):
+class Event_Subscribe(Request):
     def __init__(self,
-                 match_key = b"",
+                 match_key = "",
                  **kwargs):
-        super(Event_Subscribe, self). \
-            __init__(b"Event_Subscribe", **kwargs)
+        super(Event_Subscribe, self).__init__(**kwargs)
 
         # Request values
         self._match_key = match_key
 
         # Response values
-        self._response_data = b""
+        self._response_data = ""
 
         # Private copy of connection object
         self._conn = None
@@ -52,7 +51,7 @@ class Event_Subscribe(Smapi_Request_Base):
         # acted upon it
 
         # Get the immediate request ID
-        self._request_id, = struct.unpack("!I", self._conn.recv(4))
+        self._request_id, = struct.unpack(self._conn.recv(4))
 
     # Returns the next available event
     def getevent(self):
@@ -60,28 +59,28 @@ class Event_Subscribe(Smapi_Request_Base):
         # response.  The former means the subscription failed, while the latter
         # means it was succesful and we leave the socket open for receiving more
         # data.
-        length, = struct.unpack("!I", self._conn.recv(4))
+        length, = struct.unpack(self._conn.recv(4))
 
         # Get the failure information (common response values)
         if length == 12:
             (self._request_id,
              self._return_code,
-             self._reason_code) = struct.unpack("!III", self._conn.recv(12))
+             self._reason_code) = struct.unpack(self._conn.recv(12))
 
-            print("REQUEST_ID", self.request_id)
-            print("RETURN_CODE", self.return_code)
-            print("REASON_CODE", self.reason_code)
+            print(self.request_id)
+            print(self.return_code)
+            print(self.reason_code)
 
             self._conn.disconnect()
 
             return
 
         # Get the event length
-        event_type = struct.unpack("!I", self._conn.recv(4))
+        event_type = struct.unpack(self._conn.recv(4))
         length -= 4
 
         # Get the event data
-        event_data = self._conn.recv(length) if length > 0 else b""
+        event_data = self._conn.recv(length) if length > 0 else ""
 
         return event_type, event_data
 
@@ -96,13 +95,12 @@ class Event_Subscribe(Smapi_Request_Base):
     def pack(self):
         mk_len = len(self._match_key)
 
-        fmt = b"!I%ds" % (mk_len)
+        fmt = "!I%ds" % (mk_len)
 
         # match_key (int4)
         # match_key (string,0-16M,charNA)
         buf = struct.pack(fmt,
                           mk_len,
-                          self._match_key)
+                          bytes(self._match_key, "UTF-8"))
 
-        return super(Event_Subscribe, self).pack(buf)
-
+        return buf

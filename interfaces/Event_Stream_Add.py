@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Event_Stream_Add(Smapi_Request_Base):
+class Event_Stream_Add(Request):
     def __init__(self,
-                 event_info = b"",
+                 event_info = "",
                  **kwargs):
-        super(Event_Stream_Add, self). \
-            __init__(b"Event_Stream_Add", **kwargs)
+        super(Event_Stream_Add, self).__init__(**kwargs)
 
         # Request parameters
         self._event_info = event_info
@@ -35,9 +34,8 @@ class Event_Stream_Add(Smapi_Request_Base):
     def event_info(self, value):
         self._event_info = value
 
-    def pack(self):
+    def pack(self, **kwargs):
         # event_info (string,1-maxlength,charNA)
-        buf = self._event_info
+        buf = bytes(self._event_info, "UTF-8")
 
-        return super(Event_Stream_Add, self).pack(buf)
-
+        return buf

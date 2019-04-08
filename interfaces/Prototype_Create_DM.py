@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Prototype_Create_DM(Smapi_Request_Base):
+class Prototype_Create_DM(Request):
     def __init__(self,
                  prototype_record_array = [],
                  **kwargs):
-        super(Prototype_Create_DM, self). \
-            __init__(b"Prototype_Create_DM", **kwargs)
+        super(Prototype_Create_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._prototype_record_array = prototype_record_array
@@ -37,21 +36,20 @@ class Prototype_Create_DM(Smapi_Request_Base):
 
     def pack(self):
         alen = 0
-        buf = b""
+        buf = ""
         for prototype_record in self._prototype_record_array:
             ir_len = len(prototype_record)
 
             # prototype_record_length (int4)
             # prototype_record (string,1-72,charNA)
-            fmt = b"!I%ds" % (ir_len)
+            fmt = "!I%ds" % (ir_len)
             buf += struct.pack(fmt,
                                ir_len,
-                               prototype_record)
+                               bytes(prototype_record, "UTF-8"))
             alen += ir_len + 4
 
         # prototype_record_array_length (int4)
         # prototype_record_array
-        buf = struct.pack("!I", alen) + buf
+        buf = struct.pack(alen) + buf
 
-        return super(Prototype_Replace_DM, self).pack(buf)
-
+        return buf

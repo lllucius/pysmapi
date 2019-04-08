@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Check_Authentication(Smapi_Request_Base):
+class Check_Authentication(Request):
     def __init__(self,
                  **kwargs):
-        super(Check_Authentication, self). \
-            __init__(b"Check_Authentication", **kwargs)
+        super(Check_Authentication, self).__init__(**kwargs)
 
     # Override base method entirely since this is the only API that
     # doesn't conform to the standard set of parameters.
@@ -38,15 +37,14 @@ class Check_Authentication(Smapi_Request_Base):
         # password_length (int4)
         # password (string,1-200,charNA)
         #          (string,0-200,charNA)
-        fmt = b"!I%dsI%dsI%ds" % (fn_len, au_len, p_len)
+        fmt = "!I%dsI%dsI%ds" % (fn_len, au_len, p_len)
         buf = struct.pack(fmt,
                           fn_len,
-                          self._function_name,
+                          bytes(self._function_name, "UTF-8"),
                           au_len,
-                          self._authenticated_userid,
+                          bytes(self._authenticated_userid, "UTF-8"),
                           p_len,
-                          self._password)
+                          bytes(self._password, "UTF-8"))
 
         # input_length (int4)
-        return struct.pack(b"!I", len(buf)) + buf
-
+        return struct.pack("!I", len(buf)) + buf

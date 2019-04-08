@@ -15,20 +15,19 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_RDR_File_Query(Smapi_Request_Base):
+class System_RDR_File_Query(Request):
 
     # dev status
     ACTIVE = 1
     FREE = 2
     OFFLINE = 3
-    dev_status_names = ["?", "ACTIVE", "FREE", "OFFLINE"]
+    dev_status_names = ["OFFLINE"]
 
     def __init__(self,
                  **kwargs):
-        super(System_RDR_File_Query, self). \
-            __init__(b"System_RDR_File_Query", **kwargs)
+        super(System_RDR_File_Query, self).__init__(**kwargs)
 
         # Response values
         self._reader_file_info = []
@@ -41,15 +40,11 @@ class System_RDR_File_Query(Smapi_Request_Base):
     def reader_file_info(self, value):
         self._reader_file_info = value
 
-    def unpack(self, buf, offset):
-        offset = super(System_RDR_File_Query, self).unpack(buf, offset)
-
-        # reader_file_info
-        buf = buf[offset:]
-        offset += len(buf)
-
+    def unpack(self, buf):
         self._reader_file_info = []
-        for rdr in buf[:-1].split(b"\x00"):
+
+        # rdr_file_info (string, 1-80, char44)
+        for rdr in buf[:-1].decode("UTF-8").split("\x00"):
             entry = Obj()
             self._reader_file_info.append(entry)
 
@@ -65,6 +60,4 @@ class System_RDR_File_Query(Smapi_Request_Base):
             entry.name = rdr[53:62].rstrip()
             entry.type = rdr[63:71].rstrip()
             entry.dist = rdr[72:80].rstrip()
-
-        return offset
 

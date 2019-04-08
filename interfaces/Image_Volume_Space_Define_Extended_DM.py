@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Volume_Space_Define_Extended_DM(Smapi_Request_Base):
+class Image_Volume_Space_Define_Extended_DM(Request):
 
     # Function type
     FT_1 = 1
@@ -25,7 +25,7 @@ class Image_Volume_Space_Define_Extended_DM(Smapi_Request_Base):
     FT_3 = 3
     FT_4 = 4
     FT_5 = 5
-    function_type_names = ["?", "FT_1", "FT_2", "FT_3", "FT_4", "FT_5"]
+    function_type_names = ["FT_5"]
 
     # Device type
     DT_UNSPECIFIED = 0
@@ -33,26 +33,25 @@ class Image_Volume_Space_Define_Extended_DM(Smapi_Request_Base):
     DT_9336 = 2
     DT_3380 = 3
     DT_FB_512 = 4
-    device_type_names = ["UNSPECIFIED", "3390", "9336", "3380", "FB-512"]
+    device_type_names = ["FB-512"]
 
     # Alloc method
     AM_0 = 0
     AM_1 = 1
     AM_2 = 2
-    alloc_method_names = ["UNSPECIFIED", "AM_1", "AM_2"]
+    alloc_method_names = ["AM_2"]
 
     def __init__(self,
                  function_type = 0,
-                 region_name = b"",
-                 image_vol_id = b"",
+                 region_name = "",
+                 image_vol_id = "",
                  start_cylinder = 0,
                  size = 0,
-                 group_name = b"",
+                 group_name = "",
                  device_type = 0,
                  alloc_method = 0,
                  **kwargs):
-        super(Image_Volume_Space_Define_Extended_DM, self). \
-            __init__(b"Image_Volume_Space_Define_Extended_DM", **kwargs)
+        super(Image_Volume_Space_Define_Extended_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._function_type = function_type
@@ -129,34 +128,33 @@ class Image_Volume_Space_Define_Extended_DM(Smapi_Request_Base):
         self._alloc_method = value
 
     def pack(self):
-        buf = b""
+        buf = ""
 
         # function_type (int1)
-        buf += b"function_type=%s\x00" % (self._function_type)
+        buf += "function_type=%s\x00" % (str(self._function_type).encode())
 
         # region_name (string,1-4,char16)
-        buf += b"region_name=%s\x00" % (self._region_name)
+        buf += "region_name=%s\x00" % (self._region_name)
 
         # image_vol_id (string,1-6,char42)
-        buf += b"image_vol_id=%s\x00" % (self._image_vol_id)
+        buf += "image_vol_id=%s\x00" % (self._image_vol_id)
 
         # start_cylinder (int4; range 0-2147483640)
-        buf += b"start_cylinder=%s\x00" % (self._start_cylinder)
+        buf += "start_cylinder=%s\x00" % (str(self._start_cylinder).encode())
 
         # size (int4; range 1-2147483640)
-        buf += b"size=%s\x00" % (self._size)
+        buf += "size=%s\x00" % (str(self._size).encode())
 
         # group_name (string,0-8,char42)
-        buf += b"group_name=%s\x00" % (self._group_name)
+        buf += "group_name=%s\x00" % (self._group_name)
 
         # device_type (int1)
-        buf += b"device_type=%s\x00" % (self._device_type)
+        buf += "device_type=%s\x00" % (str(self._device_type).encode())
 
         # alloc_method (int1)
-        buf += b"alloc_method=%s\x00" % (self._alloc_method)
+        buf += "alloc_method=%s\x00" % (str(self._alloc_method).encode())
 
         # image_volume_space_define_names_length (int4)
-        buf = struct.pack(b"!I", len(buf)) + buf
+        buf = struct.pack("!I", len(buf)) + bytes(buf, "UTF-8")
 
-        return super(Image_Volume_Space_Define_Extended_DM, self).pack(buf)
-
+        return buf

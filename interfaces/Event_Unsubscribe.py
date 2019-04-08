@@ -15,24 +15,10 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Event_Unsubscribe(Smapi_Request_Base):
+class Event_Unsubscribe(Request):
     def __init__(self,
                  **kwargs):
-        super(Event_Unsubscribe, self). \
-            __init__(b"Event_Unsubscribe", **kwargs)
-
-    def request(self, conn, wait=True):
-        conn.connect()
-
-        conn.send(self.pack())
-
-        # At this point SMAPI has only accepted the request and hasn't yet
-        # acted upon it
-
-        # Get the immediate request ID
-        self._request_id, = struct.unpack("!I", conn.recv(4))
-
-        conn.disconnect()
+        super(Event_Unsubscribe, self).__init__(**kwargs)
 

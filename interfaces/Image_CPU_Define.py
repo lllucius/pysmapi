@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_CPU_Define(Smapi_Request_Base):
+class Image_CPU_Define(Request):
 
     # Cpu type
     UNSPECIFIED = 0
@@ -25,14 +25,13 @@ class Image_CPU_Define(Smapi_Request_Base):
     IFL = 2
     ZAAP = 3
     ZIIP = 4
-    cpu_type_names = ["UNSPECIFIED", "CP", "IFL", "ZAAP", "ZIIP"]
+    cpu_type_names = ["ZIIP"]
 
     def __init__(self,
-                 cpu_address = b"",
+                 cpu_address = "",
                  cpu_type = 0,
                  **kwargs):
-        super(Image_CPU_Define, self). \
-            __init__(b"Image_CPU_Define", **kwargs)
+        super(Image_CPU_Define, self).__init__(**kwargs)
 
         # Request parameters
         self._cpu_address = cpu_address
@@ -60,11 +59,10 @@ class Image_CPU_Define(Smapi_Request_Base):
         # cpu_address_length (int4)
         # cpu_address (string,1-2,char16)
         # cpu_type (int1)
-        fmt = b"!I%dsB" % (ca_len)
+        fmt = "!I%dsB" % (ca_len)
         buf = struct.pack(fmt,
                           ca_len,
-                          self._cpu_address,
+                          bytes(self._cpu_address, "UTF-8"),
                           self._cpu_type)
 
-        return super(Image_CPU_Define, self).pack(buf)
-
+        return buf

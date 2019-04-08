@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Volume_Share(Smapi_Request_Base):
+class Image_Volume_Share(Request):
     def __init__(self,
-                 img_vol_addr = b"",
-                 share_enable = b"",
+                 img_vol_addr = "",
+                 share_enable = "",
                  **kwargs):
-        super(Image_Volume_Share, self). \
-            __init__(b"Image_Volume_Share", **kwargs)
+        super(Image_Volume_Share, self).__init__(**kwargs)
 
         # Request parameters
         self._img_vol_addr = img_vol_addr
@@ -47,11 +46,10 @@ class Image_Volume_Share(Smapi_Request_Base):
 
     def pack(self):
         # img_vol_addr=value (string,1-4,char36)
-        buf = b"img_vol_addr=%s\x00" % (self._img_vol_addr)
+        buf = "img_vol_addr=%s\x00" % (self._img_vol_addr)
         
         # share_enable=value (string,0-3,char26)
         if len(self._share_enable) > 0:
-            buf += b"share_enable=\x00" % (self._share_enable)
+            buf += "share_enable=\x00" % (self._share_enable)
 
-        return super(Image_Volume_Share, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

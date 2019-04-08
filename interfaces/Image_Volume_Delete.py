@@ -15,25 +15,24 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Volume_Delete(Smapi_Request_Base):
+class Image_Volume_Delete(Request):
     def __init__(self,
-                 image_device_number = b"",
-                 image_vol_id = b"",
-                 system_config_name = b"",
-                 system_config_type = b"",
-                 parm_disk_owner = b"",
-                 parm_disk_number = b"",
-                 parm_disk_password = b"",
-                 alt_system_config_name = b"",
-                 alt_system_config_type = b"",
-                 alt_parm_disk_owner = b"",
-                 alt_parm_disk_number = b"",
-                 alt_parm_disk_password = b"",
+                 image_device_number = "",
+                 image_vol_id = "",
+                 system_config_name = "",
+                 system_config_type = "",
+                 parm_disk_owner = "",
+                 parm_disk_number = "",
+                 parm_disk_password = "",
+                 alt_system_config_name = "",
+                 alt_system_config_type = "",
+                 alt_parm_disk_owner = "",
+                 alt_parm_disk_number = "",
+                 alt_parm_disk_password = "",
                  **kwargs):
-        super(Image_Volume_Delete, self). \
-            __init__(b"Image_Volume_Delete", **kwargs)
+        super(Image_Volume_Delete, self).__init__(**kwargs)
 
         # Request parameters
         self._image_device_number = image_device_number
@@ -183,7 +182,7 @@ class Image_Volume_Delete(Smapi_Request_Base):
         # alt_parm_disk_number (string,0-4,char16)
         # alt_parm_disk_password_length (int4)
         # alt_parm_disk_password (string,0-8,charNB)
-        fmt = b"!I%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%ds" % \
+        fmt = "!I%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%dsI%ds" % \
             (idn_len,
              ivi_len,
              scn_len,
@@ -200,29 +199,28 @@ class Image_Volume_Delete(Smapi_Request_Base):
   
         buf = struct.pack(fmt,
                           idn_len,
-                          self._image_device_number,
+                          bytes(self._image_device_number, "UTF-8"),
                           ivi_len,
-                          self._image_vol_id,
+                          bytes(self._image_vol_id, "UTF-8"),
                           scn_len,
-                          self._system_config_name,
+                          bytes(self._system_config_name, "UTF-8"),
                           sct_len,
-                          self._system_config_type,
+                          bytes(self._system_config_type, "UTF-8"),
                           pdo_len,
-                          self._parm_disk_owner,
+                          bytes(self._parm_disk_owner, "UTF-8"),
                           pdn_len,
-                          self._parm_disk_number,
+                          bytes(self._parm_disk_number, "UTF-8"),
                           pdp_len,
-                          self._parm_disk_password,
+                          bytes(self._parm_disk_password, "UTF-8"),
                           ascn_len,
-                          self._alt_system_config_name,
+                          bytes(self._alt_system_config_name, "UTF-8"),
                           asct_len,
-                          self._alt_system_config_type,
+                          bytes(self._alt_system_config_type, "UTF-8"),
                           apdo_len,
-                          self._alt_parm_disk_owner,
+                          bytes(self._alt_parm_disk_owner, "UTF-8"),
                           apdn_len,
-                          self._alt_parm_disk_number,
+                          bytes(self._alt_parm_disk_number, "UTF-8"),
                           apdp_len,
-                          self._alt_parm_disk_password)
+                          bytes(self._alt_parm_disk_password, "UTF-8"))
 
-        return super(Image_Volume_Delete, self).pack(buf)
-
+        return buf

@@ -15,13 +15,12 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Name_Query_DM(Smapi_Request_Base):
+class Image_Name_Query_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Image_Name_Query_DM, self). \
-            __init__(b"Image_Name_Query_DM", **kwargs)
+        super(Image_Name_Query_DM, self).__init__(**kwargs)
 
         # Response values
         self._image_name_array = []
@@ -34,11 +33,11 @@ class Image_Name_Query_DM(Smapi_Request_Base):
     def image_name_array(self, value):
         self._image_name_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Name_Query_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # image_name_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # image_name_array
@@ -47,14 +46,12 @@ class Image_Name_Query_DM(Smapi_Request_Base):
             self._image_name_array.append(entry)
 
             # image_name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # image_name (string,1-8,char42)
-            entry.image_name = buf[offset:offset + nlen]
+            entry.image_name = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             alen -= (nlen + 4)
-
-        return offset
 

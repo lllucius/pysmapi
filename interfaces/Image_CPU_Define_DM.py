@@ -15,35 +15,34 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_CPU_Define_DM(Smapi_Request_Base):
+class Image_CPU_Define_DM(Request):
 
     # shared
     UNSPECIFIED = 0
 
     # Base cpu
     BASE = 1
-    base_cpu_names = ["UNSPECIFIED", "BASE"]
+    base_cpu_names = ["BASE"]
 
     # Dedicate cpu
     NODEDICATE = 1
     DEDICATE = 2
-    dedicate_cpu_names = ["UNSPECIFIED", "NODEDICATE", "DEDICATE"]
+    dedicate_cpu_names = ["DEDICATE"]
 
     # Crypto
     CRYPTO = 1
-    crypto_names = ["UNSPECIFIED", "CRYPTO"]
+    crypto_names = ["CRYPTO"]
 
     def __init__(self,
-                 cpu_address = b"",
+                 cpu_address = "",
                  base_cpu = 0,
-                 cpuid = b"",
+                 cpuid = "",
                  dedicate_cpu = 0,
                  crypto = 0,
                  **kwargs):
-        super(Image_CPU_Define_DM, self). \
-            __init__(b"Image_CPU_Define_DM", **kwargs)
+        super(Image_CPU_Define_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._cpu_address = cpu_address
@@ -103,15 +102,15 @@ class Image_CPU_Define_DM(Smapi_Request_Base):
         # cpuid (string,0-6,char16)
         # dedicate_cpu (int1)
         # crypto (int1)
-        fmt = b"!I%dsBI%dsBB" % (ca_len, ci_len)
+        fmt = "!I%dsBI%dsBB" % (ca_len, ci_len)
         buf = struct.pack(fmt,
                           ca_len,
-                          self._cpu_address,
+                          bytes(self._cpu_address, "UTF-8"),
                           self._base_cpu,
                           ci_len,
-                          self._cpuid,
+                          bytes(self._cpuid, "UTF-8"),
                           self._dedicate_cpu,
                           self._crypto)
 
-        return super(Image_CPU_Define_DM, self).pack(buf)
+        return buf
 

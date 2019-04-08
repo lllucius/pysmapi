@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Metadata_Space_Query(Smapi_Request_Base):
+class Metadata_Space_Query(Request):
     def __init__(self,
-                 searchkey = b"",
+                 searchkey = "",
                  **kwargs):
-        super(Metadata_Space_Query, self). \
-            __init__(b"Metadata_Space_Query", **kwargs)
+        super(Metadata_Space_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._searchkey = searchkey
@@ -48,21 +47,16 @@ class Metadata_Space_Query(Smapi_Request_Base):
 
 
     def pack(self):
+        buf = ""
+
         # searchkey=value (ASCIIZ)
-        buf = b"searchkey=%s\x00" % (self._searchkey)
+        buf += "searchkey=%s\x00" % (self._searchkey)
 
-        return super(Metadata_Space_Query, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(Metadata_Space_Query, self).unpack(buf, offset)
-
-        buf = buf[offset:]
-        offset += len(buf)
-
-        # output_data
+    def unpack(self, buf):
         self._output_data = []
-        for entry in buf.split(b"\x00"):
+        for entry in buf.decode("UTF-8").split("\x00"):
+            # output_data (string)
             self._output_data.append(entry)
-
-        return offset
 

@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Delete_ABEND_Dump(Smapi_Request_Base):
+class Delete_ABEND_Dump(Request):
     def __init__(self,
-                 id = b"",
+                 id = "",
                  **kwargs):
-        super(Delete_ABEND_Dump, self). \
-            __init__(b"Delete_ABEND_Dump", **kwargs)
+        super(Delete_ABEND_Dump, self).__init__(**kwargs)
 
         # Request parameters
         self._id = id
@@ -37,7 +36,7 @@ class Delete_ABEND_Dump(Smapi_Request_Base):
 
     def pack(self):
         # id=value (string,1-8,char42) (ASCIIZ)
-        buf = b"id=%s\x00" % (self._id)
+        buf = f"id={self._id}\x00"
 
-        return super(Delete_ABEND_Dump, self).pack(buf)
+        return bytes(buf, "UTF-8")
 

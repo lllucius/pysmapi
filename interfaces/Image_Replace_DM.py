@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Replace_DM(Smapi_Request_Base):
+class Image_Replace_DM(Request):
     def __init__(self,
                  image_record_array = [],
                  **kwargs):
-        super(Image_Replace_DM, self). \
-            __init__(b"Image_Replace_DM", **kwargs)
+        super(Image_Replace_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._image_record_array = image_record_array
@@ -37,21 +36,20 @@ class Image_Replace_DM(Smapi_Request_Base):
 
     def pack(self):
         alen = 0
-        buf = b""
+        buf = ""
         for image_record in self._image_record_array:
             ir_len = len(image_record)
 
             # image_record_length (int4)
             # image_record (string,1-72,charNA)
-            fmt = b"!I%ds" % (ir_len)
+            fmt = "!I%ds" % (ir_len)
             buf += struct.pack(fmt,
                                ir_len,
-                               image_record)
+                               bytes(image_record, "UTF-8"))
             alen += ir_len + 4
 
         # image_record_array_length (int4)
         # image_record_array
-        buf = struct.pack("!I", alen) + buf
+        buf = struct.pack(alen) + buf
 
-        return super(Image_Replace_DM, self).pack(buf)
-
+        return buf

@@ -15,17 +15,16 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Lock_Query_DM(Smapi_Request_Base):
+class Image_Lock_Query_DM(Request):
     def __init__(self,
                  **kwargs):
-        super(Image_Lock_Query_DM, self). \
-            __init__(b"Image_Lock_Query_DM", **kwargs)
+        super(Image_Lock_Query_DM, self).__init__(**kwargs)
 
         # Response values
-        self._locked_type = b""
-        self._image_locked_by = b""
+        self._locked_type = ""
+        self._image_locked_by = ""
         self._locked_dev_array = []
 
     @property
@@ -52,11 +51,11 @@ class Image_Lock_Query_DM(Smapi_Request_Base):
     def locked_dev_array(self, value):
         self._locked_dev_array = value
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Lock_Query_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # lock_info_structure_length (int4)
-        slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        slen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # locked_type (string,5-6,char26)
@@ -64,11 +63,11 @@ class Image_Lock_Query_DM(Smapi_Request_Base):
         # locked_dev_array_length (int4)
         if slen > 0:
             self._locked_type, _, self._image_locked_by = \
-                buf[offset:offset + slen].partition(" ")
+                buf[offset:offset + slen].decode("UTF-8").partition(" ")
             offset += slen
 
         # locked_dev_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # locked_dev_array
@@ -80,9 +79,7 @@ class Image_Lock_Query_DM(Smapi_Request_Base):
             # dev_address (string,1-4,char16)
             # dev_locked_by (string,1-8,char42)
             entry.dev_address,
-            entry.dev_locked_by = struct.unpack(b"4s8s", buf[offset:offset + 12])
+            entry.dev_locked_by = struct.unpack("4s8s", buf[offset:offset + 12])
             offset += 12
             alen -= 12
-
-        return offset
 

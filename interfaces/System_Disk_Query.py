@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Disk_Query(Smapi_Request_Base):
+class System_Disk_Query(Request):
     def __init__(self,
-                 dev_num = b"",
-                 disk_size = b"",
+                 dev_num = "",
+                 disk_size = "",
                  **kwargs):
-        super(System_Disk_Query, self). \
-            __init__(b"System_Disk_Query", **kwargs)
+        super(System_Disk_Query, self).__init__(**kwargs)
 
         # Request parameters
         self._dev_num = dev_num
@@ -58,26 +57,26 @@ class System_Disk_Query(Smapi_Request_Base):
 
     def pack(self):
         # dev_num=value (string,1-4,char36)
-        buf = b"dev_num=%s\x00" % (self._dev_num)
+        buf = f"dev_num={self._dev_num}\x00"
 
         # disk_size=value (string,0-3,char26)
         if len(self._disk_size) > 0:
-            buf += b"disk_size=%s\x00" % (self._disk_size)
+            buf += f"disk_size={self._disk_size}\x00"
 
-        return super(System_Disk_Query, self).pack(buf)
+        return bytes(buf, "UTF-8")
 
-    def unpack(self, buf, offset):
-        offset = super(System_Disk_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         buf = buf[offset:-1]
         offset -= len(buf)
 
         # disk_info_array
-        for info in buf.split(b"\x00"):
+        for info in buf.decode("UTF-8").split("\x00"):
             entry = Obj()
             self._disk_info_array.append(entry)
 
-            info = info.split(b" ")
+            info = info.split(" ")
 
             # dev_id (string,4,char16)
             entry.dev_id = info[0]
@@ -92,7 +91,5 @@ class System_Disk_Query(Smapi_Request_Base):
             entry.dev_volser = info[3]
 
             # disk_size (string,1-8,char10)
-            entry.dev_size = info[4] if len(info) == 5 else b""
-
-        return offset
+            entry.dev_size = info[4] if len(info) == 5 else ""
 

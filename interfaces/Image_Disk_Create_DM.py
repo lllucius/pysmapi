@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Disk_Create_DM(Smapi_Request_Base):
+class Image_Disk_Create_DM(Request):
 
     # Allocation unit size
     CYLINDERS = 1
@@ -25,7 +25,7 @@ class Image_Disk_Create_DM(Smapi_Request_Base):
     BLK1024 = 3
     BLK2048 = 4
     BLK4096 = 5
-    allocation_unit_size_names = ["?", "CYLINDERS", "BLK0512", "BLK1024", "BLK2048", "BLK4096"]
+    allocation_unit_size_names = ["BLK4096"]
 
     # Image disk formatting
     UNSPECIFIED = 0
@@ -35,24 +35,23 @@ class Image_Disk_Create_DM(Smapi_Request_Base):
     CMS2048 = 4
     CMS4096 = 5
     CMS = 6
-    image_disk_formatting_names = ["UNSPECIFIED", "NONE", "CMS0512", "CMS1024", "CMS2048", "CMS4096", "CMS"]
+    image_disk_formatting_names = ["CMS"]
 
     def __init__(self,
-                 image_disk_number = b"",
-                 image_disk_device_type = b"",
-                 image_disk_allocation_type = b"",
-                 allocation_area_name_or_volser = b"",
+                 image_disk_number = "",
+                 image_disk_device_type = "",
+                 image_disk_allocation_type = "",
+                 allocation_area_name_or_volser = "",
                  allocation_unit_size = 0,
-                 image_disk_size = b"",
-                 image_disk_mode = b"",
+                 image_disk_size = "",
+                 image_disk_mode = "",
                  image_disk_formatting = UNSPECIFIED,
-                 image_disk_label = b"",
-                 read_password = b"",
-                 write_password = b"",
-                 multi_password = b"",
+                 image_disk_label = "",
+                 read_password = "",
+                 write_password = "",
+                 multi_password = "",
                  **kwargs):
-        super(Image_Disk_Create_DM, self). \
-            __init__(b"Image_Disk_Create_DM", **kwargs)
+        super(Image_Disk_Create_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._image_disk_number = image_disk_number
@@ -215,7 +214,7 @@ class Image_Disk_Create_DM(Smapi_Request_Base):
         # write_password (string,0-8,charNB)
         # multi_password_length (int4)
         # multi_password (string,0-8,charNB)
-        fmt = b"!I%dsI%dsI%dsI%dsBII%dsBI%dsI%dsI%dsI%ds" % \
+        fmt = "!I%dsI%dsI%dsI%dsBII%dsBI%dsI%dsI%dsI%ds" % \
             (idn_len,
              iddt_len,
              idat_len,
@@ -228,35 +227,33 @@ class Image_Disk_Create_DM(Smapi_Request_Base):
 
         buf = struct.pack(fmt,
                           idn_len,
-                          self._image_disk_number,
+                          bytes(self._image_disk_number, "UTF-8"),
                           iddt_len,
-                          self._image_disk_device_type,
+                          bytes(self._image_disk_device_type, "UTF-8"),
                           idat_len,
-                          self._image_disk_allocation_type,
+                          bytes(self._image_disk_allocation_type, "UTF-8"),
                           aanov_len,
-                          self._allocation_area_name_or_volser,
+                          bytes(self._allocation_area_name_or_volser, "UTF-8"),
                           self._allocation_unit_size,
                           self._image_disk_size,
                           idm_len,
-                          self._image_disk_mode,
+                          bytes(self._image_disk_mode, "UTF-8"),
                           self._image_disk_formatting,
                           idl_len,
-                          self._image_disk_label,
+                          bytes(self._image_disk_label, "UTF-8"),
                           rp_len,
-                          self._read_password,
+                          bytes(self._read_password, "UTF-8"),
                           wp_len,
-                          self._write_password,
+                          bytes(self._write_password, "UTF-8"),
                           mp_len,
-                          self._multi_password)
+                          bytes(self._multi_password, "UTF-8"))
  
-        return super(Image_Disk_Create_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Disk_Create_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # operation_id (int4; range -1-2147483647)
-        self._operation_id, = struct.unpack(b"!I", buf[offset:offset + 4])
+        self._operation_id, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
-
-        return offset
 

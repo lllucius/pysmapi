@@ -15,22 +15,21 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Disk_Delete_DM(Smapi_Request_Base):
+class Image_Disk_Delete_DM(Request):
 
     # Data security erase
     UNSPECIFIED = 0
     NOERASE = 1
     ERASE = 2
-    data_security_erasure_names = ["UNSPECIFIED", "NOERASE", "ERASE"]
+    data_security_erasure_names = ["ERASE"]
 
     def __init__(self,
-                 image_disk_number = b"",
+                 image_disk_number = "",
                  data_security_erase = UNSPECIFIED,
                  **kwargs):
-        super(Image_Disk_Delete_DM, self). \
-            __init__(b"Image_Disk_Delete_DM", **kwargs)
+        super(Image_Disk_Delete_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._image_disk_number = image_disk_number
@@ -69,20 +68,18 @@ class Image_Disk_Delete_DM(Smapi_Request_Base):
         # image_disk_number_length (int4)
         # image_disk_number (string,1-4,char16)
         # data_security_erase (int1)
-        fmt = b"!I%dsB" % (id_len)
+        fmt = "!I%dsB" % (id_len)
         buf = struct.pack(fmt,
                           id_len,
-                          self._image_disk_number,
+                          bytes(self._image_disk_number, "UTF-8"),
                           self._data_security_erase)
  
-        return super(Image_Disk_Delete_DM, self).pack(buf)
+        return buf
         
-    def unpack(self, buf, offset):
-        offset = super(Image_Disk_Delete_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # operation_id (int4; range -1-2147483647)
-        self._operation_id, = struct.unpack(b"!I", buf[offset:offset + 4])
+        self._operation_id, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
-
-        return offset
 

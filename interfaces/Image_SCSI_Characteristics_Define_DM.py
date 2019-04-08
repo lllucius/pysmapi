@@ -15,9 +15,9 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_SCSI_Characteristics_Define_DM(Smapi_Request_Base):
+class Image_SCSI_Characteristics_Define_DM(Request):
 
     # SCP data type
     UNSPECIFIED = 0
@@ -27,15 +27,14 @@ class Image_SCSI_Characteristics_Define_DM(Smapi_Request_Base):
     scp_data_type_names = ["UNSPECIFIED", "DELETE", "EBCDIC", "HEX"]
 
     def __init__(self,
-                 boot_program = b"",
-                 br_lba = b"",
-                 lun = b"",
-                 port_name = b"",
+                 boot_program = "",
+                 br_lba = "",
+                 lun = "",
+                 port_name = "",
                  scp_data_type = 0,
-                 scp_data = b"",
+                 scp_data = b"",            # <-- must be byte array
                  **kwargs):
-        super(Image_SCSI_Characteristics_Define_DM, self). \
-            __init__(b"Image_SCSI_Characteristics_Define_DM", **kwargs)
+        super(Image_SCSI_Characteristics_Define_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._boot_program = boot_program
@@ -111,7 +110,7 @@ class Image_SCSI_Characteristics_Define_DM(Smapi_Request_Base):
         # scp_data_type (int1)
         # scp_data_length (int4)
         # scp_data (string,0-4096,charNA)
-        fmt = b"!I%dsI%dsI%dsI%dsBI%ds" % \
+        fmt = "!I%dsI%dsI%dsI%dsBI%ds" % \
             (bp_len,
              bl_len,
              l_len,
@@ -120,16 +119,15 @@ class Image_SCSI_Characteristics_Define_DM(Smapi_Request_Base):
 
         buf = struct.pack(fmt,
                           bp_len,
-                          self._boot_program,
+                          bytes(self._boot_program, "UTF-8"),
                           bl_len,
-                          self._br_lba,
+                          bytes(self._br_lba, "UTF-8"),
                           l_len,
-                          self._lun,
+                          bytes(self._lun, "UTF-8"),
                           pn_len,
-                          self._port_name,
+                          bytes(self._port_name, "UTF-8"),
                           self._scp_data_type,
                           sd_len,
-                          self._scp_data)
+                          self._scp_data) # <--- must be byte array
 
-        return super(Image_SCSI_Characteristics_Define_DM, self).pack(buf)
-
+        return buf

@@ -15,21 +15,20 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Delete_DM(Smapi_Request_Base):
+class Image_Delete_DM(Request):
 
     # Data security erase
     UNSPECIFIED = 0
     NOERASE = 1
     ERASE = 2
-    data_security_erasure_names = ["UNSPECIFIED", "NOERASE", "ERASE"]
+    data_security_erasure_names = ["ERASE"]
 
     def __init__(self,
                  data_security_erase = UNSPECIFIED,
                  **kwargs):
-        super(Image_Delete_DM, self). \
-            __init__(b"Image_Delete_DM", **kwargs)
+        super(Image_Delete_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._data_security_erase = data_security_erase
@@ -57,16 +56,14 @@ class Image_Delete_DM(Smapi_Request_Base):
         id_len = len(self._image_disk_number)
 
         # data_security_erase (int1)
-        buf = struct.pack(b"B", self._data_security_erase)
+        buf = struct.pack("B", self._data_security_erase)
  
-        return super(Image_Delete_DM, self).pack(buf)
+        return buf
         
-    def unpack(self, buf, offset):
-        offset = super(Image_Delete_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # operation_id (int4; range -1-2147483647)
-        self._operation_id, = struct.unpack(b"!I", buf[offset:offset + 4])
+        self._operation_id, = struct.unpack("!I", buf[offset:offset + 4]).decode("UTF-8")
         offset += 4
-
-        return offset
 

@@ -15,29 +15,28 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Volume_Space_Query_DM(Smapi_Request_Base):
+class Image_Volume_Space_Query_DM(Request):
 
     # Query type
     DEFINITION = 1
     FREE = 2
     USED = 3
-    query_type_names = ["?", "DEFINITION", "FREE", "USED"]
+    query_type_names = ["USED"]
 
     # Entry type
     VOLUME = 1
     REGION = 2
     GROUP = 3
-    entry_type_names = ["?", "VOLUME", "REGION", "GROUP"]
+    entry_type_names = ["GROUP"]
     
     def __init__(self,
                  query_type = 0,
-                 entry_type = b"",
-                 entry_names = b"",
+                 entry_type = "",
+                 entry_names = "",
                  **kwargs):
-        super(Image_Volume_Space_Query_DM, self). \
-            __init__(b"Image_Volume_Space_Query_DM", **kwargs)
+        super(Image_Volume_Space_Query_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._query_type = query_type
@@ -79,42 +78,40 @@ class Image_Volume_Space_Query_DM(Smapi_Request_Base):
     def record_array(self, value):
         self._record_array = value
 
-    def pack(self):
+    def pack(self, **kwargs):
         en_len = len(self._entry_names)
 
         # query_type (int1)
         # entry_type (int1)
         # entry_names_length (int4)
         # entry_names (string,1-6,char42)
-        fmt = b"!BBI%ds" % (en_len)
+        fmt = "!BBI%ds" % (en_len)
   
         buf = struct.pack(fmt,
                           self._query_type,
                           self._entry_type,
                           en_len,
-                          self._entry_names)
+                          bytes(self._entry_names, "UTF-8"))
 
-        return super(Image_Volume_Space_Query_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Volume_Space_Query_DM, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # prototype_record_array_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # prototype_record_array
         self._record_array = []
         while alen > 0:
             # record_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # record (string,1-*,charNA)
-            self._record_array.append(buf[offset:offset + nlen])
+            self._record_array.append(buf[offset:offset + nlen].decode("UTF-8"))
             offset += nlen
 
             alen -= (nlen + 4)
-
-        return offset
 

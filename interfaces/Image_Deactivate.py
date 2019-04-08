@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Deactivate(Smapi_Request_Base):
+class Image_Deactivate(Request):
     def __init__(self,
-                 force_time = b"",
+                 force_time = "",
                  **kwargs):
-        super(Image_Deactivate, self). \
-            __init__(b"Image_Deactivate", **kwargs)
+        super(Image_Deactivate, self).__init__(**kwargs)
 
         # Request parameters
         self._force_time = force_time
@@ -69,22 +68,22 @@ class Image_Deactivate(Smapi_Request_Base):
 
         # force_time_length (int4)
         # force_time (string,0-12,char42)
-        fmt = b"!I%ds" % (ft_len)
+        fmt = "!I%ds" % (ft_len)
         buf = struct.pack(fmt,
                           ft_len,
-                          self._force_time)
+                          bytes(self._force_time, "UTF-8"))
 
-        return super(Image_Create_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Image_Deactivate, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # deactivated (int4)
         # not_deactivated (int4)
         # failing_array_length (int4)
         self._deactivated, \
         self._not_deactivated, \
-        alen = struct.unpack(b"!III", buf[offset:offset + 12])
+        alen = struct.unpack("!III", buf[offset:offset + 12])
         offset += 12
 
         self._failing_array = []
@@ -93,25 +92,23 @@ class Image_Deactivate(Smapi_Request_Base):
             self._failing_array.append(entry)
 
             # failing_structure_length (int4)
-            slen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            slen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
             alen -= (slen + 4)
 
             # image_name_length (int4)
-            nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+            nlen, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # image_name (string,1-8,char42)
-            entry.image_name = buf[offset:offset + nlen]
+            entry.image_name = buf[offset:offset + nlen].decode("UTF-8")
             offset += nlen
 
             # return_code (int4)
-            entry.return_code, = struct.unpack(b"!I", buf[offset:offset + 4])
+            entry.return_code, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
 
             # reason_code (int4)
-            entry.reason_code, = struct.unpack(b"!I", buf[offset:offset + 4])
+            entry.reason_code, = struct.unpack("!I", buf[offset:offset + 4])
             offset += 4
-
-        return offset
 

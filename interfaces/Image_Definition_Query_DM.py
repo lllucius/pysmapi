@@ -15,14 +15,13 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_Definition_Query_DM(Smapi_Request_Base):
+class Image_Definition_Query_DM(Request):
     def __init__(self,
                  definition_query_directory_keyword_parameter_list = [],
                  **kwargs):
-        super(Image_Definition_Query_DM, self). \
-            __init__(b"Image_Definition_Query_DM", **kwargs)
+        super(Image_Definition_Query_DM, self).__init__(**kwargs)
 
         # Request parameters
         self._definition_query_directory_keyword_parameter_list = definition_query_directory_keyword_parameter_list
@@ -56,29 +55,29 @@ class Image_Definition_Query_DM(Smapi_Request_Base):
         self._error_data = value
 
     def pack(self):
-        buf = b""
+        buf = ""
         for plist in self._definition_query_directory_keyword_parameter_list:
-            buf += plist + b"\x00"
+            buf += plist + "\x00"
 
         # definition_query_directory_keyword_parameter_list_length (int4)
         # definition_query_directory_keyword_parameter_list
-        buf = struct.pack("!I", len(buf)) + buf
+        buf = struct.pack(len(buf)) + buf
 
-        return super(Image_Definition_Query_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(System_Service_Query, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # directory_information_length (int4)
         # or
         # error_length (int4)
-        alen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # directory_information_data (string)
         # or
         # error_data (string)
-        array = buf[offset:offset + alen].split("\x00")
+        array = buf[offset:offset + alen].decode("UTF-8").split("\x00")
         offset += alen
 
         if self.return_code == 0 and self.reason_code == 0:
@@ -87,4 +86,3 @@ class Image_Definition_Query_DM(Smapi_Request_Base):
             self._error_data = array
 
         offset += alen
-

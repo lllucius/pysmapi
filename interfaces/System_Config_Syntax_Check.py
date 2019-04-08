@@ -15,18 +15,17 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_Config_Syntax_Check(Smapi_Request_Base):
+class System_Config_Syntax_Check(Request):
     def __init__(self,
-                 system_config_name = b"",
-                 system_config_type = b"",
-                 parm_disk_owner = b"",
-                 parm_disk_number = b"",
-                 parm_disk_password = b"",
+                 system_config_name = "",
+                 system_config_type = "",
+                 parm_disk_owner = "",
+                 parm_disk_number = "",
+                 parm_disk_password = "",
                  **kwargs):
-        super(System_Config_Syntax_Check, self). \
-            __init__(b"System_Config_Syntax_Check", **kwargs)
+        super(System_Config_Syntax_Check, self).__init__(**kwargs)
 
         # Request parameters
         self._system_config_name = system_config_name
@@ -76,27 +75,26 @@ class System_Config_Syntax_Check(Smapi_Request_Base):
         self._parm_disk_password = value
 
     def pack(self):
-        buf = b""
+        buf = ""
 
         # system_config_name (string,0-8,char42)
         if len(self._system_config_name) > 0:
-            buf += b"system_config_name=%s\x00" % (self._system_config_name)
+            buf += "system_config_name=%s\x00" % (self._system_config_name)
 
         # system_config_type (string,0-8,char42)
         if len(self._system_config_type) > 0:
-            buf += b"system_config_type=%s\x00" % (self._system_config_type)
+            buf += "system_config_type=%s\x00" % (self._system_config_type)
 
         # parm_disk_owner (string,0-8,char42)
         if len(self._parm_disk_owner) > 0:
-            buf += b"parm_disk_owner=%s\x00" % (self._parm_disk_owner)
+            buf += "parm_disk_owner=%s\x00" % (self._parm_disk_owner)
 
         # parm_disk_number (string,0-4,char16)
         if len(self._parm_disk_number) > 0:
-            buf += b"parm_disk_number=%s\x00" % (self._parm_disk_number)
+            buf += "parm_disk_number=%s\x00" % (self._parm_disk_number)
 
         # parm_disk_password (string,0-8,charNB)
         if len(self._parm_disk_password) > 0:
-            buf += b"parm_disk_password=%s\x00" % (self._parm_disk_password)
+            buf += "parm_disk_password=%s\x00" % (self._parm_disk_password)
 
-        return super(System_Config_Syntax_Check, self).pack(buf)
-
+        return bytes(buf, "UTF-8")

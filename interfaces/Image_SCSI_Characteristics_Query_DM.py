@@ -15,20 +15,19 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Image_SCSI_Characteristics_Query_DM(Smapi_Request_Base):
+class Image_SCSI_Characteristics_Query_DM(Request):
 
     # SCP data type
     UNSPECIFIED = 0
     EBCDIC = 2
     HEX = 3
-    scp_data_type_names = ["UNSPECIFIED", "EBCDIC", "HEX"]
+    scp_data_type_names = ["UNSPECIFIED", "?", "EBCDIC", "HEX"]
 
     def __init__(self,
                  **kwargs):
-        super(Image_SCSI_Characteristics_Query_DM, self). \
-            __init__(b"Image_SCSI_Characteristics_Query_DM", **kwargs)
+        super(Image_SCSI_Characteristics_Query_DM, self).__init__(**kwargs)
 
         # Response values
         self._boot_program = boot_program
@@ -36,7 +35,7 @@ class Image_SCSI_Characteristics_Query_DM(Smapi_Request_Base):
         self._lun = lun
         self._port_name = port_name
         self._scp_data_type = scp_data_type
-        self._scp_data = scp_data
+        self._scp_data = scp_data                   # <-- must be byte array
 
     @property
     def boot_program(self):
@@ -104,7 +103,7 @@ class Image_SCSI_Characteristics_Query_DM(Smapi_Request_Base):
         # scp_data_type (int1)
         # scp_data_length (int4)
         # scp_data (string,0-4096,charNA)
-        fmt = b"!I%dsI%dsI%dsI%dsBI%ds" % \
+        fmt = "!I%dsI%dsI%dsI%dsBI%ds" % \
             (bp_len,
              bl_len,
              l_len,
@@ -113,63 +112,63 @@ class Image_SCSI_Characteristics_Query_DM(Smapi_Request_Base):
 
         buf = struct.pack(fmt,
                           bp_len,
-                          self._boot_program,
+                          bytes(self._boot_program, "UTF-8"),
                           bl_len,
-                          self._br_lba,
+                          bytes(self._br_lba, "UTF-8"),
                           l_len,
-                          self._lun,
+                          bytes(self._lun, "UTF-8"),
                           pn_len,
-                          self._port_name,
+                          bytes(self._port_name, "UTF-8"),
                           self._scp_data_type,
                           sd_len,
-                          self._scp_data)
+                          self._scp_data)   # <-- must be byte array
 
-        return super(Image_SCSI_Characteristics_Query_DM, self).pack(buf)
+        return buf
 
-    def unpack(self, buf, offset):
-        offset = super(Response_Recovery, self).unpack(buf, offset)
+    def unpack(self, buf):
+        offset = 0
 
         # boot_program_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # boot_program (string,0-6,char10)
-        self._boot_program.append(buf[offset:offset + nlen])
+        self._boot_program.append(buf[offset:offset + nlen].decode("UTF-8"))
         offset += nlen
 
         # br_lba_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4].decode("UTF-8"))
         offset += 4
 
         # br_lba (string,0-6,char10)
-        self._br_lba.append(buf[offset:offset + nlen])
+        self._br_lba.append(buf[offset:offset + nlen].decode("UTF-8"))
         offset += nlen
 
         # lun_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4].decode("UTF-8"))
         offset += 4
 
         # lun (string,0-6,char10)
-        self._lun.append(buf[offset:offset + nlen])
+        self._lun.append(buf[offset:offset + nlen].decode("UTF-8"))
         offset += nlen
 
         # port_name_length (int4)
-        nlen, = struct.unpack(b"!I", buf[offset:offset + 4])
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
         # port_name (string,0-6,char10)
-        self._port_name.append(buf[offset:offset + nlen])
+        self._port_name.append(buf[offset:offset + nlen].decode("UTF-8"))
         offset += nlen
 
         # scp_data_type (int1)
+        self._scp_data_type, = struct.unpack("!B", buf[offset:offset + 1])
+        offset += 1
+
         # scp_data_length (int4)
-        self._scp_data_type,
-        nlen, = struct.unpack(b"!BI", buf[offset:offset + 5])
-        offset += 5
+        nlen, = struct.unpack("!I", buf[offset:offset + 4])
+        offset += 4
 
         # scp_data (string,0-6,char10)
-        self._scp_data.append(buf[offset:offset + nlen])
+        self._scp_data.append(buf[offset:offset + nlen])    # <-- must be byte array
         offset += nlen
-
-        return offset
 

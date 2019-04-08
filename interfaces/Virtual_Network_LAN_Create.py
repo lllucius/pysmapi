@@ -15,31 +15,30 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class Virtual_Network_LAN_Create(Smapi_Request_Base):
+class Virtual_Network_LAN_Create(Request):
 
     # Lan type
     LT_1 = 1
     LT_2 = 2
     LT_3 = 3
     LT_4 = 4
-    lan_type_names = ["?", "LT_1", "LT_2", "LT_3", "LT_4"]
+    lan_type_names = ["LT_4"]
 
     # Transport type
     UNSPECIFIED = 0
     IP = 1
     ETHERNET = 2
-    transport_type_names = ["UNSPECIFIED", "IP", "ETHERNET"]
+    transport_type_names = ["ETHERNET"]
 
     def __init__(self,
-                 lan_name = b"",
-                 lan_owner = b"",
+                 lan_name = "",
+                 lan_owner = "",
                  lan_type = 0,
                  transport_type = 0,
                  **kwargs):
-        super(Virtual_Network_LAN_Create, self). \
-            __init__(b"Virtual_Network_LAN_Create", **kwargs)
+        super(Virtual_Network_LAN_Create, self).__init__(**kwargs)
 
         # Request parameters
         self._lan_name = lan_name
@@ -88,15 +87,14 @@ class Virtual_Network_LAN_Create(Smapi_Request_Base):
         # lan_owner_length (int4)
         # lan_owner (string,1-8,char42)
         #           (string,6,SYSTEM)
-        fmt = b"!I%dsI%dsBB" % (ln_len, lo_len)
+        fmt = "!I%dsI%dsBB" % (ln_len, lo_len)
 
         buf = struct.pack(fmt,
                           ln_len,
-                          self._lan_name,
+                          bytes(self._lan_name, "UTF-8"),
                           lo_len,
-                          self._lan_owner,
+                          bytes(self._lan_owner, "UTF-8"),
                           self._lan_type,
                           self._transport_type)
 
-        return super(Virtual_Network_LAN_Create, self).pack(buf)
-
+        return buf

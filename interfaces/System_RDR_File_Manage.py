@@ -15,15 +15,14 @@
 
 import struct
 
-from base import Smapi_Request_Base, Obj
+from pysmapi.smapi import Request, Obj
 
-class System_RDR_File_Manage(Smapi_Request_Base):
+class System_RDR_File_Manage(Request):
     def __init__(self,
-                 spoolids = b"",
-                 action = b"",
+                 spoolids = "",
+                 action = "",
                  **kwargs):
-        super(System_RDR_File_Manage, self). \
-            __init__(b"System_RDR_File_Manage", **kwargs)
+        super(System_RDR_File_Manage, self).__init__(**kwargs)
 
         # Request parameters
         self._spoolids = spoolids
@@ -46,16 +45,15 @@ class System_RDR_File_Manage(Smapi_Request_Base):
         self._action = value
 
     def pack(self):
-        buf = b""
+        buf = ""
 
         # spoolids=value (string,1-4,char10)
         #                (string,3,char26) ALL
-        buf += b"spoolids=%s\x00" % (self._spoolids)
+        buf += "spoolids=%s\x00" % (self._spoolids)
 
         # action=value (string,5,char26) PURGE
         #              (string,5,char26) ORDER
         #              (string,8,char26) TRANSFER
-        buf += b"action=%s\x00" % (self._action)
+        buf += "action=%s\x00" % (self._action)
 
-        return super(System_RDR_File_Manage, self).pack(buf)
-
+        return bytes(buf, "UTF-8")
