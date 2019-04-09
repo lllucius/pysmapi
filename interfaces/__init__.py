@@ -162,6 +162,10 @@ from .VMRELOCATE_Status import *
 from .VMRM_Configuration_Query import *
 from .VMRM_Configuration_Update import *
 from .VMRM_Measurement_Query import *
+from .Virtual_Channel_Connection_Create import *
+from .Virtual_Channel_Connection_Create_DM import *
+from .Virtual_Channel_Connection_Delete import *
+from .Virtual_Channel_Connection_Delete_DM import *
 from .Virtual_Network_LAN_Access import *
 from .Virtual_Network_LAN_Access_Query import *
 from .Virtual_Network_LAN_Create import *
@@ -179,4 +183,3 @@ from .Virtual_Network_Vswitch_Query_Extended import *
 from .Virtual_Network_Vswitch_Query_Stats import *
 from .Virtual_Network_Vswitch_Set import *
 from .Virtual_Network_Vswitch_Set_Extended import *
-
