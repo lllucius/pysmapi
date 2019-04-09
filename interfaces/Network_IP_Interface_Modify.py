@@ -122,31 +122,31 @@ class Network_IP_Interface_Modify(Request):
         if len(self._tcpip_stack) > 0:
             buf += f"tcpip_stack={self._tcpip_stack}\x00"
 
-        # interface_id=value (string,1-8,char42)
+        # interface_id=value (string,1-16,charNB)
         if len(self._interface_id) > 0:
             buf += f"interface_id={self._interface_id}\x00"
 
-        # permanent=value (string,1-8,char42)
+        # permanent=value (string,0-3,char26)
         if len(self._permanent) > 0:
             buf += f"permanent={self._permanent}\x00"
 
-        # delete_ip=value (string,1-8,char42)
+        # delete_ip=value (string,3-43,char16 plus ':', '.' and '/')
         if len(self._delete_ip) > 0:
             buf += f"delete_ip={self._delete_ip}\x00"
 
-        # add_ip=value (string,1-8,char42)
+        # add_ip=value (string,3-43,char16 plus ':', '.' and '/')
         if len(self._add_ip) > 0:
             buf += f"add_ip={self._add_ip}\x00"
 
-        # change_mask=value (string,1-8,char42)
+        # change_mask=value (string,7-15,charNB)
         if len(self._change_mask) > 0:
             buf += f"change_mask={self._change_mask}\x00"
 
-        # change_mtu=value (string,1-8,char42)
+        # change_mtu=value (string,1-5,char10)
         if len(self._change_mtu) > 0:
             buf += f"change_mtu={self._change_mtu}\x00"
 
-        # change_p2p=value (string,1-8,char42)
+        # change_p2p=value (string,7-15,charNB)
         if len(self._change_p2p) > 0:
             buf += f"change_p2p={self._change_p2p}\x00"
 

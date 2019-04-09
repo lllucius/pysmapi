@@ -31,7 +31,7 @@ class Network_IP_Interface_Query(Request):
         self._interface_id = interface_id
 
         # Response values
-        self._interface_configuration_array = ""
+        self._interface_configuration_array = []
 
     @property
     def tcpip_stack(self):
@@ -72,11 +72,11 @@ class Network_IP_Interface_Query(Request):
         if len(self._tcpip_stack) > 0:
             buf += f"tcpip_stack={self._tcpip_stack}\x00"
 
-        # interface_all=value (string,1-8,char42)
+        # interface_all=value (string,0-3,char26)
         if len(self._interface_all) > 0:
             buf += f"interface_all={self._interface_all}\x00"
 
-        # interface_id=value (string,1-8,char42)
+        # interface_id=value (string,0-16,charNB)
         if len(self._interface_id) > 0:
             buf += f"interface_id={self._interface_id}\x00"
 
@@ -89,10 +89,14 @@ class Network_IP_Interface_Query(Request):
         alen, = struct.unpack("!I", buf[offset:offset + 4])
         offset += 4
 
+        # interface_configuration_array
+        self._interface_configuration_array = []
         for config in buf[offset:offset + alen].decode("UTF-8").split("\x00"):
             entry = Obj()
             self._interface_configuration_array.append(entry)
 
+            # interface_configuration_structure
             for keyval in config.split():
                 key, val = keyval.lower().split("=")
                 setattr(entry, key, val)
+

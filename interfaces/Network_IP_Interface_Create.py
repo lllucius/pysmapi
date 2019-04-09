@@ -192,59 +192,59 @@ class Network_IP_Interface_Create(Request):
         if len(self._tcpip_stack) > 0:
             buf += f"tcpip_stack={self._tcpip_stack}\x00"
 
-        # interface_id=value (string,1-8,char42)
+        # interface_id=value (string,1-16,charNB)
         if len(self._interface_id) > 0:
             buf += f"interface_id={self._interface_id}\x00"
 
-        # permanent=value (string,1-8,char42)
+        # permanent=value (string,0-3,char26)
         if len(self._permanent) > 0:
             buf += f"permanent={self._permanent}\x00"
 
-        # primary_ipv4=value (string,1-8,char42)
+        # primary_ipv4=value (string,7-18,char10 plus '.' and '/')
         if len(self._primary_ipv4) > 0:
             buf += f"primary_ipv4={self._primary_ipv4}\x00"
 
-        # primary_ipv6=value (string,1-8,char42)
+        # primary_ipv6=value (string,3-43,char16 plus ':' and '/')
         if len(self._primary_ipv6) > 0:
             buf += f"primary_ipv6={self._primary_ipv6}\x00"
 
-        # interface=value (string,1-8,char42)
+        # interface=value (string,4-37,char)
         if len(self._interface) > 0:
             buf += f"interface={self._interface}\x00"
 
-        # cpu=value (string,1-8,char42)
+        # cpu=value (string,0-1,char10)
         if len(self._cpu) > 0:
             buf += f"cpu={self._cpu}\x00"
 
-        # transport_type=value (string,1-8,char42)
+        # transport_type=value (string,2-8,char26)
         if len(self._transport_type) > 0:
             buf += f"transport_type={self._transport_type}\x00"
 
-        # mtu=value (string,1-8,char42)
+        # mtu=value (string,0-5,char10)
         if len(self._mtu) > 0:
             buf += f"mtu={self._mtu}\x00"
 
-        # noforward=value (string,1-8,char42)
+        # noforward=value (string,0-3,char26)
         if len(self._noforward) > 0:
             buf += f"noforward={self._noforward}\x00"
 
-        # pathmtu=value (string,1-8,char42)
+        # pathmtu=value (string,0-3,char26)
         if len(self._pathmtu) > 0:
             buf += f"pathmtu={self._pathmtu}\x00"
 
-        # p2p=value (string,1-8,char42)
+        # p2p=value (string,7-15,char10 plus '.')
         if len(self._p2p) > 0:
             buf += f"p2p={self._p2p}\x00"
 
-        # port_name=value (string,1-8,char42)
+        # port_name=value (string,1-8,charNB)
         if len(self._port_name) > 0:
             buf += f"port_name={self._port_name}\x00"
 
-        # port_number=value (string,1-8,char42)
+        # port_number=value (string,1-2,char10)
         if len(self._port_number) > 0:
             buf += f"port_number={self._port_number}\x00"
 
-        # vlan=value (string,1-8,char42)
+        # vlan=value (string,1-9,char10 plus blank)
         if len(self._vlan) > 0:
             buf += f"vlan={self._vlan}\x00"
 
@@ -259,5 +259,4 @@ class Network_IP_Interface_Create(Request):
 
         # error_data (string) (ASCIIZ)
         self._error_data = buf[offset:offset + alen].decode("UTF-8")
-
 

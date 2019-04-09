@@ -72,11 +72,11 @@ class Network_IP_Interface_Remove(Request):
         if len(self._tcpip_stack) > 0:
             buf += f"tcpip_stack={self._tcpip_stack}\x00"
 
-        # interface_id=value (string,1-8,char42)
+        # interface_id=value (string,1-16,charNB)
         if len(self._interface_id) > 0:
             buf += f"interface_id={self._interface_id}\x00"
 
-        # permanent=value (string,1-8,char42)
+        # permanent=value (string,0-3,char26)
         if len(self._permanent) > 0:
             buf += f"permanent={self._permanent}\x00"
 

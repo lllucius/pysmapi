@@ -168,6 +168,7 @@ from .Virtual_Network_LAN_Create import *
 from .Virtual_Network_LAN_Delete import *
 from .Virtual_Network_LAN_Query import *
 from .Virtual_Network_OSA_Query import *
+from .Virtual_Network_VLAN_Query_Stats import *
 from .Virtual_Network_Vswitch_Create import *
 from .Virtual_Network_Vswitch_Create_Extended import *
 from .Virtual_Network_Vswitch_Delete import *
