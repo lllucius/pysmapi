@@ -155,6 +155,9 @@ from .VMRELOCATE import *
 from .VMRELOCATE_Image_Attributes import *
 from .VMRELOCATE_Modify import *
 from .VMRELOCATE_Status import *
+from .VMRM_Configuration_Query import *
+from .VMRM_Configuration_Update import *
+from .VMRM_Measurement_Query import *
 from .Virtual_Network_LAN_Access import *
 from .Virtual_Network_LAN_Access_Query import *
 from .Virtual_Network_LAN_Create import *
