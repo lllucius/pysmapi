@@ -96,6 +96,10 @@ from .Name_List_Add import *
 from .Name_List_Destroy import *
 from .Name_List_Query import *
 from .Name_List_Remove import *
+from .Network_IP_Interface_Create import *
+from .Network_IP_Interface_Modify import *
+from .Network_IP_Interface_Query import *
+from .Network_IP_Interface_Remove import *
 from .Page_or_Spool_Volume_Add import *
 from .Process_ABEND_Dump import *
 from .Profile_Create_DM import *
