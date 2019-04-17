@@ -1,0 +1,18 @@
+api = 'System_RDR_File_Manage'
+kwargs = {'target': 'maint', 'spoolids': '0662', 'action': 'PURGE'}
+result = \
+{
+ "_action": "PURGE",
+ "_function_name": "System_RDR_File_Manage",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUAAAABZTeXN0ZW1fUkRSX0ZpbGVfTWFuYWdlAAAABW1haW50AAAABW1haW50AAAABW1haW50\nc3Bvb2xpZHM9MDY2MgBhY3Rpb249UFVSR0UA\n"
+ },
+ "_spoolids": "0662",
+ "_target": "maint"
+}

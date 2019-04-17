@@ -1,0 +1,20 @@
+api = 'Image_Volume_Space_Remove_DM'
+kwargs = {'target': 'maint', 'function_type': 3, 'region_name': 'RGN001'}
+result = \
+{
+ "_function_name": "Image_Volume_Space_Remove_DM",
+ "_function_type": 3,
+ "_group_name": "",
+ "_image_vol_id": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_region_name": "RGN001",
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATgAAABxJbWFnZV9Wb2x1bWVfU3BhY2VfUmVtb3ZlX0RNAAAABW1haW50AAAABW1haW50AAAA\nBW1haW50AwAAAAZSR04wMDEAAAAAAAAAAA==\n"
+ },
+ "_target": "maint"
+}

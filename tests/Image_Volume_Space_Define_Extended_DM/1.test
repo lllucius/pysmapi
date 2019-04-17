@@ -1,0 +1,24 @@
+api = 'Image_Volume_Space_Define_Extended_DM'
+kwargs = {'target': 'maint', 'function_type': 2, 'image_vol_id': 'TST002', 'region_name': 'RGN002', 'start_cylinder': 1, 'size': 32760, 'group_name': 'GRP001', 'device_type': 1}
+result = \
+{
+ "_alloc_method": 0,
+ "_device_type": 1,
+ "_function_name": "Image_Volume_Space_Define_Extended_DM",
+ "_function_type": 2,
+ "_group_name": "GRP001",
+ "_image_vol_id": "TST002",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_region_name": "RGN002",
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAuwAAACVJbWFnZV9Wb2x1bWVfU3BhY2VfRGVmaW5lX0V4dGVuZGVkX0RNAAAABW1haW50AAAA\nBW1haW50AAAABW1haW50AAAAc2Z1bmN0aW9uX3R5cGU9MgByZWdpb25fbmFtZT1SR04wMDIAaW1h\nZ2Vfdm9sX2lkPVRTVDAwMgBzdGFydF9jeWxpbmRlcj0xAHNpemU9MzI3NjAAZ3JvdXBfbmFtZT1H\nUlAwMDEAZGV2aWNlX3R5cGU9MQA=\n"
+ },
+ "_size": 32760,
+ "_start_cylinder": 1,
+ "_target": "maint"
+}

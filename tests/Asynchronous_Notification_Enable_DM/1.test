@@ -1,0 +1,23 @@
+api = 'Asynchronous_Notification_Enable_DM'
+kwargs = {'target': 'maint', 'entity_type': 1, 'subscription_type': 1, 'communication_type': 1, 'port_number': 5000, 'ip_address': '192.168.1.1', 'encoding': 2, 'subscriber_data': 'subdata'}
+result = \
+{
+ "_communication_type": 1,
+ "_encoding": 2,
+ "_entity_type": 1,
+ "_function_name": "Asynchronous_Notification_Enable_DM",
+ "_ip_address": "192.168.1.1",
+ "_port_number": 5000,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAZAAAACNBc3luY2hyb25vdXNfTm90aWZpY2F0aW9uX0VuYWJsZV9ETQAAAAVtYWludAAAAAVt\nYWludAAAAAVtYWludAEBAQAAE4gAAAALMTkyLjE2OC4xLjECAAAAB3N1YmRhdGE=\n"
+ },
+ "_subscriber_data": "subdata",
+ "_subscription_type": 1,
+ "_target": "maint"
+}

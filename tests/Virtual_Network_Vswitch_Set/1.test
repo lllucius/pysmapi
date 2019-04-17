@@ -1,0 +1,40 @@
+api = 'Virtual_Network_Vswitch_Set'
+kwargs = {'target': 'maint', 'switch_name': 'gt@vsw1', 'grant_userid': 'gt@pong'}
+result = \
+{
+ "_alt_parm_disk_number": "",
+ "_alt_parm_disk_owner": "",
+ "_alt_parm_disk_password": "",
+ "_alt_system_config_name": "",
+ "_alt_system_config_type": "",
+ "_connection_value": 0,
+ "_controller_name": "",
+ "_function_name": "Virtual_Network_Vswitch_Set",
+ "_grant_userid": "gt@pong",
+ "_gvrp_value": 0,
+ "_mac_id": "",
+ "_parm_disk_number": "",
+ "_parm_disk_owner": "",
+ "_parm_disk_password": "",
+ "_port_name": "",
+ "_port_type": 0,
+ "_queue_memory_limit": -1,
+ "_real_device_address": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_revoke_userid": "",
+ "_routing_value": 0,
+ "_send": {
+  "py/b64": "AAAAmQAAABtWaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9TZXQAAAAFbWFpbnQAAAAFbWFpbnQAAAAF\nbWFpbnQAAAAHZ3RAdnN3MQAAAAdndEBwb25nAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==\n"
+ },
+ "_switch_name": "gt@vsw1",
+ "_system_config_name": "",
+ "_system_config_type": "",
+ "_target": "maint",
+ "_update_system_config_indicator": 0,
+ "_user_vlan_id": ""
+}

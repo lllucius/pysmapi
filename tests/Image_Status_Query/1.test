@@ -1,0 +1,21 @@
+api = 'Image_Status_Query'
+kwargs = {'target': 'gt@pong'}
+result = \
+{
+ "_function_name": "Image_Status_Query",
+ "_image_name_array": [
+  {
+   "image_name": "GT@PONG"
+  }
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAABsAAAAAAAAAAAAAAAAAAAALAAAAB0dUQFBPTkc=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAMwAAABJJbWFnZV9TdGF0dXNfUXVlcnkAAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZw==\n"
+ },
+ "_target": "gt@pong"
+}

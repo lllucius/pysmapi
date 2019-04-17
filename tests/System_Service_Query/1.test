@@ -1,0 +1,23 @@
+api = 'System_Service_Query'
+kwargs = {'target': 'maint', 'system_service_query_list': ['component=namecomponent=cp type=rsu']}
+result = \
+{
+ "_function_name": "System_Service_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAH0AAAAAAAAAAAAAAAAAAABtQ09NUE9ORU5UPU5BTUU9Q1AgVFlQRT1SU1UgU0VSVklD\nRV9MRVZFTD1SU1UtMTgwMSBQUk9EVUNUSU9OX0xFVkVMPVZNMS5SU1UtMTgwMVBST0RVQ1RJT05f\nTEVWRUw9Vk0yLlJTVS0xODAxAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAWwAAABRTeXN0ZW1fU2VydmljZV9RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludAAA\nACRjb21wb25lbnQ9bmFtZWNvbXBvbmVudD1jcCB0eXBlPXJzdQA=\n"
+ },
+ "_system_service_query_data": [
+  "COMPONENT=NAME=CP TYPE=RSU SERVICE_LEVEL=RSU-1801 PRODUCTION_LEVEL=VM1.RSU-1801PRODUCTION_LEVEL=VM2.RSU-1801",
+  ""
+ ],
+ "_system_service_query_list": [
+  "component=namecomponent=cp type=rsu"
+ ],
+ "_target": "maint"
+}

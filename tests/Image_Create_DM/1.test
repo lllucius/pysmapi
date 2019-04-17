@@ -1,0 +1,30 @@
+api = 'Image_Create_DM'
+kwargs = {'target': 'gt@pong', 'image_record_array': ['USER gt@pong @sm8pi@ 1G 1G ABCDEFG    ', '  IPL CMS                           ', '  CONSOLE   0009 3215               ', '  SPOOL 00C 2540 READER *           ', '  SPOOL 00D 2540 PUNCH A            ', '  SPOOL 00E 1403 A                  ', '  LINK MAINT 190 190 RR             ', '  LINK MAINT 19E 19E RR             ']}
+result = \
+{
+ "_function_name": "Image_Create_DM",
+ "_image_record_array": [
+  "USER gt@pong @sm8pi@ 1G 1G ABCDEFG    ",
+  "  IPL CMS                           ",
+  "  CONSOLE   0009 3215               ",
+  "  SPOOL 00C 2540 READER *           ",
+  "  SPOOL 00D 2540 PUNCH A            ",
+  "  SPOOL 00E 1403 A                  ",
+  "  LINK MAINT 190 190 RR             ",
+  "  LINK MAINT 19E 19E RR             "
+ ],
+ "_initial_account_number": "",
+ "_initial_password": "",
+ "_operation_id": 4294967295,
+ "_prototype_name": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAABAAAAAAAAAAAAAAAAD/////\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAABggAAAA9JbWFnZV9DcmVhdGVfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwAAAAAA\nAAAAAAAAAAAAAUIAAAAmVVNFUiBndEBwb25nIEBzbThwaUAgMUcgMUcgQUJDREVGRyAgICAAAAAk\nICBJUEwgQ01TICAgICAgICAgICAgICAgICAgICAgICAgICAgAAAAJCAgQ09OU09MRSAgIDAwMDkg\nMzIxNSAgICAgICAgICAgICAgIAAAACQgIFNQT09MIDAwQyAyNTQwIFJFQURFUiAqICAgICAgICAg\nICAAAAAkICBTUE9PTCAwMEQgMjU0MCBQVU5DSCBBICAgICAgICAgICAgAAAAJCAgU1BPT0wgMDBF\nIDE0MDMgQSAgICAgICAgICAgICAgICAgIAAAACQgIExJTksgTUFJTlQgMTkwIDE5MCBSUiAgICAg\nICAgICAgICAAAAAkICBMSU5LIE1BSU5UIDE5RSAxOUUgUlIgICAgICAgICAgICAg\n"
+ },
+ "_target": "gt@pong"
+}

@@ -1,0 +1,39 @@
+api = 'Virtual_Network_Vswitch_Create'
+kwargs = {'target': 'maint', 'switch_name': 'gt@vsw1', 'real_device_address': 'NONE', 'port_name': 'name1 name2 name3', 'controller_name': '*', 'connection_value': 2, 'queue_memory_limit': 8, 'transport_type': 1, 'vlan_id': -1, 'port_type': 0, 'update_system_config_indicator': 2, 'system_config_name': 'SYSTEM', 'system_config_type': 'CONFIG', 'parm_disk_owner': 'PMAINT', 'parm_disk_number': 'CF0', 'parm_disk_password': 'MULTIPLE', 'alt_system_config_name': 'ALT', 'alt_system_config_type': 'CONFIG', 'alt_parm_disk_owner': 'PMAINT', 'alt_parm_disk_number': 'CF0', 'alt_parm_disk_password': 'MULTIPLE', 'gvrp_value': 0, 'native_vlanid': -1}
+result = \
+{
+ "_alt_parm_disk_number": "CF0",
+ "_alt_parm_disk_owner": "PMAINT",
+ "_alt_parm_disk_password": "MULTIPLE",
+ "_alt_system_config_name": "ALT",
+ "_alt_system_config_type": "CONFIG",
+ "_connection_value": 2,
+ "_controller_name": "*",
+ "_function_name": "Virtual_Network_Vswitch_Create",
+ "_gvrp_value": 0,
+ "_native_vlanid": -1,
+ "_parm_disk_number": "CF0",
+ "_parm_disk_owner": "PMAINT",
+ "_parm_disk_password": "MULTIPLE",
+ "_port_name": "name1 name2 name3",
+ "_port_type": 0,
+ "_queue_memory_limit": 8,
+ "_real_device_address": "NONE",
+ "_reason_code": 36,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAA1AAAACQ=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 212,
+ "_routing_value": 0,
+ "_send": {
+  "py/b64": "AAAA2wAAAB5WaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9DcmVhdGUAAAAFbWFpbnQAAAAFbWFpbnQA\nAAAFbWFpbnQAAAAHZ3RAdnN3MQAAAAROT05FAAAAEW5hbWUxIG5hbWUyIG5hbWUzAAAAASoCAAAA\nCAAB/////wACAAAABlNZU1RFTQAAAAZDT05GSUcAAAAGUE1BSU5UAAAAA0NGMAAAAAhNVUxUSVBM\nRQAAAANBTFQAAAAGQ09ORklHAAAABlBNQUlOVAAAAANDRjAAAAAITVVMVElQTEUA/////w==\n"
+ },
+ "_switch_name": "gt@vsw1",
+ "_system_config_name": "SYSTEM",
+ "_system_config_type": "CONFIG",
+ "_target": "maint",
+ "_transport_type": 1,
+ "_update_system_config_indicator": 2,
+ "_vlan_id": -1
+}

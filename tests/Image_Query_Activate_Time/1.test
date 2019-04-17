@@ -1,0 +1,20 @@
+api = 'Image_Query_Activate_Time'
+kwargs = {'target': 'gt@pong', 'date_format_indicator': 2}
+result = \
+{
+ "_activation_date": "04/16/2019",
+ "_activation_time": "23:26:00",
+ "_date_format_indicator": 2,
+ "_function_name": "Image_Query_Activate_Time",
+ "_image_name": "GT@PONG",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAADEAAAAAAAAAAAAAAAAAAAAHR1RAUE9ORwAAAAowNC8xNi8yMDE5AAAACDIzOjI2OjAw\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOwAAABlJbWFnZV9RdWVyeV9BY3RpdmF0ZV9UaW1lAAAABW1haW50AAAABW1haW50AAAAB2d0\nQHBvbmcC\n"
+ },
+ "_target": "gt@pong"
+}

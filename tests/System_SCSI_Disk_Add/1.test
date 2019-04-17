@@ -1,0 +1,20 @@
+api = 'System_SCSI_Disk_Add'
+kwargs = {'target': 'maint', 'dev_num': '7000', 'dev_path_array': '5000 0000000000000001 0000000000000001', 'option': '1', 'persist': 'NO'}
+result = \
+{
+ "_dev_num": "7000",
+ "_dev_path_array": "5000 0000000000000001 0000000000000001",
+ "_function_name": "System_SCSI_Disk_Add",
+ "_option": "1",
+ "_persist": "NO",
+ "_reason_code": 8700,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAABjAAAIfw=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 396,
+ "_send": {
+  "py/b64": "AAAAigAAABRTeXN0ZW1fU0NTSV9EaXNrX0FkZAAAAAVtYWludAAAAAVtYWludAAAAAVtYWludGRl\ndl9udW09NzAwMABkZXZfcGF0aF9hcnJheT01MDAwIDAwMDAwMDAwMDAwMDAwMDEgMDAwMDAwMDAw\nMDAwMDAwMQBvcHRpb249MQBwZXJzaXN0PU5PAA==\n"
+ },
+ "_target": "maint"
+}

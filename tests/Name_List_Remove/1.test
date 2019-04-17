@@ -1,0 +1,17 @@
+api = 'Name_List_Remove'
+kwargs = {'target': 'userlist', 'name': 'myname'}
+result = \
+{
+ "_function_name": "Name_List_Remove",
+ "_name": "myname",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPAAAABBOYW1lX0xpc3RfUmVtb3ZlAAAABW1haW50AAAABW1haW50AAAACHVzZXJsaXN0AAAA\nBm15bmFtZQ==\n"
+ },
+ "_target": "userlist"
+}

@@ -1,0 +1,17 @@
+api = 'Process_ABEND_Dump'
+kwargs = {'target': 'maint', 'spoolid': '0119'}
+result = \
+{
+ "_function_name": "Process_ABEND_Dump",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPgAAABJQcm9jZXNzX0FCRU5EX0R1bXAAAAAFbWFpbnQAAAAFbWFpbnQAAAAFbWFpbnRzcG9v\nbGlkPTAxMTkA\n"
+ },
+ "_spoolid": "0119",
+ "_target": "maint"
+}

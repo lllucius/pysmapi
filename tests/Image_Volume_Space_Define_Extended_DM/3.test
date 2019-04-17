@@ -1,0 +1,24 @@
+api = 'Image_Volume_Space_Define_Extended_DM'
+kwargs = {'target': 'maint', 'function_type': 5, 'region_name': 'RGN003', 'group_name': 'GRP001', 'alloc_method': 1}
+result = \
+{
+ "_alloc_method": 1,
+ "_device_type": 0,
+ "_function_name": "Image_Volume_Space_Define_Extended_DM",
+ "_function_type": 5,
+ "_group_name": "GRP001",
+ "_image_vol_id": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_region_name": "RGN003",
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAjAAAACVJbWFnZV9Wb2x1bWVfU3BhY2VfRGVmaW5lX0V4dGVuZGVkX0RNAAAABW1haW50AAAA\nBW1haW50AAAABW1haW50AAAARGZ1bmN0aW9uX3R5cGU9NQByZWdpb25fbmFtZT1SR04wMDMAZ3Jv\ndXBfbmFtZT1HUlAwMDEAYWxsb2NfbWV0aG9kPTEA\n"
+ },
+ "_size": 0,
+ "_start_cylinder": 0,
+ "_target": "maint"
+}

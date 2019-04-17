@@ -1,0 +1,21 @@
+api = 'Image_Definition_Delete_DM'
+kwargs = {'target': 'gt@ping', 'definition_delete_directory_keyword_parameter_list': ['MDISK=VDEV=999']}
+result = \
+{
+ "_asynch_data": [],
+ "_definition_delete_directory_keyword_parameter_list": [
+  "MDISK=VDEV=999"
+ ],
+ "_error_data": [],
+ "_function_name": "Image_Definition_Delete_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATgAAABpJbWFnZV9EZWZpbml0aW9uX0RlbGV0ZV9ETQAAAAVtYWludAAAAAVtYWludAAAAAdn\ndEBwaW5nAAAAD01ESVNLPVZERVY9OTk5AA==\n"
+ },
+ "_target": "gt@ping"
+}

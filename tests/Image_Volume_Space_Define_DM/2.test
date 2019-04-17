@@ -1,0 +1,23 @@
+api = 'Image_Volume_Space_Define_DM'
+kwargs = {'target': 'maint', 'function_type': 5, 'region_name': 'RGN001', 'group_name': 'GRP001'}
+result = \
+{
+ "_device_type": 0,
+ "_function_name": "Image_Volume_Space_Define_DM",
+ "_function_type": 5,
+ "_group_name": "GRP001",
+ "_image_vol_id": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_region_name": "RGN001",
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAXQAAABxJbWFnZV9Wb2x1bWVfU3BhY2VfRGVmaW5lX0RNAAAABW1haW50AAAABW1haW50AAAA\nBW1haW50BQAAAAZSR04wMDEAAAAA//////////8AAAAGR1JQMDAxAA==\n"
+ },
+ "_size": -1,
+ "_start_cylinder": -1,
+ "_target": "maint"
+}

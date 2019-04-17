@@ -1,0 +1,17 @@
+api = 'Name_List_Add'
+kwargs = {'target': 'userlist', 'name': 'yourname'}
+result = \
+{
+ "_function_name": "Name_List_Add",
+ "_name": "yourname",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOwAAAA1OYW1lX0xpc3RfQWRkAAAABW1haW50AAAABW1haW50AAAACHVzZXJsaXN0AAAACHlv\ndXJuYW1l\n"
+ },
+ "_target": "userlist"
+}

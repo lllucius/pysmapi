@@ -1,0 +1,563 @@
+api = 'Image_Disk_Query'
+kwargs = {'target': 'maint', 'vdasd_id': 'ALL'}
+result = \
+{
+ "_function_name": "Image_Disk_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAA6wAAAAAAAAAAAAAAAAwMTIwMjAwMAEzMzkwAAAAAAAAAB4BVk0yMDAwADAxMjIxMDAz\nAjMzOTAAAAAAAAB/+AFNMDFTMDEAMDEyMzEwMDIBMzM5MAAAAAAAAH/4AU0wMVJFUwAwMTkwMTAw\nMgIzMzkwAAAAAAAAANYBTTAxUkVTADAxOTExMDAyAjMzOTAAAAAAAAAArwFNMDFSRVMAMDE5MzEw\nMDICMzM5MAAAAAAAAAH0AU0wMVJFUwAwMTk0MTAwMQEzMzkwAAAAAAAAAZABNzEwUkwxADAxOUQx\nMDAyAjMzOTAAAAAAAAABJAFNMDFSRVMAMDE5RTEwMDICMzM5MAAAAAAAAAH0AU0wMVJFUwAwMjAx\nMTAwMQEzMzkwAAAAAAAAABYBNzEwUkwxADAyQTIxMDAxATMzOTAAAAAAAAAABgE3MTBSTDEAMDJB\nNDEwMDEBMzM5MAAAAAAAAAAGATcxMFJMMQAwMkE2MTAwMQEzMzkwAAAAAAAAAAYBNzEwUkwxADAy\nQzQxMDAxATMzOTAAAAAAAAAABQE3MTBSTDEAMDJDQzEwMDACMzM5MAAAAAAAAAAKAVZNQ09NMQAw\nMkQyMTAwMQEzMzkwAAAAAAAAAV4BNzEwUkwxADA0MDAxMDAxATMzOTAAAAAAAAABwgE3MTBSTDEA\nMDQwMTEwMDICMzM5MAAAAAAAAAEkAU0wMVJFUwAwNDAyMTAwMgIzMzkwAAAAAAAAASQBTTAxUkVT\nADA0OTAxMDAxATMzOTAAAAAAAAAA1gE3MTBSTDEAMDQ5MzEwMDEBMzM5MAAAAAAAAAD6ATcxMFJM\nMQAwNDlFMTAwMAEzMzkwAAAAAAAAAPoBVk1DT00xADA1MUQxMDAxATMzOTAAAAAAAAAAGgE3MTBS\nTDEAMDU1MTEwMDABMzM5MAAAAAAAAAAoAVZNQ09NMQAwNUJDMTAwMQEzMzkwAAAAAAAACJgBNzEw\nUkwxADA1RTUxMDAxATMzOTAAAAAAAAAAEgE3MTBSTDEAMDVFNjEwMDEBMzM5MAAAAAAAAAAJATcx\nMFJMMQAwODkwMTAwMQEzMzkwAAAAAAAAADwBNzEwUkwxADA5OTAxMDAyAjMzOTAAAAAAAAAAPAFN\nMDFSRVMAMENGMTEwMDIBMzM5MAAAAAAAAAB4AU0wMVJFUwAwQ0YzMTAwMgEzMzkwAAAAAAAAAHgB\nTTAxUkVTADBDRkQxMDAyATMzOTAAAAAAAAAAAQFNMDFSRVMA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPAAAABBJbWFnZV9EaXNrX1F1ZXJ5AAAABW1haW50AAAABW1haW50AAAABW1haW50dmRhc2Rf\naWQ9QUxMAA==\n"
+ },
+ "_target": "maint",
+ "_vdasd_array": [
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MjAwMA==\n"
+   },
+   "vdasd_size": 30,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDEyMA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "Vk0yMDAw\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMw==\n"
+   },
+   "vdasd_size": 32760,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDEyMg==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUzAx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 32760,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDEyMw==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 214,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDE5MA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 175,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDE5MQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 500,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDE5Mw==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 400,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDE5NA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 292,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDE5RA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 500,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDE5RQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 22,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDIwMQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 6,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDJBMg==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 6,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDJBNA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 6,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDJBNg==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 5,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDJDNA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMA==\n"
+   },
+   "vdasd_size": 10,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDJDQw==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "Vk1DT00x\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 350,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDJEMg==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 450,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDQwMA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 292,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDQwMQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 292,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDQwMg==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 214,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDQ5MA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 250,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDQ5Mw==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMA==\n"
+   },
+   "vdasd_size": 250,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDQ5RQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "Vk1DT00x\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 26,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDUxRA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMA==\n"
+   },
+   "vdasd_size": 40,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDU1MQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "Vk1DT00x\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 2200,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDVCQw==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 18,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDVFNQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 9,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDVFNg==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMQ==\n"
+   },
+   "vdasd_size": 60,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDg5MA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "NzEwUkwx\n"
+   }
+  },
+  {
+   "vdasd_access_type": 2,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 60,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MDk5MA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 120,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MENGMQ==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 120,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MENGMw==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  },
+  {
+   "vdasd_access_type": 1,
+   "vdasd_devtype": {
+    "py/b64": "MzM5MA==\n"
+   },
+   "vdasd_rdev": {
+    "py/b64": "MTAwMg==\n"
+   },
+   "vdasd_size": 1,
+   "vdasd_unit": 1,
+   "vdasd_vdev": {
+    "py/b64": "MENGRA==\n"
+   },
+   "vdasd_volid": {
+    "py/b64": "TTAxUkVT\n"
+   }
+  }
+ ],
+ "_vdasd_id": "ALL"
+}

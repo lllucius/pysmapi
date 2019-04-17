@@ -1,0 +1,19 @@
+api = 'Image_IPL_Set_DM'
+kwargs = {'target': 'gt@pong', 'saved_system': '888', 'load_parameter': 'LOAD', 'parameter_string': 'PARM'}
+result = \
+{
+ "_function_name": "Image_IPL_Set_DM",
+ "_load_parameter": "LOAD",
+ "_parameter_string": "PARM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_saved_system": "888",
+ "_send": {
+  "py/b64": "AAAASAAAABBJbWFnZV9JUExfU2V0X0RNAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcAAAAD\nODg4AAAABExPQUQAAAAEUEFSTQ==\n"
+ },
+ "_target": "gt@pong"
+}

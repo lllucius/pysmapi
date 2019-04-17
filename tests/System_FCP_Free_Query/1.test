@@ -1,0 +1,18 @@
+api = 'System_FCP_Free_Query'
+kwargs = {'target': 'maint', 'fcp_dev': 5000}
+result = \
+{
+ "_fcp_array": [],
+ "_fcp_dev": 5000,
+ "_function_name": "System_FCP_Free_Query",
+ "_reason_code": 8,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAACAAAAAg=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAQQAAABVTeXN0ZW1fRkNQX0ZyZWVfUXVlcnkAAAAFbWFpbnQAAAAFbWFpbnQAAAAFbWFpbnRm\nY3BfZGV2PTUwMDAA\n"
+ },
+ "_target": "maint"
+}

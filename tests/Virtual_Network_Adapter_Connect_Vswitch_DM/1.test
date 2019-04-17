@@ -1,0 +1,18 @@
+api = 'Virtual_Network_Adapter_Connect_Vswitch_DM'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9100', 'switch_name': 'gt@vsw1'}
+result = \
+{
+ "_function_name": "Virtual_Network_Adapter_Connect_Vswitch_DM",
+ "_image_device_number": "9100",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAXgAAACpWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9Db25uZWN0X1Zzd2l0Y2hfRE0AAAAFbWFp\nbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwAAAAQ5MTAwAAAAB2d0QHZzdzE=\n"
+ },
+ "_switch_name": "gt@vsw1",
+ "_target": "gt@pong"
+}

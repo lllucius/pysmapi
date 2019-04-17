@@ -1,0 +1,17 @@
+api = 'Virtual_Network_Adapter_Disconnect_DM'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9000'}
+result = \
+{
+ "_function_name": "Virtual_Network_Adapter_Disconnect_DM",
+ "_image_device_number": "9000",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATgAAACVWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9EaXNjb25uZWN0X0RNAAAABW1haW50AAAA\nBW1haW50AAAAB2d0QHBvbmcAAAAEOTAwMA==\n"
+ },
+ "_target": "gt@pong"
+}

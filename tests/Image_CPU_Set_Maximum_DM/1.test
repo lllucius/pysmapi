@@ -1,0 +1,17 @@
+api = 'Image_CPU_Set_Maximum_DM'
+kwargs = {'target': 'gt@pong', 'max_cpu': 4}
+result = \
+{
+ "_function_name": "Image_CPU_Set_Maximum_DM",
+ "_max_cpu": 4,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPQAAABhJbWFnZV9DUFVfU2V0X01heGltdW1fRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RA\ncG9uZwAAAAQ=\n"
+ },
+ "_target": "gt@pong"
+}

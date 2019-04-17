@@ -1,0 +1,18 @@
+api = 'Image_Volume_Share'
+kwargs = {'target': 'maint', 'img_vol_addr': '4000', 'share_enable': 'ON'}
+result = \
+{
+ "_function_name": "Image_Volume_Share",
+ "_img_vol_addr": "4000",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUwAAABJJbWFnZV9Wb2x1bWVfU2hhcmUAAAAFbWFpbnQAAAAFbWFpbnQAAAAFbWFpbnRpbWdf\ndm9sX2FkZHI9NDAwMABzaGFyZV9lbmFibGU9T04A\n"
+ },
+ "_share_enable": "ON",
+ "_target": "maint"
+}

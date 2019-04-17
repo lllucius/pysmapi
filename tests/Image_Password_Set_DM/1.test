@@ -1,0 +1,17 @@
+api = 'Image_Password_Set_DM'
+kwargs = {'target': 'gt@pong', 'image_password': '@sm8pi@'}
+result = \
+{
+ "_function_name": "Image_Password_Set_DM",
+ "_image_password": "@sm8pi@",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAQQAAABVJbWFnZV9QYXNzd29yZF9TZXRfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9u\nZwAAAAdAc204cGlA\n"
+ },
+ "_target": "gt@pong"
+}

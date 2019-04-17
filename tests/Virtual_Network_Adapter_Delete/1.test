@@ -1,0 +1,17 @@
+api = 'Virtual_Network_Adapter_Delete'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9000'}
+result = \
+{
+ "_function_name": "Virtual_Network_Adapter_Delete",
+ "_image_device_number": "9000",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAARwAAAB5WaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9EZWxldGUAAAAFbWFpbnQAAAAFbWFpbnQA\nAAAHZ3RAcG9uZwAAAAQ5MDAw\n"
+ },
+ "_target": "gt@pong"
+}

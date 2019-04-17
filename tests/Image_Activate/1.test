@@ -1,0 +1,19 @@
+api = 'Image_Activate'
+kwargs = {'target': 'gt@ping'}
+result = \
+{
+ "_activated": 0,
+ "_failing_array": [],
+ "_function_name": "Image_Activate",
+ "_not_activated": 0,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAALwAAAA5JbWFnZV9BY3RpdmF0ZQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwaW5n\n"
+ },
+ "_target": "gt@ping"
+}

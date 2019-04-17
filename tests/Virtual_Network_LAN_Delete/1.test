@@ -1,0 +1,18 @@
+api = 'Virtual_Network_LAN_Delete'
+kwargs = {'target': 'maint', 'lan_name': 'gt@vsw1', 'lan_owner': 'SYSTEM'}
+result = \
+{
+ "_function_name": "Virtual_Network_LAN_Delete",
+ "_lan_name": "gt@vsw1",
+ "_lan_owner": "SYSTEM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATgAAABpWaXJ0dWFsX05ldHdvcmtfTEFOX0RlbGV0ZQAAAAVtYWludAAAAAVtYWludAAAAAVt\nYWludAAAAAdndEB2c3cxAAAABlNZU1RFTQ==\n"
+ },
+ "_target": "maint"
+}

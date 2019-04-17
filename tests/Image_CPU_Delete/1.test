@@ -1,0 +1,17 @@
+api = 'Image_CPU_Delete'
+kwargs = {'target': 'gt@pong', 'cpu_address': '01'}
+result = \
+{
+ "_cpu_address": "01",
+ "_function_name": "Image_CPU_Delete",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAANwAAABBJbWFnZV9DUFVfRGVsZXRlAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcAAAAC\nMDE=\n"
+ },
+ "_target": "gt@pong"
+}

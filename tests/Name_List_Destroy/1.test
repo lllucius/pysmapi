@@ -1,0 +1,16 @@
+api = 'Name_List_Destroy'
+kwargs = {'target': 'userlist'}
+result = \
+{
+ "_function_name": "Name_List_Destroy",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAMwAAABFOYW1lX0xpc3RfRGVzdHJveQAAAAVtYWludAAAAAVtYWludAAAAAh1c2VybGlzdA==\n"
+ },
+ "_target": "userlist"
+}

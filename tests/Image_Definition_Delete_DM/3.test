@@ -1,0 +1,24 @@
+api = 'Image_Definition_Delete_DM'
+kwargs = {'target': 'lnxdef', 'definition_delete_directory_keyword_parameter_list': ['*']}
+result = \
+{
+ "_asynch_data": [],
+ "_definition_delete_directory_keyword_parameter_list": [
+  "*"
+ ],
+ "_error_data": [
+  "UNKNOWN_DIRECTORY_KEYWORD_PARAMETER=*",
+  ""
+ ],
+ "_function_name": "Image_Definition_Delete_DM",
+ "_reason_code": 3002,
+ "_recv": {
+  "py/b64": "AAAAAAAAADYAAAAAAAAACAAAC7oAAAAmVU5LTk9XTl9ESVJFQ1RPUllfS0VZV09SRF9QQVJBTUVU\nRVI9KgA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAQAAAABpJbWFnZV9EZWZpbml0aW9uX0RlbGV0ZV9ETQAAAAVtYWludAAAAAVtYWludAAAAAZs\nbnhkZWYAAAACKgA=\n"
+ },
+ "_target": "lnxdef"
+}

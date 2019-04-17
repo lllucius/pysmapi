@@ -1,0 +1,21 @@
+api = 'Image_CPU_Define_DM'
+kwargs = {'target': 'gt@pong', 'cpu_address': '00', 'base_cpu': 1, 'cpuid': '123456', 'dedicate_cpu': 1, 'crypto': 0}
+result = \
+{
+ "_base_cpu": 1,
+ "_cpu_address": "00",
+ "_cpuid": "123456",
+ "_crypto": 0,
+ "_dedicate_cpu": 1,
+ "_function_name": "Image_CPU_Define_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAARwAAABNJbWFnZV9DUFVfRGVmaW5lX0RNAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcA\nAAACMDABAAAABjEyMzQ1NgEA\n"
+ },
+ "_target": "gt@pong"
+}

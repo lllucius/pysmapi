@@ -1,0 +1,17 @@
+api = 'Image_CPU_Delete_DM'
+kwargs = {'target': 'gt@pong', 'cpu_address': '00'}
+result = \
+{
+ "_cpu_address": "00",
+ "_function_name": "Image_CPU_Delete_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOgAAABNJbWFnZV9DUFVfRGVsZXRlX0RNAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcA\nAAACMDA=\n"
+ },
+ "_target": "gt@pong"
+}

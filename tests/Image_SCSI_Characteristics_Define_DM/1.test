@@ -1,0 +1,24 @@
+api = 'Image_SCSI_Characteristics_Define_DM'
+kwargs = {'target': 'gt@pong', 'boot_program': '1', 'br_lba': '0123456789ABCDEF', 'lun': '5241000000000000', 'port_name': '5005076300c20b8e', 'scp_data_type': 3, 'scp_data': b'\xf0\xf1\xf2\xf3'}
+result = \
+{
+ "_boot_program": "1",
+ "_br_lba": "0123456789ABCDEF",
+ "_function_name": "Image_SCSI_Characteristics_Define_DM",
+ "_lun": "5241000000000000",
+ "_port_name": "5005076300c20b8e",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_scp_data": {
+  "py/b64": "8PHy8w==\n"
+ },
+ "_scp_data_type": 3,
+ "_send": {
+  "py/b64": "AAAAjwAAACRJbWFnZV9TQ1NJX0NoYXJhY3RlcmlzdGljc19EZWZpbmVfRE0AAAAFbWFpbnQAAAAF\nbWFpbnQAAAAHZ3RAcG9uZwAAAAExAAAAEDAxMjM0NTY3ODlBQkNERUYAAAAQNTI0MTAwMDAwMDAw\nMDAwMAAAABA1MDA1MDc2MzAwYzIwYjhlAwAAAATw8fLz\n"
+ },
+ "_target": "gt@pong"
+}

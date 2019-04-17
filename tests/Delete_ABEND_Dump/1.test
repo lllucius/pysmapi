@@ -1,0 +1,17 @@
+api = 'Delete_ABEND_Dump'
+kwargs = {'target': 'maint', 'id': '0148'}
+result = \
+{
+ "_function_name": "Delete_ABEND_Dump",
+ "_id": "0148",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOAAAABFEZWxldGVfQUJFTkRfRHVtcAAAAAVtYWludAAAAAVtYWludAAAAAVtYWludGlkPTAx\nNDgA\n"
+ },
+ "_target": "maint"
+}

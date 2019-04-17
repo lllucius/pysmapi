@@ -1,0 +1,24 @@
+api = 'Image_Definition_Query_DM'
+kwargs = {'target': 'gt@ping', 'definition_query_directory_keyword_parameter_list': ['MDISK']}
+result = \
+{
+ "_definition_query_directory_keyword_parameter_list": [
+  "MDISK"
+ ],
+ "_directory_information_data": [
+  "MDISK=VDEV=0777 DEVTYPE=3390 DISKTYPE=PERM START=2467 COUNT=1000 VOLID=LX3004 MODE=W READPASSWORD=READ WRITEPASSWORD=WRITE MULTIPASSWORD=MULTIPLE",
+  ""
+ ],
+ "_error_data": [],
+ "_function_name": "Image_Definition_Query_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAKIAAAAAAAAAAAAAAAAAAACSTURJU0s9VkRFVj0wNzc3IERFVlRZUEU9MzM5MCBESVNL\nVFlQRT1QRVJNIFNUQVJUPTI0NjcgQ09VTlQ9MTAwMCBWT0xJRD1MWDMwMDQgTU9ERT1XIFJFQURQ\nQVNTV09SRD1SRUFEIFdSSVRFUEFTU1dPUkQ9V1JJVEUgTVVMVElQQVNTV09SRD1NVUxUSVBMRQA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAARAAAABlJbWFnZV9EZWZpbml0aW9uX1F1ZXJ5X0RNAAAABW1haW50AAAABW1haW50AAAAB2d0\nQHBpbmcAAAAGTURJU0sA\n"
+ },
+ "_target": "gt@ping"
+}

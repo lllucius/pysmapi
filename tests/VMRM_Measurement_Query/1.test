@@ -1,0 +1,41 @@
+api = 'VMRM_Measurement_Query'
+kwargs = {'target': 'maint'}
+result = \
+{
+ "_file_spec": "VMRM CONFIG A1",
+ "_file_timestamp": "4/09/19 1:52:38",
+ "_function_name": "VMRM_Measurement_Query",
+ "_query_timestamp": " 4/16/19 23:32:07",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAOQAAAAAAAAAAAAAAAAAAAARIDQvMTYvMTkgMjM6MzI6MDcAAAAOVk1STSBDT05GSUcg\nQTEAAAAPNC8wOS8xOSAxOjUyOjM4AAAAmgAAACJXT1JLMiAgICAgICAgICAgIENQVSAxMDAgREFT\nRCBudWxsAAAAI1dPUks0ICAgICAgICAgICAgQ1BVIG51bGwgREFTRCBudWxsAAAAIldPUkszICAg\nICAgICAgICAgQ1BVIG51bGwgREFTRCAxMDAAAAAjV09SSzEgICAgICAgICAgICBDUFUgbnVsbCBE\nQVNEIG51bGw=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAANQAAABZWTVJNX01lYXN1cmVtZW50X1F1ZXJ5AAAABW1haW50AAAABW1haW50AAAABW1haW50\n"
+ },
+ "_target": "maint",
+ "_workload_array": [
+  {
+   "cpu": "100",
+   "dasd": "null",
+   "workload": "WORK2"
+  },
+  {
+   "cpu": "null",
+   "dasd": "null",
+   "workload": "WORK4"
+  },
+  {
+   "cpu": "null",
+   "dasd": "100",
+   "workload": "WORK3"
+  },
+  {
+   "cpu": "null",
+   "dasd": "null",
+   "workload": "WORK1"
+  }
+ ]
+}

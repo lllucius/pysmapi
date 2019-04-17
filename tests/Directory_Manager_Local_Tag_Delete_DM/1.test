@@ -1,0 +1,17 @@
+api = 'Directory_Manager_Local_Tag_Delete_DM'
+kwargs = {'target': 'maint', 'tag_name': 'Tag1'}
+result = \
+{
+ "_function_name": "Directory_Manager_Local_Tag_Delete_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATAAAACVEaXJlY3RvcnlfTWFuYWdlcl9Mb2NhbF9UYWdfRGVsZXRlX0RNAAAABW1haW50AAAA\nBW1haW50AAAABW1haW50AAAABFRhZzE=\n"
+ },
+ "_tag_name": "Tag1",
+ "_target": "maint"
+}

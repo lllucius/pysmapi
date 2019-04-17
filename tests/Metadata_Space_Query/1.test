@@ -1,0 +1,40 @@
+api = 'Metadata_Space_Query'
+kwargs = {'target': 'maint', 'searchkey': '*'}
+result = \
+{
+ "_function_name": "Metadata_Space_Query",
+ "_output_data": [
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  "4 key1",
+  "4 key2",
+  ""
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAJgAAAAAAAAAAAAAAAA0IGtleTEANCBrZXkyADQga2V5MQA0IGtleTIANCBrZXkxADQg\na2V5MgA0IGtleTEANCBrZXkyADQga2V5MQA0IGtleTIANCBrZXkxADQga2V5MgA0IGtleTEANCBr\nZXkyADQga2V5MQA0IGtleTIANCBrZXkxADQga2V5MgA0IGtleTEANCBrZXkyAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_searchkey": "*",
+ "_send": {
+  "py/b64": "AAAAPwAAABRNZXRhZGF0YV9TcGFjZV9RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludHNl\nYXJjaGtleT0qAA==\n"
+ },
+ "_target": "maint"
+}

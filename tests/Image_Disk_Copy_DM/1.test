@@ -1,0 +1,26 @@
+api = 'Image_Disk_Copy_DM'
+kwargs = {'target': 'gt@pong', 'image_disk_number': '777', 'source_image_name': 'gt@ping', 'source_image_disk_number': '777', 'image_disk_allocation_type': 'AUTOG', 'allocation_area_name_or_volser': 'LINUX', 'image_disk_mode': 'W', 'read_password': 'READ', 'write_password': 'WRITE', 'multi_password': 'MULTIPLE'}
+result = \
+{
+ "_allocation_area_name_or_volser": "LINUX",
+ "_function_name": "Image_Disk_Copy_DM",
+ "_image_disk_allocation_type": "AUTOG",
+ "_image_disk_mode": "W",
+ "_image_disk_number": "777",
+ "_multi_password": "MULTIPLE",
+ "_operation_id": 0,
+ "_read_password": "READ",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAgAAAABJJbWFnZV9EaXNrX0NvcHlfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwAA\nAAM3NzcAAAAHZ3RAcGluZwAAAAM3NzcAAAAFQVVUT0cAAAAFTElOVVgAAAABVwAAAARSRUFEAAAA\nBVdSSVRFAAAACE1VTFRJUExF\n"
+ },
+ "_source_image_disk_number": "777",
+ "_source_image_name": "gt@ping",
+ "_target": "gt@pong",
+ "_write_password": "WRITE"
+}

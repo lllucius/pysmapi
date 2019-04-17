@@ -1,0 +1,18 @@
+api = 'System_SCSI_Disk_Delete'
+kwargs = {'target': 'gt@ping', 'dev_num': '7000', 'persist': 'NO'}
+result = \
+{
+ "_dev_num": "7000",
+ "_function_name": "System_SCSI_Disk_Delete",
+ "_persist": "NO",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUAAAABdTeXN0ZW1fU0NTSV9EaXNrX0RlbGV0ZQAAAAVtYWludAAAAAVtYWludAAAAAdndEBw\naW5nZGV2X251bT03MDAwAHBlcnNpc3Q9Tk8A\n"
+ },
+ "_target": "gt@ping"
+}

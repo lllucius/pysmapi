@@ -1,0 +1,19 @@
+api = 'Virtual_Network_Adapter_Connect_Vswitch_Extended'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9200', 'switch_name': 'gt@vsw1'}
+result = \
+{
+ "_function_name": "Virtual_Network_Adapter_Connect_Vswitch_Extended",
+ "_image_device_number": "9200",
+ "_port_selection": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAfgAAADBWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9Db25uZWN0X1Zzd2l0Y2hfRXh0ZW5kZWQA\nAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZ2ltYWdlX2RldmljZV9udW1iZXI9OTIwMABzd2l0\nY2hfbmFtZT1ndEB2c3cxAA==\n"
+ },
+ "_switch_name": "gt@vsw1",
+ "_target": "gt@pong"
+}

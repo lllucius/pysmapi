@@ -1,0 +1,24 @@
+api = 'Image_SCSI_Characteristics_Query_DM'
+kwargs = {'target': 'gt@pong'}
+result = \
+{
+ "_boot_program": "1",
+ "_br_lba": "0123456789ABCDEF",
+ "_function_name": "Image_SCSI_Characteristics_Query_DM",
+ "_lun": "5241000000000000",
+ "_port_name": "5005076300C20B8E",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAFQAAAAAAAAAAAAAAAAAAAABMQAAABAwMTIzNDU2Nzg5QUJDREVGAAAAEDUyNDEwMDAw\nMDAwMDAwMDAAAAAQNTAwNTA3NjMwMEMyMEI4RQMAAAACASM=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_scp_data": {
+  "py/b64": "ASM=\n"
+ },
+ "_scp_data_type": 3,
+ "_send": {
+  "py/b64": "AAAARAAAACNJbWFnZV9TQ1NJX0NoYXJhY3RlcmlzdGljc19RdWVyeV9ETQAAAAVtYWludAAAAAVt\nYWludAAAAAdndEBwb25n\n"
+ },
+ "_target": "gt@pong"
+}

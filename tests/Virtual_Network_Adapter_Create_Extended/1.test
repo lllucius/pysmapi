@@ -1,0 +1,20 @@
+api = 'Virtual_Network_Adapter_Create_Extended'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9100', 'adapter_type': 'qdio', 'devices': '3'}
+result = \
+{
+ "_adapter_type": "qdio",
+ "_channel_path_id": "",
+ "_devices": "3",
+ "_function_name": "Virtual_Network_Adapter_Create_Extended",
+ "_image_device_number": "9100",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAfQAAACdWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9DcmVhdGVfRXh0ZW5kZWQAAAAFbWFpbnQA\nAAAFbWFpbnQAAAAHZ3RAcG9uZ2ltYWdlX2RldmljZV9udW1iZXI9OTEwMABhZGFwdGVyX3R5cGU9\ncWRpbwBkZXZpY2VzPTMA\n"
+ },
+ "_target": "gt@pong"
+}

@@ -1,0 +1,121 @@
+api = 'Query_ABEND_Dump'
+kwargs = {'target': 'maint', 'location': 'all'}
+result = \
+{
+ "_abend_dump_array": [
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "SNP001",
+   "abend_dump_id": "0119",
+   "abend_dump_loc": 1
+  },
+  {
+   "abend_dump_date": "2019-04-16",
+   "abend_dump_dist": "SNP001",
+   "abend_dump_id": "0392",
+   "abend_dump_loc": 1
+  },
+  {
+   "abend_dump_date": "2019-04-11",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00000",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00001",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-12",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00002",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-12",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00003",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-12",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00004",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-12",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00005",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-12",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00006",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-12",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00007",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00008",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00009",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00010",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00011",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00012",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-14",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00013",
+   "abend_dump_loc": 2
+  },
+  {
+   "abend_dump_date": "2019-04-15",
+   "abend_dump_dist": "",
+   "abend_dump_id": "PRB00014",
+   "abend_dump_loc": 2
+  }
+ ],
+ "_function_name": "Query_ABEND_Dump",
+ "_location": "all",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAdcAAAAAAAAAAAAAAAABMDExOSAgICAyMDE5LTA0LTE0U05QMDAxICABMDM5MiAgICAy\nMDE5LTA0LTE2U05QMDAxICACUFJCMDAwMDAyMDE5LTA0LTExICAgICAgICACUFJCMDAwMDEyMDE5\nLTA0LTE0ICAgICAgICACUFJCMDAwMDIyMDE5LTA0LTEyICAgICAgICACUFJCMDAwMDMyMDE5LTA0\nLTEyICAgICAgICACUFJCMDAwMDQyMDE5LTA0LTEyICAgICAgICACUFJCMDAwMDUyMDE5LTA0LTEy\nICAgICAgICACUFJCMDAwMDYyMDE5LTA0LTEyICAgICAgICACUFJCMDAwMDcyMDE5LTA0LTEyICAg\nICAgICACUFJCMDAwMDgyMDE5LTA0LTE0ICAgICAgICACUFJCMDAwMDkyMDE5LTA0LTE0ICAgICAg\nICACUFJCMDAwMTAyMDE5LTA0LTE0ICAgICAgICACUFJCMDAwMTEyMDE5LTA0LTE0ICAgICAgICAC\nUFJCMDAwMTIyMDE5LTA0LTE0ICAgICAgICACUFJCMDAwMTMyMDE5LTA0LTE0ICAgICAgICACUFJC\nMDAwMTQyMDE5LTA0LTE1ICAgICAgICA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPAAAABBRdWVyeV9BQkVORF9EdW1wAAAABW1haW50AAAABW1haW50AAAABW1haW50bG9jYXRp\nb249YWxsAA==\n"
+ },
+ "_target": "maint"
+}

@@ -1,0 +1,33 @@
+api = 'Asynchronous_Notification_Query_DM'
+kwargs = {'target': 'maint', 'entity_type': 1, 'communication_type': 1, 'port_number': 5000, 'ip_address': '192.168.1.1', 'encoding': 2, 'subscriber_data': 'subdata'}
+result = \
+{
+ "_communication_type": 1,
+ "_encoding": 2,
+ "_entity_type": 1,
+ "_function_name": "Asynchronous_Notification_Query_DM",
+ "_ip_address": "192.168.1.1",
+ "_notification_array": [
+  {
+   "communication_type": 1,
+   "encoding": 2,
+   "ip_address": "192.168.1.1",
+   "port_number": 5000,
+   "subscriber_data": "osubdatao@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+   "subscription_type": 1,
+   "userid": "MAINT"
+  }
+ ],
+ "_port_number": 5000,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAHkAAAAAAAAAAAAAAAAAAABpAAAAZQAAAAVNQUlOVAEBAAATiAAAAAsxOTIuMTY4LjEu\nMQIAAABCb3N1YmRhdGFvQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBA\nQEBAQEBAQEBAQEBAQEBA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAYgAAACJBc3luY2hyb25vdXNfTm90aWZpY2F0aW9uX1F1ZXJ5X0RNAAAABW1haW50AAAABW1h\naW50AAAABW1haW50AQEAABOIAAAACzE5Mi4xNjguMS4xAgAAAAdzdWJkYXRh\n"
+ },
+ "_subscriber_data": "subdata",
+ "_target": "maint"
+}

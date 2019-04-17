@@ -1,0 +1,68 @@
+api = 'Authorization_List_Query'
+kwargs = {'target': '', 'for_id': '*', 'function_id': '*'}
+result = \
+{
+ "_auth_record_array": [
+  {
+   "for_list_indicator": 0,
+   "for_userid": "ALL",
+   "function_list_indicator": 0,
+   "function_userid": "ALL",
+   "requesting_list_indicator": 0,
+   "requesting_userid": "IBMVM1"
+  },
+  {
+   "for_list_indicator": 0,
+   "for_userid": "ALL",
+   "function_list_indicator": 0,
+   "function_userid": "ALL",
+   "requesting_list_indicator": 0,
+   "requesting_userid": "MAINT"
+  },
+  {
+   "for_list_indicator": 0,
+   "for_userid": "ALL",
+   "function_list_indicator": 0,
+   "function_userid": "ALL",
+   "requesting_list_indicator": 0,
+   "requesting_userid": "MGMT"
+  },
+  {
+   "for_list_indicator": 0,
+   "for_userid": "ALL",
+   "function_list_indicator": 0,
+   "function_userid": "ALL",
+   "requesting_list_indicator": 0,
+   "requesting_userid": "M1"
+  },
+  {
+   "for_list_indicator": 0,
+   "for_userid": "ALL",
+   "function_list_indicator": 0,
+   "function_userid": "ALL",
+   "requesting_list_indicator": 0,
+   "requesting_userid": "M2"
+  },
+  {
+   "for_list_indicator": 0,
+   "for_userid": "ALL",
+   "function_list_indicator": 0,
+   "function_userid": "ALL",
+   "requesting_list_indicator": 0,
+   "requesting_userid": "GT@PING"
+  }
+ ],
+ "_for_id": "*",
+ "_function_id": "*",
+ "_function_name": "Authorization_List_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAMAAAAAAAAAAAAAAAAAAAACwAAAAGwAAAAZJQk1WTTEAAAAAA0FMTAAAAAADQUxMAAAA\nABoAAAAFTUFJTlQAAAAAA0FMTAAAAAADQUxMAAAAABkAAAAETUdNVAAAAAADQUxMAAAAAANBTEwA\nAAAAFwAAAAJNMQAAAAADQUxMAAAAAANBTEwAAAAAFwAAAAJNMgAAAAADQUxMAAAAAANBTEwAAAAA\nHAAAAAdHVEBQSU5HAAAAAANBTEwAAAAAA0FMTAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPAAAABhBdXRob3JpemF0aW9uX0xpc3RfUXVlcnkAAAAFbWFpbnQAAAAFbWFpbnQAAAAAAAAA\nASoAAAABKg==\n"
+ },
+ "_target": ""
+}

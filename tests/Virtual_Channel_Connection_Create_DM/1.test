@@ -1,0 +1,18 @@
+api = 'Virtual_Channel_Connection_Create_DM'
+kwargs = {'target': 'gt@ping', 'image_device_number': 'f100', 'coupled_image_name': 'gt@ping'}
+result = \
+{
+ "_coupled_image_name": "gt@ping",
+ "_function_name": "Virtual_Channel_Connection_Create_DM",
+ "_image_device_number": "f100",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAWAAAACRWaXJ0dWFsX0NoYW5uZWxfQ29ubmVjdGlvbl9DcmVhdGVfRE0AAAAFbWFpbnQAAAAF\nbWFpbnQAAAAHZ3RAcGluZwAAAARmMTAwAAAAB2d0QHBpbmc=\n"
+ },
+ "_target": "gt@ping"
+}

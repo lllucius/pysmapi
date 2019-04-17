@@ -1,0 +1,17 @@
+api = 'Virtual_Network_Adapter_Delete_DM'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9000'}
+result = \
+{
+ "_function_name": "Virtual_Network_Adapter_Delete_DM",
+ "_image_device_number": "9000",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAASgAAACFWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9EZWxldGVfRE0AAAAFbWFpbnQAAAAFbWFp\nbnQAAAAHZ3RAcG9uZwAAAAQ5MDAw\n"
+ },
+ "_target": "gt@pong"
+}

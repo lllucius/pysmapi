@@ -1,0 +1,17 @@
+api = 'Virtual_Channel_Connection_Delete'
+kwargs = {'target': 'gt@ping', 'image_device_number': 'f100'}
+result = \
+{
+ "_function_name": "Virtual_Channel_Connection_Delete",
+ "_image_device_number": "f100",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAASgAAACFWaXJ0dWFsX0NoYW5uZWxfQ29ubmVjdGlvbl9EZWxldGUAAAAFbWFpbnQAAAAFbWFp\nbnQAAAAHZ3RAcGluZwAAAARmMTAw\n"
+ },
+ "_target": "gt@ping"
+}

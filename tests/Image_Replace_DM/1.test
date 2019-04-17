@@ -1,0 +1,26 @@
+api = 'Image_Replace_DM'
+kwargs = {'target': 'gt@pong', 'image_record_array': ['USER gt@pong @sm8pi@ 1G 1G ABCDEFG    ', '  IPL CMS                           ', '  CONSOLE   0009 3215               ', '  SPOOL 00C 2540 READER *           ', '  SPOOL 00D 2540 PUNCH A            ', '  SPOOL 00E 1403 A                  ', '  LINK MAINT 190 190 RR             ', '  LINK MAINT 19E 19E RR             ']}
+result = \
+{
+ "_function_name": "Image_Replace_DM",
+ "_image_record_array": [
+  "USER gt@pong @sm8pi@ 1G 1G ABCDEFG    ",
+  "  IPL CMS                           ",
+  "  CONSOLE   0009 3215               ",
+  "  SPOOL 00C 2540 READER *           ",
+  "  SPOOL 00D 2540 PUNCH A            ",
+  "  SPOOL 00E 1403 A                  ",
+  "  LINK MAINT 190 190 RR             ",
+  "  LINK MAINT 19E 19E RR             "
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAABdwAAABBJbWFnZV9SZXBsYWNlX0RNAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcAAAFC\nAAAAJlVTRVIgZ3RAcG9uZyBAc204cGlAIDFHIDFHIEFCQ0RFRkcgICAgAAAAJCAgSVBMIENNUyAg\nICAgICAgICAgICAgICAgICAgICAgICAgIAAAACQgIENPTlNPTEUgICAwMDA5IDMyMTUgICAgICAg\nICAgICAgICAAAAAkICBTUE9PTCAwMEMgMjU0MCBSRUFERVIgKiAgICAgICAgICAgAAAAJCAgU1BP\nT0wgMDBEIDI1NDAgUFVOQ0ggQSAgICAgICAgICAgIAAAACQgIFNQT09MIDAwRSAxNDAzIEEgICAg\nICAgICAgICAgICAgICAAAAAkICBMSU5LIE1BSU5UIDE5MCAxOTAgUlIgICAgICAgICAgICAgAAAA\nJCAgTElOSyBNQUlOVCAxOUUgMTlFIFJSICAgICAgICAgICAgIA==\n"
+ },
+ "_target": "gt@pong"
+}

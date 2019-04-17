@@ -1,0 +1,40 @@
+api = 'System_SCSI_Disk_Query'
+kwargs = {'target': 'gt@ping', 'dev_num': 'ALL'}
+result = \
+{
+ "_dev_num": "ALL",
+ "_function_name": "System_SCSI_Disk_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAADsAAAAAAAAAAAAAAAA2MDAwIEZCQSBTQ1NJIDAANjAwMSBGQkEgU0NTSSAwADcwMDAg\nRkJBIFNDU0kgMA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_scsi_info_array": [
+  {
+   "dev_attr": "SCSI",
+   "dev_id": "6000",
+   "dev_size": "0",
+   "dev_type": "FBA",
+   "fcp_array": []
+  },
+  {
+   "dev_attr": "SCSI",
+   "dev_id": "6001",
+   "dev_size": "0",
+   "dev_type": "FBA",
+   "fcp_array": []
+  },
+  {
+   "dev_attr": "SCSI",
+   "dev_id": "7000",
+   "dev_size": "0",
+   "dev_type": "FBA",
+   "fcp_array": []
+  }
+ ],
+ "_send": {
+  "py/b64": "AAAAQwAAABZTeXN0ZW1fU0NTSV9EaXNrX1F1ZXJ5AAAABW1haW50AAAABW1haW50AAAAB2d0QHBp\nbmdkZXZfbnVtPUFMTAA=\n"
+ },
+ "_target": "gt@ping"
+}

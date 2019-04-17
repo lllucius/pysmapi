@@ -1,0 +1,62 @@
+api = 'Image_Active_Configuration_Query'
+kwargs = {'target': 'gt@pong'}
+result = \
+{
+ "_cpu_info_array": [
+  {
+   "cpu_id": "FF01917729640000",
+   "cpu_number": 0,
+   "cpu_status": 1
+  }
+ ],
+ "_device_info_array": [
+  {
+   "device_address": "0009",
+   "device_type": 1
+  },
+  {
+   "device_address": "000C",
+   "device_type": 2
+  },
+  {
+   "device_address": "000D",
+   "device_type": 3
+  },
+  {
+   "device_address": "000E",
+   "device_type": 4
+  },
+  {
+   "device_address": "0190",
+   "device_type": 5
+  },
+  {
+   "device_address": "019E",
+   "device_type": 5
+  },
+  {
+   "device_address": "0777",
+   "device_type": 5
+  },
+  {
+   "device_address": "0888",
+   "device_type": 5
+  }
+ ],
+ "_function_name": "Image_Active_Configuration_Query",
+ "_memory_size": 1,
+ "_memory_unit": 3,
+ "_number_cpus": 1,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAKoAAAAAAAAAAAAAAAAAAAABAwEAAAADMTAwAAAAAQAAAB0AAAAZAAAAAAAAABBGRjAx\nOTE3NzI5NjQwMDAwAQAAAGgAAAAJAQAAAAQwMDA5AAAACQIAAAAEMDAwQwAAAAkDAAAABDAwMEQA\nAAAJBAAAAAQwMDBFAAAACQUAAAAEMDE5MAAAAAkFAAAABDAxOUUAAAAJBQAAAAQwNzc3AAAACQUA\nAAAEMDg4OA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAQQAAACBJbWFnZV9BY3RpdmVfQ29uZmlndXJhdGlvbl9RdWVyeQAAAAVtYWludAAAAAVtYWlu\ndAAAAAdndEBwb25n\n"
+ },
+ "_share_type": 1,
+ "_share_value": "100",
+ "_target": "gt@pong"
+}

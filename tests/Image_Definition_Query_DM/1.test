@@ -1,0 +1,24 @@
+api = 'Image_Definition_Query_DM'
+kwargs = {'target': 'gt@ping', 'definition_query_directory_keyword_parameter_list': ['BOGUS_KEYWORD=BAD']}
+result = \
+{
+ "_definition_query_directory_keyword_parameter_list": [
+  "BOGUS_KEYWORD=BAD"
+ ],
+ "_directory_information_data": [],
+ "_error_data": [
+  "UNKNOWN_DIRECTORY_KEYWORD_PARAMETER=BOGUS_KEYWORD=BAD",
+  ""
+ ],
+ "_function_name": "Image_Definition_Query_DM",
+ "_reason_code": 3002,
+ "_recv": {
+  "py/b64": "AAAAAAAAAEYAAAAAAAAACAAAC7oAAAA2VU5LTk9XTl9ESVJFQ1RPUllfS0VZV09SRF9QQVJBTUVU\nRVI9Qk9HVVNfS0VZV09SRD1CQUQA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAUAAAABlJbWFnZV9EZWZpbml0aW9uX1F1ZXJ5X0RNAAAABW1haW50AAAABW1haW50AAAAB2d0\nQHBpbmcAAAASQk9HVVNfS0VZV09SRD1CQUQA\n"
+ },
+ "_target": "gt@ping"
+}

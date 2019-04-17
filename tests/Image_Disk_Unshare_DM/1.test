@@ -1,0 +1,19 @@
+api = 'Image_Disk_Unshare_DM'
+kwargs = {'target': 'gt@pong', 'target_image_name': 'gt@ping', 'image_disk_number': '777', 'target_image_disk_number': '555'}
+result = \
+{
+ "_function_name": "Image_Disk_Unshare_DM",
+ "_image_disk_number": "777",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATwAAABVJbWFnZV9EaXNrX1Vuc2hhcmVfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9u\nZwAAAAM3NzcAAAAHZ3RAcGluZwAAAAM1NTU=\n"
+ },
+ "_target": "gt@pong",
+ "_target_image_disk_number": "555",
+ "_target_image_name": "gt@ping"
+}

@@ -1,0 +1,19 @@
+api = 'Image_Recycle'
+kwargs = {'target': 'gt@pong'}
+result = \
+{
+ "_failing_array": [],
+ "_function_name": "Image_Recycle",
+ "_not_recycled": 0,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_recycled": 0,
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAALgAAAA1JbWFnZV9SZWN5Y2xlAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmc=\n"
+ },
+ "_target": "gt@pong"
+}

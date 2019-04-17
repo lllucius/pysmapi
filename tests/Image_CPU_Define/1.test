@@ -1,0 +1,18 @@
+api = 'Image_CPU_Define'
+kwargs = {'target': 'gt@pong', 'cpu_address': '01', 'cpu_type': 2}
+result = \
+{
+ "_cpu_address": "01",
+ "_cpu_type": 2,
+ "_function_name": "Image_CPU_Define",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOAAAABBJbWFnZV9DUFVfRGVmaW5lAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcAAAAC\nMDEC\n"
+ },
+ "_target": "gt@pong"
+}

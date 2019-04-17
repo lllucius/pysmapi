@@ -1,0 +1,26 @@
+api = 'Virtual_Network_LAN_Query'
+kwargs = {'target': 'maint', 'lan_name': 'gt@vsw1', 'lan_owner': 'SYSTEM'}
+result = \
+{
+ "_function_name": "Virtual_Network_LAN_Query",
+ "_lan_info_array": [
+  {
+   "connected_adapter_array": [],
+   "lan_name": "GT@VSW1 ",
+   "lan_owner": "SYSTEM  ",
+   "lan_type": 2
+  }
+ ],
+ "_lan_name": "gt@vsw1",
+ "_lan_owner": "SYSTEM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAADEAAAAAAAAAAAAAAAAAAAAhAAAAHQAAAAhHVEBWU1cxIAAAAAhTWVNURU0gIAIAAAAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATQAAABlWaXJ0dWFsX05ldHdvcmtfTEFOX1F1ZXJ5AAAABW1haW50AAAABW1haW50AAAABW1h\naW50AAAAB2d0QHZzdzEAAAAGU1lTVEVN\n"
+ },
+ "_target": "maint"
+}

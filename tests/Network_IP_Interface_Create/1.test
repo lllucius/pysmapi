@@ -1,0 +1,32 @@
+api = 'Network_IP_Interface_Create'
+kwargs = {'target': 'maint', 'tcpip_stack': 'tcpip', 'interface_id': 'eth99', 'permanent': 'no', 'primary_ipv4': '192.168.1.99', 'interface': 'VETH F100 SYSTEM TEST', 'cpu': '0', 'transport_type': 'IP', 'mtu': '0', 'noforward': 'OFF', 'pathmtu': 'yes', 'port_name': 'testport', 'port_number': '3', 'vlan': '43'}
+result = \
+{
+ "_cpu": "0",
+ "_error_data": "",
+ "_function_name": "Network_IP_Interface_Create",
+ "_interface": "VETH F100 SYSTEM TEST",
+ "_interface_id": "eth99",
+ "_mtu": "0",
+ "_noforward": "OFF",
+ "_p2p": "",
+ "_pathmtu": "yes",
+ "_permanent": "no",
+ "_port_name": "testport",
+ "_port_number": "3",
+ "_primary_ipv4": "192.168.1.99",
+ "_primary_ipv6": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAABBwAAABtOZXR3b3JrX0lQX0ludGVyZmFjZV9DcmVhdGUAAAAFbWFpbnQAAAAFbWFpbnQAAAAF\nbWFpbnR0Y3BpcF9zdGFjaz10Y3BpcABpbnRlcmZhY2VfaWQ9ZXRoOTkAcGVybWFuZW50PW5vAHBy\naW1hcnlfaXB2ND0xOTIuMTY4LjEuOTkAaW50ZXJmYWNlPVZFVEggRjEwMCBTWVNURU0gVEVTVABj\ncHU9MAB0cmFuc3BvcnRfdHlwZT1JUABtdHU9MABub2ZvcndhcmQ9T0ZGAHBhdGhtdHU9eWVzAHBv\ncnRfbmFtZT10ZXN0cG9ydABwb3J0X251bWJlcj0zAHZsYW49NDMA\n"
+ },
+ "_target": "maint",
+ "_tcpip_stack": "tcpip",
+ "_transport_type": "IP",
+ "_vlan": "43"
+}

@@ -1,0 +1,20 @@
+api = 'Image_Deactivate'
+kwargs = {'target': 'gt@pong', 'force_time': 'immed'}
+result = \
+{
+ "_deactivated": 0,
+ "_failing_array": [],
+ "_force_time": "immed",
+ "_function_name": "Image_Deactivate",
+ "_not_deactivated": 0,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOgAAABBJbWFnZV9EZWFjdGl2YXRlAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcAAAAF\naW1tZWQ=\n"
+ },
+ "_target": "gt@pong"
+}

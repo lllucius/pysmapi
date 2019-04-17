@@ -1,0 +1,202 @@
+api = 'System_Disk_Query'
+kwargs = {'target': 'maint', 'dev_num': 'ALL'}
+result = \
+{
+ "_dev_num": "ALL",
+ "_disk_info_array": [
+  {
+   "dev_id": "1000",
+   "dev_size": "",
+   "dev_status": "OWNED",
+   "dev_type": "3390-0C",
+   "dev_volser": "VMCOM1"
+  },
+  {
+   "dev_id": "1001",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "710RL1"
+  },
+  {
+   "dev_id": "1002",
+   "dev_size": "",
+   "dev_status": "OWNED",
+   "dev_type": "3390-0C",
+   "dev_volser": "M01RES"
+  },
+  {
+   "dev_id": "1003",
+   "dev_size": "",
+   "dev_status": "OWNED",
+   "dev_type": "3390-0C",
+   "dev_volser": "M01S01"
+  },
+  {
+   "dev_id": "1004",
+   "dev_size": "",
+   "dev_status": "OWNED",
+   "dev_type": "3390-0C",
+   "dev_volser": "M01P01"
+  },
+  {
+   "dev_id": "1006",
+   "dev_size": "",
+   "dev_status": "OWNED",
+   "dev_type": "3390-0C",
+   "dev_volser": "M02S01"
+  },
+  {
+   "dev_id": "1100",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "SHR100"
+  },
+  {
+   "dev_id": "2000",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "VM2000"
+  },
+  {
+   "dev_id": "2001",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "VM2001"
+  },
+  {
+   "dev_id": "2002",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "VM2002"
+  },
+  {
+   "dev_id": "2003",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "VM2003"
+  },
+  {
+   "dev_id": "2004",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "VM2004"
+  },
+  {
+   "dev_id": "3000",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX3000"
+  },
+  {
+   "dev_id": "3001",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX3001"
+  },
+  {
+   "dev_id": "3002",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX3002"
+  },
+  {
+   "dev_id": "3003",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX3003"
+  },
+  {
+   "dev_id": "3004",
+   "dev_size": "",
+   "dev_status": "SYSTEM",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX3004"
+  },
+  {
+   "dev_id": "1005",
+   "dev_size": "",
+   "dev_status": "FREE",
+   "dev_type": "3390-0C",
+   "dev_volser": "M02RES"
+  },
+  {
+   "dev_id": "1007",
+   "dev_size": "",
+   "dev_status": "FREE",
+   "dev_type": "3390-0C",
+   "dev_volser": "M02P01"
+  },
+  {
+   "dev_id": "4000",
+   "dev_size": "",
+   "dev_status": "FREE",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX4000"
+  },
+  {
+   "dev_id": "4001",
+   "dev_size": "",
+   "dev_status": "FREE",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX4001"
+  },
+  {
+   "dev_id": "4002",
+   "dev_size": "",
+   "dev_status": "FREE",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX4002"
+  },
+  {
+   "dev_id": "4003",
+   "dev_size": "",
+   "dev_status": "FREE",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX4003"
+  },
+  {
+   "dev_id": "4004",
+   "dev_size": "",
+   "dev_status": "FREE",
+   "dev_type": "3390-0C",
+   "dev_volser": "LX4004"
+  },
+  {
+   "dev_id": "6000",
+   "dev_size": "",
+   "dev_status": "OFFLINE",
+   "dev_type": "0000-00",
+   "dev_volser": ""
+  },
+  {
+   "dev_id": "6001",
+   "dev_size": "",
+   "dev_status": "OFFLINE",
+   "dev_type": "0000-00",
+   "dev_volser": ""
+  }
+ ],
+ "_disk_size": "",
+ "_function_name": "System_Disk_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAq0AAAAAAAAAAAAAAAAxMDAwIDMzOTAtMEMgT1dORUQgVk1DT00xADEwMDEgMzM5MC0w\nQyBTWVNURU0gNzEwUkwxADEwMDIgMzM5MC0wQyBPV05FRCBNMDFSRVMAMTAwMyAzMzkwLTBDIE9X\nTkVEIE0wMVMwMQAxMDA0IDMzOTAtMEMgT1dORUQgTTAxUDAxADEwMDYgMzM5MC0wQyBPV05FRCBN\nMDJTMDEAMTEwMCAzMzkwLTBDIFNZU1RFTSBTSFIxMDAAMjAwMCAzMzkwLTBDIFNZU1RFTSBWTTIw\nMDAAMjAwMSAzMzkwLTBDIFNZU1RFTSBWTTIwMDEAMjAwMiAzMzkwLTBDIFNZU1RFTSBWTTIwMDIA\nMjAwMyAzMzkwLTBDIFNZU1RFTSBWTTIwMDMAMjAwNCAzMzkwLTBDIFNZU1RFTSBWTTIwMDQAMzAw\nMCAzMzkwLTBDIFNZU1RFTSBMWDMwMDAAMzAwMSAzMzkwLTBDIFNZU1RFTSBMWDMwMDEAMzAwMiAz\nMzkwLTBDIFNZU1RFTSBMWDMwMDIAMzAwMyAzMzkwLTBDIFNZU1RFTSBMWDMwMDMAMzAwNCAzMzkw\nLTBDIFNZU1RFTSBMWDMwMDQAMTAwNSAzMzkwLTBDIEZSRUUgTTAyUkVTADEwMDcgMzM5MC0wQyBG\nUkVFIE0wMlAwMQA0MDAwIDMzOTAtMEMgRlJFRSBMWDQwMDAANDAwMSAzMzkwLTBDIEZSRUUgTFg0\nMDAxADQwMDIgMzM5MC0wQyBGUkVFIExYNDAwMgA0MDAzIDMzOTAtMEMgRlJFRSBMWDQwMDMANDAw\nNCAzMzkwLTBDIEZSRUUgTFg0MDA0ADYwMDAgMDAwMC0wMCBPRkZMSU5FIAA2MDAxIDAwMDAtMDAg\nT0ZGTElORSAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPAAAABFTeXN0ZW1fRGlza19RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludGRldl9u\ndW09QUxMAA==\n"
+ },
+ "_target": "maint"
+}

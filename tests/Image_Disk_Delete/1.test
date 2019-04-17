@@ -1,0 +1,17 @@
+api = 'Image_Disk_Delete'
+kwargs = {'target': 'gt@pong', 'image_disk_number': '999'}
+result = \
+{
+ "_function_name": "Image_Disk_Delete",
+ "_image_disk_number": "999",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOQAAABFJbWFnZV9EaXNrX0RlbGV0ZQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwb25nAAAA\nAzk5OQ==\n"
+ },
+ "_target": "gt@pong"
+}

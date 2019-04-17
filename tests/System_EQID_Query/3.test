@@ -1,0 +1,33 @@
+api = 'System_EQID_Query'
+kwargs = {'target': 'maint', 'eqid_for': 'EQID', 'eqid_target': 'EXTERN'}
+result = \
+{
+ "_eqid_array": [
+  {
+   "eqid_name": "EXTERN",
+   "eqid_rdev": "00500"
+  },
+  {
+   "eqid_name": "EXTERN",
+   "eqid_rdev": "00501"
+  },
+  {
+   "eqid_name": "EXTERN",
+   "eqid_rdev": "00502"
+  }
+ ],
+ "_eqid_for": "EQID",
+ "_eqid_target": "EXTERN",
+ "_error_data": "",
+ "_function_name": "System_EQID_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAACkAAAAAAAAAAAAAAAAAAAAZRVhURVJOIDAwNTAwIDAwNTAxIDAwNTAyAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUQAAABFTeXN0ZW1fRVFJRF9RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludGVxaWRf\nZm9yPUVRSUQAZXFpZF90YXJnZXQ9RVhURVJOAA==\n"
+ },
+ "_target": "maint"
+}

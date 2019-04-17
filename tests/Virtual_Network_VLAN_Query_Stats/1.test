@@ -1,0 +1,37 @@
+api = 'Virtual_Network_VLAN_Query_Stats'
+kwargs = {'target': 'maint', 'userid': 'tcpip', 'device': 'BOTH'}
+result = \
+{
+ "_device": "BOTH",
+ "_fmt_version": "",
+ "_function_name": "Virtual_Network_VLAN_Query_Stats",
+ "_port_nic_array": [
+  {
+   "nic_addr": "F000",
+   "port_name": "",
+   "port_nic_num": "2176",
+   "pseg_array": [
+    {
+     "pseg_rx": "1117",
+     "pseg_rx_disc": "0",
+     "pseg_tx": "577",
+     "pseg_tx_disc": "0",
+     "pseg_vlanid": "0"
+    }
+   ],
+   "type": "NIC"
+  }
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAADUAAAAAAAAAAAAAAAAAAAAlAAAAIU5JQyBGMDAwIDIxNzYAAAAADzAgMTExNyAwIDU3\nNyAwAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAWAAAACBWaXJ0dWFsX05ldHdvcmtfVkxBTl9RdWVyeV9TdGF0cwAAAAVtYWludAAAAAVtYWlu\ndAAAAAVtYWludHVzZXJpZD10Y3BpcABkZXZpY2U9Qk9USAA=\n"
+ },
+ "_target": "maint",
+ "_userid": "tcpip",
+ "_vlan_id": ""
+}

@@ -1,0 +1,17 @@
+api = 'Image_Unlock_DM'
+kwargs = {'target': 'gt@pong', 'device_address': '888'}
+result = \
+{
+ "_device_address": "888",
+ "_function_name": "Image_Unlock_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAANwAAAA9JbWFnZV9VbmxvY2tfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwAAAAM4\nODg=\n"
+ },
+ "_target": "gt@pong"
+}

@@ -1,0 +1,19 @@
+api = 'VMRELOCATE_Image_Attributes'
+kwargs = {'target': 'gt@pong', 'relocation_setting': 'ON', 'domain_name': 'SSI', 'archforce': 'NO'}
+result = \
+{
+ "_archforce": "NO",
+ "_domain_name": "SSI",
+ "_function_name": "VMRELOCATE_Image_Attributes",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_relocation_setting": "ON",
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAbwAAABtWTVJFTE9DQVRFX0ltYWdlX0F0dHJpYnV0ZXMAAAAFbWFpbnQAAAAFbWFpbnQAAAAH\nZ3RAcG9uZ3JlbG9jYXRpb25fc2V0dGluZz1PTgBkb21haW5fbmFtZT1TU0kAYXJjaGZvcmNlPU5P\nAA==\n"
+ },
+ "_target": "gt@pong"
+}

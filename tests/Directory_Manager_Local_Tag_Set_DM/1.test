@@ -1,0 +1,18 @@
+api = 'Directory_Manager_Local_Tag_Set_DM'
+kwargs = {'target': 'gt@ping', 'tag_name': 'Tag1', 'tag_value': 'Val1'}
+result = \
+{
+ "_function_name": "Directory_Manager_Local_Tag_Set_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUwAAACJEaXJlY3RvcnlfTWFuYWdlcl9Mb2NhbF9UYWdfU2V0X0RNAAAABW1haW50AAAABW1h\naW50AAAAB2d0QHBpbmcAAAAEVGFnMQAAAARWYWwx\n"
+ },
+ "_tag_name": "Tag1",
+ "_tag_value": "Val1",
+ "_target": "gt@ping"
+}

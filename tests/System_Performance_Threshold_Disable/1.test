@@ -1,0 +1,17 @@
+api = 'System_Performance_Threshold_Disable'
+kwargs = {'target': 'maint', 'event_type': 'system_cpu'}
+result = \
+{
+ "_event_type": "system_cpu",
+ "_function_name": "System_Performance_Threshold_Disable",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATgAAACRTeXN0ZW1fUGVyZm9ybWFuY2VfVGhyZXNob2xkX0Rpc2FibGUAAAAFbWFpbnQAAAAF\nbWFpbnQAAAAFbWFpbnRzeXN0ZW1fY3B1AA==\n"
+ },
+ "_target": "maint"
+}

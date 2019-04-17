@@ -1,0 +1,115 @@
+api = 'Image_MDISK_Link_Query'
+kwargs = {'target': 'tcpip', 'vdev': '592'}
+result = \
+{
+ "_function_name": "Image_MDISK_Link_Query",
+ "_link_array": [
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "DTCVSW2",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "DTCVSW1",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "DTCVSW3",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "DTCVSW4",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "SSLDCSSM",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "SSL",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMGUARD",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMWORK1",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMWORK2",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMWORK3",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "DTCSMAPI",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "OPERATNS",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMEVSRV",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMREQIN",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMSSLIN",
+   "vaddr": "0592"
+  },
+  {
+   "access_mode": "READ",
+   "system_name": "VM1",
+   "user": "VSMREQIU",
+   "vaddr": "0592"
+  }
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAccAAAAAAAAAAAAAAAAAAAG3Vk0xICAgICAgRFRDVlNXMiAwNTkyIFJFQUQAVk0xICAg\nICAgRFRDVlNXMSAwNTkyIFJFQUQAVk0xICAgICAgRFRDVlNXMyAwNTkyIFJFQUQAVk0xICAgICAg\nRFRDVlNXNCAwNTkyIFJFQUQAVk0xICAgICAgU1NMRENTU00gMDU5MiBSRUFEAFZNMSAgICAgIFNT\nTCAwNTkyIFJFQUQAVk0xICAgICAgVlNNR1VBUkQgMDU5MiBSRUFEAFZNMSAgICAgIFZTTVdPUksx\nIDA1OTIgUkVBRABWTTEgICAgICBWU01XT1JLMiAwNTkyIFJFQUQAVk0xICAgICAgVlNNV09SSzMg\nMDU5MiBSRUFEAFZNMSAgICAgIERUQ1NNQVBJIDA1OTIgUkVBRABWTTEgICAgICBPUEVSQVROUyAw\nNTkyIFJFQUQAVk0xICAgICAgVlNNRVZTUlYgMDU5MiBSRUFEAFZNMSAgICAgIFZTTVJFUUlOIDA1\nOTIgUkVBRABWTTEgICAgICBWU01TU0xJTiAwNTkyIFJFQUQAVk0xICAgICAgVlNNUkVRSVUgMDU5\nMiBSRUFEAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPgAAABZJbWFnZV9NRElTS19MaW5rX1F1ZXJ5AAAABW1haW50AAAABW1haW50AAAABXRjcGlw\ndmRldj01OTIA\n"
+ },
+ "_target": "tcpip",
+ "_vdev": "592"
+}

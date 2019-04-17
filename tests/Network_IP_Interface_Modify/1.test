@@ -1,0 +1,25 @@
+api = 'Network_IP_Interface_Modify'
+kwargs = {'target': 'maint', 'tcpip_stack': 'tcpip', 'interface_id': 'eth99', 'permanent': 'yes', 'add_ip': '192.168.1.99/28'}
+result = \
+{
+ "_add_ip": "192.168.1.99/28",
+ "_change_mask": "",
+ "_change_mtu": "",
+ "_change_p2p": "",
+ "_delete_ip": "",
+ "_error_data": "DTCIFC2612E Unknown interface: ETH99",
+ "_function_name": "Network_IP_Interface_Modify",
+ "_interface_id": "eth99",
+ "_permanent": "yes",
+ "_reason_code": 12,
+ "_recv": {
+  "py/b64": "AAAAAAAAADUAAAAAAAAACAAAAAwAAAAkRFRDSUZDMjYxMkUgVW5rbm93biBpbnRlcmZhY2U6IEVU\nSDk5AA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAhAAAABtOZXR3b3JrX0lQX0ludGVyZmFjZV9Nb2RpZnkAAAAFbWFpbnQAAAAFbWFpbnQAAAAF\nbWFpbnR0Y3BpcF9zdGFjaz10Y3BpcABpbnRlcmZhY2VfaWQ9ZXRoOTkAcGVybWFuZW50PXllcwBh\nZGRfaXA9MTkyLjE2OC4xLjk5LzI4AA==\n"
+ },
+ "_target": "maint",
+ "_tcpip_stack": "tcpip"
+}

@@ -1,0 +1,20 @@
+api = 'Virtual_Network_LAN_Create'
+kwargs = {'target': 'maint', 'lan_name': 'gt@vsw1', 'lan_owner': 'SYSTEM', 'lan_type': 4, 'transport_type': 1}
+result = \
+{
+ "_function_name": "Virtual_Network_LAN_Create",
+ "_lan_name": "gt@vsw1",
+ "_lan_owner": "SYSTEM",
+ "_lan_type": 4,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUAAAABpWaXJ0dWFsX05ldHdvcmtfTEFOX0NyZWF0ZQAAAAVtYWludAAAAAVtYWludAAAAAVt\nYWludAAAAAdndEB2c3cxAAAABlNZU1RFTQQB\n"
+ },
+ "_target": "maint",
+ "_transport_type": 1
+}

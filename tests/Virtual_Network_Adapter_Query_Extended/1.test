@@ -1,0 +1,58 @@
+api = 'Virtual_Network_Adapter_Query_Extended'
+kwargs = {'target': 'gt@pong', 'image_device_number': '*'}
+result = \
+{
+ "_function_name": "Virtual_Network_Adapter_Query_Extended",
+ "_image_device_number": "*",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAgwAAAAAAAAAAAAAAAAAAAH8YWRhcHRlcl9jb3VudD0zAGFkYXB0ZXJfYWRkcmVzcz05\nMDAwAHBvcnRfdHlwZT0wAGV4dGVuZGVkX3BvcnRfc3RhdHVzPTAwAGFkYXB0ZXJfdHlwZT0yAG5l\ndHdvcmtfZGV2aWNlX2NvdW50PTMAYWRhcHRlcl9zdGF0dXM9MDEAbGFuX293bmVyPVNZU1RFTQBs\nYW5fbmFtZT1HVEBWU1cxAGFkYXB0ZXJfaW5mb19lbmQAYWRhcHRlcl9hZGRyZXNzPTkxMDAAcG9y\ndF90eXBlPTAAZXh0ZW5kZWRfcG9ydF9zdGF0dXM9MDAAYWRhcHRlcl90eXBlPTIAbmV0d29ya19k\nZXZpY2VfY291bnQ9MwBhZGFwdGVyX3N0YXR1cz0wMQBsYW5fb3duZXI9U1lTVEVNAGxhbl9uYW1l\nPUdUQFZTVzEAYWRhcHRlcl9pbmZvX2VuZABhZGFwdGVyX2FkZHJlc3M9OTIwMABwb3J0X3R5cGU9\nMABleHRlbmRlZF9wb3J0X3N0YXR1cz0wMABhZGFwdGVyX3R5cGU9MgBuZXR3b3JrX2RldmljZV9j\nb3VudD0zAGFkYXB0ZXJfc3RhdHVzPTAxAGxhbl9vd25lcj1TWVNURU0AbGFuX25hbWU9R1RAVlNX\nMQBhZGFwdGVyX2luZm9fZW5kAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAYQAAACZWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9RdWVyeV9FeHRlbmRlZAAAAAVtYWludAAA\nAAVtYWludAAAAAdndEBwb25nAAAAFmltYWdlX2RldmljZV9udW1iZXI9KgA=\n"
+ },
+ "_target": "gt@pong",
+ "_virtual_network_adapter_data": [
+  {
+   "adapter_address": "9000",
+   "adapter_status": "01",
+   "adapter_type": "2",
+   "device_options": null,
+   "extended_port_status": "00",
+   "lan_name": "GT@VSW1",
+   "lan_owner": "SYSTEM",
+   "mac_addresses": [],
+   "network_device_count": "3",
+   "port_type": "0",
+   "router_status": null
+  },
+  {
+   "adapter_address": "9100",
+   "adapter_status": "01",
+   "adapter_type": "2",
+   "device_options": null,
+   "extended_port_status": "00",
+   "lan_name": "GT@VSW1",
+   "lan_owner": "SYSTEM",
+   "mac_addresses": [],
+   "network_device_count": "3",
+   "port_type": "0",
+   "router_status": null
+  },
+  {
+   "adapter_address": "9200",
+   "adapter_status": "01",
+   "adapter_type": "2",
+   "device_options": null,
+   "extended_port_status": "00",
+   "lan_name": "GT@VSW1",
+   "lan_owner": "SYSTEM",
+   "mac_addresses": [],
+   "network_device_count": "3",
+   "port_type": "0",
+   "router_status": null
+  }
+ ]
+}

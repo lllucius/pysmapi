@@ -1,0 +1,19 @@
+api = 'Virtual_Network_Adapter_Connect_LAN'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9000', 'lan_name': 'gt@vsw1', 'lan_owner': 'SYSTEM'}
+result = \
+{
+ "_function_name": "Virtual_Network_Adapter_Connect_LAN",
+ "_image_device_number": "9000",
+ "_lan_name": "gt@vsw1",
+ "_lan_owner": "SYSTEM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAYQAAACNWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9Db25uZWN0X0xBTgAAAAVtYWludAAAAAVt\nYWludAAAAAdndEBwb25nAAAABDkwMDAAAAAHZ3RAdnN3MQAAAAZTWVNURU0=\n"
+ },
+ "_target": "gt@pong"
+}

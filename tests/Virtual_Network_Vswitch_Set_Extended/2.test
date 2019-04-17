@@ -1,0 +1,54 @@
+api = 'Virtual_Network_Vswitch_Set_Extended'
+kwargs = {'target': 'maint', 'switch_name': 'gt@vsw2', 'port_name': 'pn1 pn2 pn3', 'persist': 'NO'}
+result = \
+{
+ "_MAC_protect": "",
+ "_VLAN_counters": "",
+ "_connection_value": "",
+ "_controller_name": "",
+ "_function_name": "Virtual_Network_Vswitch_Set_Extended",
+ "_grant_userid": "",
+ "_group_rdev": "",
+ "_gvrp_value": "",
+ "_interval": "",
+ "_iptimeout": "",
+ "_ivl_heartbeat": "",
+ "_ivl_vlanid": "",
+ "_lacp": "",
+ "_lacp_group_type": "",
+ "_mac_id": "",
+ "_nic_portselection": "",
+ "_nic_userid": "",
+ "_nic_vdev": "",
+ "_osd_sim": "",
+ "_persist": "NO",
+ "_port_isolation": "",
+ "_port_name": "pn1 pn2 pn3",
+ "_port_type": "",
+ "_portnum": "",
+ "_portnum_modify": "",
+ "_portnum_remove": "",
+ "_promiscuous": "",
+ "_queue_memory_limit": "",
+ "_real_device_address": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_revoke_userid": "",
+ "_routing_value": "",
+ "_send": {
+  "py/b64": "AAAAeAAAACRWaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9TZXRfRXh0ZW5kZWQAAAAFbWFpbnQAAAAF\nbWFpbnQAAAAFbWFpbnRzd2l0Y2hfbmFtZT1ndEB2c3cyAHBvcnRfbmFtZT1wbjEgcG4yIHBuMwBw\nZXJzaXN0PU5PAA==\n"
+ },
+ "_switch_name": "gt@vsw2",
+ "_target": "maint",
+ "_trace_size": "",
+ "_uplink": "",
+ "_user_vlan_id": "",
+ "_vepa": "",
+ "_vlan_delete": "",
+ "_vlan_port_add": "",
+ "_vlan_port_remove": ""
+}

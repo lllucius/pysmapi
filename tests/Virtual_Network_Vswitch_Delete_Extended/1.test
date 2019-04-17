@@ -1,0 +1,18 @@
+api = 'Virtual_Network_Vswitch_Delete_Extended'
+kwargs = {'target': 'maint', 'switch_name': 'gt@vsw2', 'persist': 'NO'}
+result = \
+{
+ "_function_name": "Virtual_Network_Vswitch_Delete_Extended",
+ "_persist": "NO",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAZQAAACdWaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9EZWxldGVfRXh0ZW5kZWQAAAAFbWFpbnQA\nAAAFbWFpbnQAAAAFbWFpbnRzd2l0Y2hfbmFtZT1ndEB2c3cyAHBlcnNpc3Q9Tk8A\n"
+ },
+ "_switch_name": "gt@vsw2",
+ "_target": "maint"
+}

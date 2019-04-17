@@ -1,0 +1,29 @@
+api = 'Image_Disk_Create_DM'
+kwargs = {'target': 'gt@pong', 'image_disk_number': '999', 'image_disk_device_type': '3390', 'image_disk_allocation_type': 'AUTOG', 'allocation_area_name_or_volser': 'LINUX', 'allocation_unit_size': 1, 'image_disk_size': 10, 'image_disk_mode': 'W', 'image_disk_formatting': 5, 'image_disk_label': 'DSK999', 'read_password': 'READ', 'write_password': 'WRITE', 'multi_password': 'MULTIPLE'}
+result = \
+{
+ "_allocation_area_name_or_volser": "LINUX",
+ "_allocation_unit_size": 1,
+ "_function_name": "Image_Disk_Create_DM",
+ "_image_disk_allocation_type": "AUTOG",
+ "_image_disk_device_type": "3390",
+ "_image_disk_formatting": 5,
+ "_image_disk_label": "DSK999",
+ "_image_disk_mode": "W",
+ "_image_disk_number": "999",
+ "_image_disk_size": 10,
+ "_multi_password": "MULTIPLE",
+ "_operation_id": 0,
+ "_read_password": "READ",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAiAAAABRJbWFnZV9EaXNrX0NyZWF0ZV9ETQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwb25n\nAAAAAzk5OQAAAAQzMzkwAAAABUFVVE9HAAAABUxJTlVYAQAAAAoAAAABVwUAAAAGRFNLOTk5AAAA\nBFJFQUQAAAAFV1JJVEUAAAAITVVMVElQTEU=\n"
+ },
+ "_target": "gt@pong",
+ "_write_password": "WRITE"
+}

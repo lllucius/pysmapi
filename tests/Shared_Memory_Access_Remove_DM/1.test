@@ -1,0 +1,17 @@
+api = 'Shared_Memory_Access_Remove_DM'
+kwargs = {'target': 'maint', 'memory_segment_name': 'SHAREMEM'}
+result = \
+{
+ "_function_name": "Shared_Memory_Access_Remove_DM",
+ "_memory_segment_name": "SHAREMEM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAASQAAAB5TaGFyZWRfTWVtb3J5X0FjY2Vzc19SZW1vdmVfRE0AAAAFbWFpbnQAAAAFbWFpbnQA\nAAAFbWFpbnQAAAAIU0hBUkVNRU0=\n"
+ },
+ "_target": "maint"
+}

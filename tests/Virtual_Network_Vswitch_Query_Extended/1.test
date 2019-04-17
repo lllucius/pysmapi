@@ -1,0 +1,309 @@
+api = 'Virtual_Network_Vswitch_Query_Extended'
+kwargs = {'target': 'maint', 'switch_name': '*', 'vepa_status': 'YES'}
+result = \
+{
+ "_function_name": "Virtual_Network_Vswitch_Query_Extended",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAABf0AAAAAAAAAAAAAAAAAAAAFAAABQgAAAKBEVENTTUFQSSBFVEhFUk5FVCBOT05FIDgg\nTkEgVU5BV0FSRSAwMDAwMCAwMDAwMCAwMi0wMC0wMS0wMC0wMC0wNSBOT0dWUlAgTk9HVlJQIDEg\nTEFHOiAwIChOT0dSUCkgNSBRRElPIE5PSVNPTEFUSU9OIFVOU1BFQ0lGSUVEIFVTRVJCQVNFRCBO\nT0NPVU5URVJTIE9GRiAoTk9ORSkAAAAAAAAAAEEwMDAwIERUQ1NNQVBJIE5PUFJPTSBOT09TRFNJ\nTSAwIAAwMDAwIExPSENPU1QgTk9QUk9NIE5PT1NEU0lNIDAgAAAAAElEVENTTUFQSSAwMTAwIDAy\nLTAwLTAxLTAwLTAwLTA2IFFESU8ATE9IQ09TVCBGMDAwIDAyLTAwLTAxLTAwLTAwLTA3IFFESU8A\nAAAAAAAAAAAAAAFNAAAAnkVYVEVSTiBFVEhFUk5FVCBOT05FIDggTkEgVU5BV0FSRSAwMDAwMCAw\nMDAwMCAwMi0wMC0wMS0wMC0wMC0wMSBOT0dWUlAgTk9HVlJQIDggTEFHOiAwIChOT0dSUCkgNSBR\nRElPIE5PSVNPTEFUSU9OIFVOU1BFQ0lGSUVEIFVTRVJCQVNFRCBOT0NPVU5URVJTIE9GRiAoTk9O\nRSkAAAAAHTA1MDAgMDYwMCBEVENWU1cyIChOT05FKSAxIDAAAAAAOTAwMDAgVENQSVAgTk9QUk9N\nIE5PT1NEU0lNIDAgADAwMDAgTTEgTk9QUk9NIE5PT1NEU0lNIDAgAAAAAEFNMSBGMDAwIDAyLTAw\nLTAxLTAwLTAwLTA0IFFESU8AVENQSVAgRjAwMCAwMi0wMC0wMS0wMC0wMC0wMyBRRElPAAAAAAAA\nAAAAAAABAgAAALJHVEBWU1dJIEVUSEVSTkVUIEFDQ0VTUyA4IE5BIEFXQVJFIDAxMDI0IDAyMDQ5\nIDAyLTAwLTAxLTAwLTAwLTBCIEdWUlAgTk9HVlJQIDMgTEFHOi1HUk9VUC1MQUNQLUVYQ0xVU0lW\nRSAzMDAgR1RAVlNXSSA1IElWTCBOT0lTT0xBVElPTiBNQUNQUk9URUNUIFBPUlRCQVNFRCBOT0NP\nVU5URVJTIE9GRiAoTk9ORSkAAAAAODA2MjAgMDAwMCAoTk9ORSkgKE5PTkUpIDAgMAAwNjIwIDAw\nMDAgKE5PTkUpIChOT05FKSAwIDAAAAAAAAAAAAAAAAAAAAAAAAAAAUgAAAChR1RAVlNXMSBJUCBO\nT05FIDggTk9OUk9VVEVSIFVOQVdBUkUgMDAwMDAgMDAwMDAgMDItMDAtMDEtMDAtMDAtMDIgTk9H\nVlJQIE5PR1ZSUCAzIExBRzogMCAoTk9HUlApIDUgUURJTyBOT0lTT0xBVElPTiBOT01BQ1BST1RF\nQ1QgVVNFUkJBU0VEIE5PQ09VTlRFUlMgT0ZGIChOT05FKQAAAABRMDAwMCAwMDAwIChOT05FKSBO\nQU1FMSAwIDAAMDAwMCAwMDAwIChOT05FKSBOQU1FMSAwIDAAMDAwMCAwMDAwIChOT05FKSBOQU1F\nMSAwIDAAAAAAPjAwMDAgTUFJTlQgTk9QUk9NIE5PT1NEU0lNIDAgADAwMDAgR1RAUE9ORyBOT1BS\nT00gTk9PU0RTSU0gMCAAAAAAAAAAAAAAAAAAAAABAAAAALBHVEBWU1cyIEVUSEVSTkVUIFRSVU5L\nIDggTkEgQVdBUkUgMDEwMjQgMDIwNDkgMDItMDAtMDAtMTItMzQtNTYgR1ZSUCBOT0dWUlAgMyBM\nQUc6LUdST1VQLUxBQ1AtRVhDTFVTSVZFIDMwIEdUQFZTVzIgMjQwIFFESU8gTk9JU09MQVRJT04g\nTUFDUFJPVEVDVCBQT1JUQkFTRUQgQ09VTlRFUlMgT04gKE5PTkUpAAAAADgwNjQwIDAwMDAgKE5P\nTkUpIChOT05FKSAwIDAAMDY0MCAwMDAwIChOT05FKSAoTk9ORSkgMCAwAAAAAAAAAAAAAAAAAAAA\nAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAYwAAACZWaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9RdWVyeV9FeHRlbmRlZAAAAAVtYWludAAA\nAAVtYWludAAAAAVtYWludHN3aXRjaF9uYW1lPSoAdmVwYV9zdGF0dXM9WUVTAA==\n"
+ },
+ "_switch_name": "*",
+ "_target": "maint",
+ "_vepa_status": "YES",
+ "_vswitch_array": [
+  {
+   "IP_timeout": "5",
+   "MAC_protect": "UNSPECIFIED",
+   "VLAN_counters": "NOCOUNTERS",
+   "authorized_user_array": [
+    {
+     "grant_userid": "DTCSMAPI",
+     "osd_sim": "NOOSDSIM",
+     "port_num": "0000",
+     "promiscuous_mode": "NOPROM",
+     "vlan_array": []
+    },
+    {
+     "grant_userid": "LOHCOST",
+     "osd_sim": "NOOSDSIM",
+     "port_num": "0000",
+     "promiscuous_mode": "NOPROM",
+     "vlan_array": []
+    }
+   ],
+   "connected_adapter_array": [
+    {
+     "adapter_macaddr": "02-00-01-00-00-06",
+     "adapter_owner": "DTCSMAPI",
+     "adapter_type": "QDIO",
+     "adapter_vdev": "0100"
+    },
+    {
+     "adapter_macaddr": "02-00-01-00-00-07",
+     "adapter_owner": "LOHCOST",
+     "adapter_type": "QDIO",
+     "adapter_vdev": "F000"
+    }
+   ],
+   "global_member_array": [],
+   "gvrp_enabled_attribute": "NOGVRP",
+   "gvrp_request_attribute": "NOGVRP",
+   "isolation_status": "NOISOLATION",
+   "lag_group": "(NOGRP)",
+   "lag_interval": "0",
+   "link_ag": "LAG:",
+   "mac_address": "02-00-01-00-00-05",
+   "native_vlan_id": "00000",
+   "port_type": "NONE",
+   "queue_memory_limit": "8",
+   "real_device_info_array": [],
+   "routing_value": "NA",
+   "spg_scope": "(NONE)",
+   "switch_name": "DTCSMAPI",
+   "switch_status": "1",
+   "switch_type": "QDIO",
+   "transport_type": "ETHERNET",
+   "uplink_structure": [],
+   "user_port_based": "USERBASED",
+   "vepa_status": "OFF",
+   "vlan_awareness": "UNAWARE",
+   "vlan_id": "00000"
+  },
+  {
+   "IP_timeout": "5",
+   "MAC_protect": "UNSPECIFIED",
+   "VLAN_counters": "NOCOUNTERS",
+   "authorized_user_array": [
+    {
+     "grant_userid": "TCPIP",
+     "osd_sim": "NOOSDSIM",
+     "port_num": "0000",
+     "promiscuous_mode": "NOPROM",
+     "vlan_array": []
+    },
+    {
+     "grant_userid": "M1",
+     "osd_sim": "NOOSDSIM",
+     "port_num": "0000",
+     "promiscuous_mode": "NOPROM",
+     "vlan_array": []
+    }
+   ],
+   "connected_adapter_array": [
+    {
+     "adapter_macaddr": "02-00-01-00-00-04",
+     "adapter_owner": "M1",
+     "adapter_type": "QDIO",
+     "adapter_vdev": "F000"
+    },
+    {
+     "adapter_macaddr": "02-00-01-00-00-03",
+     "adapter_owner": "TCPIP",
+     "adapter_type": "QDIO",
+     "adapter_vdev": "F000"
+    }
+   ],
+   "global_member_array": [],
+   "gvrp_enabled_attribute": "NOGVRP",
+   "gvrp_request_attribute": "NOGVRP",
+   "isolation_status": "NOISOLATION",
+   "lag_group": "(NOGRP)",
+   "lag_interval": "0",
+   "link_ag": "LAG:",
+   "mac_address": "02-00-01-00-00-01",
+   "native_vlan_id": "00000",
+   "port_type": "NONE",
+   "queue_memory_limit": "8",
+   "real_device_info_array": [
+    {
+     "controller_name": "DTCVSW2",
+     "device_error_status": "0",
+     "device_status": "1",
+     "port_name": "(NONE)",
+     "real_device_address": "0500",
+     "virtual_device_address": "0600"
+    }
+   ],
+   "routing_value": "NA",
+   "spg_scope": "(NONE)",
+   "switch_name": "EXTERN",
+   "switch_status": "8",
+   "switch_type": "QDIO",
+   "transport_type": "ETHERNET",
+   "uplink_structure": [],
+   "user_port_based": "USERBASED",
+   "vepa_status": "OFF",
+   "vlan_awareness": "UNAWARE",
+   "vlan_id": "00000"
+  },
+  {
+   "IP_timeout": "5",
+   "MAC_protect": "MACPROTECT",
+   "VLAN_counters": "NOCOUNTERS",
+   "authorized_user_array": [],
+   "connected_adapter_array": [],
+   "global_member_array": [],
+   "gvrp_enabled_attribute": "NOGVRP",
+   "gvrp_request_attribute": "GVRP",
+   "isolation_status": "NOISOLATION",
+   "lag_group": "GT@VSWI",
+   "lag_interval": "300",
+   "link_ag": "LAG:-GROUP-LACP-EXCLUSIVE",
+   "mac_address": "02-00-01-00-00-0B",
+   "native_vlan_id": "02049",
+   "port_type": "ACCESS",
+   "queue_memory_limit": "8",
+   "real_device_info_array": [
+    {
+     "controller_name": "(NONE)",
+     "device_error_status": "0",
+     "device_status": "0",
+     "port_name": "(NONE)",
+     "real_device_address": "0620",
+     "virtual_device_address": "0000"
+    },
+    {
+     "controller_name": "(NONE)",
+     "device_error_status": "0",
+     "device_status": "0",
+     "port_name": "(NONE)",
+     "real_device_address": "0620",
+     "virtual_device_address": "0000"
+    }
+   ],
+   "routing_value": "NA",
+   "spg_scope": "(NONE)",
+   "switch_name": "GT@VSWI",
+   "switch_status": "3",
+   "switch_type": "IVL",
+   "transport_type": "ETHERNET",
+   "uplink_structure": [],
+   "user_port_based": "PORTBASED",
+   "vepa_status": "OFF",
+   "vlan_awareness": "AWARE",
+   "vlan_id": "01024"
+  },
+  {
+   "IP_timeout": "5",
+   "MAC_protect": "NOMACPROTECT",
+   "VLAN_counters": "NOCOUNTERS",
+   "authorized_user_array": [
+    {
+     "grant_userid": "MAINT",
+     "osd_sim": "NOOSDSIM",
+     "port_num": "0000",
+     "promiscuous_mode": "NOPROM",
+     "vlan_array": []
+    },
+    {
+     "grant_userid": "GT@PONG",
+     "osd_sim": "NOOSDSIM",
+     "port_num": "0000",
+     "promiscuous_mode": "NOPROM",
+     "vlan_array": []
+    }
+   ],
+   "connected_adapter_array": [],
+   "global_member_array": [],
+   "gvrp_enabled_attribute": "NOGVRP",
+   "gvrp_request_attribute": "NOGVRP",
+   "isolation_status": "NOISOLATION",
+   "lag_group": "(NOGRP)",
+   "lag_interval": "0",
+   "link_ag": "LAG:",
+   "mac_address": "02-00-01-00-00-02",
+   "native_vlan_id": "00000",
+   "port_type": "NONE",
+   "queue_memory_limit": "8",
+   "real_device_info_array": [
+    {
+     "controller_name": "(NONE)",
+     "device_error_status": "0",
+     "device_status": "0",
+     "port_name": "NAME1",
+     "real_device_address": "0000",
+     "virtual_device_address": "0000"
+    },
+    {
+     "controller_name": "(NONE)",
+     "device_error_status": "0",
+     "device_status": "0",
+     "port_name": "NAME1",
+     "real_device_address": "0000",
+     "virtual_device_address": "0000"
+    },
+    {
+     "controller_name": "(NONE)",
+     "device_error_status": "0",
+     "device_status": "0",
+     "port_name": "NAME1",
+     "real_device_address": "0000",
+     "virtual_device_address": "0000"
+    }
+   ],
+   "routing_value": "NONROUTER",
+   "spg_scope": "(NONE)",
+   "switch_name": "GT@VSW1",
+   "switch_status": "3",
+   "switch_type": "QDIO",
+   "transport_type": "IP",
+   "uplink_structure": [],
+   "user_port_based": "USERBASED",
+   "vepa_status": "OFF",
+   "vlan_awareness": "UNAWARE",
+   "vlan_id": "00000"
+  },
+  {
+   "IP_timeout": "240",
+   "MAC_protect": "MACPROTECT",
+   "VLAN_counters": "COUNTERS",
+   "authorized_user_array": [],
+   "connected_adapter_array": [],
+   "global_member_array": [],
+   "gvrp_enabled_attribute": "NOGVRP",
+   "gvrp_request_attribute": "GVRP",
+   "isolation_status": "NOISOLATION",
+   "lag_group": "GT@VSW2",
+   "lag_interval": "30",
+   "link_ag": "LAG:-GROUP-LACP-EXCLUSIVE",
+   "mac_address": "02-00-00-12-34-56",
+   "native_vlan_id": "02049",
+   "port_type": "TRUNK",
+   "queue_memory_limit": "8",
+   "real_device_info_array": [
+    {
+     "controller_name": "(NONE)",
+     "device_error_status": "0",
+     "device_status": "0",
+     "port_name": "(NONE)",
+     "real_device_address": "0640",
+     "virtual_device_address": "0000"
+    },
+    {
+     "controller_name": "(NONE)",
+     "device_error_status": "0",
+     "device_status": "0",
+     "port_name": "(NONE)",
+     "real_device_address": "0640",
+     "virtual_device_address": "0000"
+    }
+   ],
+   "routing_value": "NA",
+   "spg_scope": "(NONE)",
+   "switch_name": "GT@VSW2",
+   "switch_status": "3",
+   "switch_type": "QDIO",
+   "transport_type": "ETHERNET",
+   "uplink_structure": [],
+   "user_port_based": "PORTBASED",
+   "vepa_status": "ON",
+   "vlan_awareness": "AWARE",
+   "vlan_id": "01024"
+  }
+ ]
+}

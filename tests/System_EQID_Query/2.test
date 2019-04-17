@@ -1,0 +1,25 @@
+api = 'System_EQID_Query'
+kwargs = {'target': 'maint', 'eqid_for': 'RDEV', 'eqid_target': '00500'}
+result = \
+{
+ "_eqid_array": [
+  {
+   "eqid_name": "EXTERN",
+   "eqid_rdev": "00500"
+  }
+ ],
+ "_eqid_for": "RDEV",
+ "_eqid_target": "00500",
+ "_error_data": "",
+ "_function_name": "System_EQID_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAB0AAAAAAAAAAAAAAAAAAAANMDA1MDAgRVhURVJOAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUAAAABFTeXN0ZW1fRVFJRF9RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludGVxaWRf\nZm9yPVJERVYAZXFpZF90YXJnZXQ9MDA1MDAA\n"
+ },
+ "_target": "maint"
+}

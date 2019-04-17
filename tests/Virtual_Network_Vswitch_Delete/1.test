@@ -1,0 +1,28 @@
+api = 'Virtual_Network_Vswitch_Delete'
+kwargs = {'target': 'maint', 'switch_name': 'gt@vsw1', 'update_system_config_indicator': 2, 'system_config_name': 'SYSTEM', 'system_config_type': 'CONFIG', 'parm_disk_owner': 'PMAINT', 'parm_disk_number': 'CF0', 'parm_disk_password': 'MULTIPLE', 'alt_system_config_name': 'ALT', 'alt_system_config_type': 'CONFIG', 'alt_parm_disk_owner': 'PMAINT', 'alt_parm_disk_number': 'CF0', 'alt_parm_disk_password': 'MULTIPLE'}
+result = \
+{
+ "_alt_parm_disk_number": "CF0",
+ "_alt_parm_disk_owner": "PMAINT",
+ "_alt_parm_disk_password": "MULTIPLE",
+ "_alt_system_config_name": "ALT",
+ "_alt_system_config_type": "CONFIG",
+ "_function_name": "Virtual_Network_Vswitch_Delete",
+ "_parm_disk_number": "CF0",
+ "_parm_disk_owner": "PMAINT",
+ "_parm_disk_password": "MULTIPLE",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAqAAAAB5WaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9EZWxldGUAAAAFbWFpbnQAAAAFbWFpbnQA\nAAAFbWFpbnQAAAAHZ3RAdnN3MQIAAAAGU1lTVEVNAAAABkNPTkZJRwAAAAZQTUFJTlQAAAADQ0Yw\nAAAACE1VTFRJUExFAAAAA0FMVAAAAAZDT05GSUcAAAAGUE1BSU5UAAAAA0NGMAAAAAhNVUxUSVBM\nRQ==\n"
+ },
+ "_switch_name": "gt@vsw1",
+ "_system_config_name": "SYSTEM",
+ "_system_config_type": "CONFIG",
+ "_target": "maint",
+ "_update_system_config_indicator": 2
+}

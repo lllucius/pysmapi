@@ -1,0 +1,29 @@
+api = 'System_Page_Utilization_Query'
+kwargs = {'target': 'maint'}
+result = \
+{
+ "_function_name": "System_Page_Utilization_Query",
+ "_paging_volume_array": [
+  {
+   "drained": "NOTDRAINED",
+   "pages_in_use": "0",
+   "percent_used": "0",
+   "rdev": "1004",
+   "total_pages": "5758K",
+   "volid": "M01P01"
+  }
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAADsAAAAAAAAAAAAAAAAAAAArNTc1OEsgMCAwIE0wMVAwMSAxMDA0IDU3NThLIDAgMCBO\nT1REUkFJTkVEAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPAAAAB1TeXN0ZW1fUGFnZV9VdGlsaXphdGlvbl9RdWVyeQAAAAVtYWludAAAAAVtYWludAAA\nAAVtYWludA==\n"
+ },
+ "_target": "maint",
+ "_total_paging_pages": "5758K",
+ "_total_paging_pages_in_use": "0",
+ "_total_paging_percent_used": "0"
+}

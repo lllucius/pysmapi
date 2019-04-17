@@ -1,0 +1,33 @@
+api = 'Image_CPU_Query'
+kwargs = {'target': 'gt@pong'}
+result = \
+{
+ "_cpu_info_array": [
+  {
+   "cpu_base": 1,
+   "cpu_id": "FF01917729640000",
+   "cpu_number": 0,
+   "cpu_status": 3,
+   "cpu_type": 2
+  },
+  {
+   "cpu_base": 0,
+   "cpu_id": "FF01917729640000",
+   "cpu_number": 1,
+   "cpu_status": 1,
+   "cpu_type": 2
+  }
+ ],
+ "_function_name": "Image_CPU_Query",
+ "_number_cpus": 2,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAFIAAAAAAAAAAAAAAAAAAAACAAAAPgAAABsAAAAAAAAAEEZGMDE5MTc3Mjk2NDAwMDAB\nAwIAAAAbAAAAAQAAABBGRjAxOTE3NzI5NjQwMDAwAAEC\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAMAAAAA9JbWFnZV9DUFVfUXVlcnkAAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZw==\n"
+ },
+ "_target": "gt@pong"
+}

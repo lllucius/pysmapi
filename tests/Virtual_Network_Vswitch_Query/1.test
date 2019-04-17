@@ -1,0 +1,204 @@
+api = 'Virtual_Network_Vswitch_Query'
+kwargs = {'target': 'maint', 'switch_name': '*'}
+result = \
+{
+ "_function_name": "Virtual_Network_Vswitch_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAwEAAAAAAAAAAAAAAAAAAALxAAAAigAAAAhEVENTTUFQSQIAAAAACAEAAAAAAAAAAAAA\nAgABAAAFAgIBAAAAAAAAACgAAAAQAAAACERUQ1NNQVBJAAAAAAAAABAAAAAITE9IQ09TVCAAAAAA\nAAAAMAAAABQAAAAIRFRDU01BUEkAAAAEMDEwMAAAABQAAAAITE9IQ09TVCAAAAAERjAwMAAAAKoA\nAAAGRVhURVJOAgAAAAAIAQAAAAAAAAAAAAACAAEAAAECAggAAAAiAAAAHgAABQAAAAAIRFRDVlNX\nMiAAAAAIICAgICAgICABAAAAACgAAAAQAAAACFRDUElQICAgAAAAAAAAABAAAAAITTEgICAgICAA\nAAAAAAAAMAAAABQAAAAITTEgICAgICAAAAAERjAwMAAAABQAAAAIVENQSVAgICAAAAAERjAwMAAA\nAHUAAAAHR1RAVlNXSQIBAAAACAEAAAQAAAAIAQAAAgABAAALAQIDAAAARAAAAB4AAAYgAAAACCAg\nICAgICAgAAAACCAgICAgICAgAAAAAAAeAAAGMAAAAAggICAgICAgIAAAAAggICAgICAgIAAAAAAA\nAAAAAAAAAAC/AAAAB0dUQFZTVzEBAAAAAAgBAAAAAAAAAAAAAAIAAQAAAgICAwAAAGYAAAAeAAAA\nAAAAAAggICAgICAgIAAAAAhOQU1FMSAgIAAAAAAAHgAAAAAAAAAIICAgICAgICAAAAAITkFNRTIg\nICAAAAAAAB4AAAAAAAAACCAgICAgICAgAAAACE5BTUUzICAgAAAAAAAoAAAAEAAAAAhNQUlOVCAg\nIAAAAAAAAAAQAAAACEdUQFBPTkcgAAAAAAAAAAAAAAB1AAAAB0dUQFZTVzICAgAAAAgBAAAEAAAA\nCAEAAAIAABI0VgECAwAAAEQAAAAeAAAGQAAAAAggICAgICAgIAAAAAggICAgICAgIAAAAAAAHgAA\nBlAAAAAIICAgICAgICAAAAAIICAgICAgICAAAAAAAAAAAAAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAQQAAAB1WaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9RdWVyeQAAAAVtYWludAAAAAVtYWludAAA\nAAVtYWludAAAAAEq\n"
+ },
+ "_switch_name": "*",
+ "_target": "maint",
+ "_vswitch_array": [
+  {
+   "authorized_user_array": [
+    {
+     "grant_userid": "DTCSMAPI",
+     "vlan_array": []
+    },
+    {
+     "grant_userid": "LOHCOST ",
+     "vlan_array": []
+    }
+   ],
+   "connected_adapter_array": [
+    {
+     "adapter_owner": "DTCSMAPI",
+     "image_device_number": "0100"
+    },
+    {
+     "adapter_owner": "LOHCOST ",
+     "image_device_number": "F000"
+    }
+   ],
+   "gvrp_enabled_attribute": 2,
+   "gvrp_request_attribute": 2,
+   "mac_id": 2199040032773,
+   "native_vlan_id": 0,
+   "port_type": 0,
+   "queue_memory_limit": 8,
+   "real_device_array": [],
+   "routing_value": 1,
+   "switch_name": "DTCSMAPI",
+   "switch_status": 1,
+   "transport_type": 2,
+   "vlan_id": 0
+  },
+  {
+   "authorized_user_array": [
+    {
+     "grant_userid": "TCPIP   ",
+     "vlan_array": []
+    },
+    {
+     "grant_userid": "M1      ",
+     "vlan_array": []
+    }
+   ],
+   "connected_adapter_array": [
+    {
+     "adapter_owner": "M1      ",
+     "image_device_number": "F000"
+    },
+    {
+     "adapter_owner": "TCPIP   ",
+     "image_device_number": "F000"
+    }
+   ],
+   "gvrp_enabled_attribute": 2,
+   "gvrp_request_attribute": 2,
+   "mac_id": 2199040032769,
+   "native_vlan_id": 0,
+   "port_type": 0,
+   "queue_memory_limit": 8,
+   "real_device_array": [
+    {
+     "controller_name": "DTCVSW2 ",
+     "device_error_status": 0,
+     "device_status": 1,
+     "port_name": "        ",
+     "real_device_address": 1280
+    }
+   ],
+   "routing_value": 1,
+   "switch_name": "EXTERN",
+   "switch_status": 8,
+   "transport_type": 2,
+   "vlan_id": 0
+  },
+  {
+   "authorized_user_array": [],
+   "connected_adapter_array": [],
+   "gvrp_enabled_attribute": 2,
+   "gvrp_request_attribute": 1,
+   "mac_id": 2199040032779,
+   "native_vlan_id": 2049,
+   "port_type": 1,
+   "queue_memory_limit": 8,
+   "real_device_array": [
+    {
+     "controller_name": "        ",
+     "device_error_status": 0,
+     "device_status": 0,
+     "port_name": "        ",
+     "real_device_address": 1568
+    },
+    {
+     "controller_name": "        ",
+     "device_error_status": 0,
+     "device_status": 0,
+     "port_name": "        ",
+     "real_device_address": 1584
+    }
+   ],
+   "routing_value": 1,
+   "switch_name": "GT@VSWI",
+   "switch_status": 3,
+   "transport_type": 2,
+   "vlan_id": 1024
+  },
+  {
+   "authorized_user_array": [
+    {
+     "grant_userid": "MAINT   ",
+     "vlan_array": []
+    },
+    {
+     "grant_userid": "GT@PONG ",
+     "vlan_array": []
+    }
+   ],
+   "connected_adapter_array": [],
+   "gvrp_enabled_attribute": 2,
+   "gvrp_request_attribute": 2,
+   "mac_id": 2199040032770,
+   "native_vlan_id": 0,
+   "port_type": 0,
+   "queue_memory_limit": 8,
+   "real_device_array": [
+    {
+     "controller_name": "        ",
+     "device_error_status": 0,
+     "device_status": 0,
+     "port_name": "NAME1   ",
+     "real_device_address": 0
+    },
+    {
+     "controller_name": "        ",
+     "device_error_status": 0,
+     "device_status": 0,
+     "port_name": "NAME2   ",
+     "real_device_address": 0
+    },
+    {
+     "controller_name": "        ",
+     "device_error_status": 0,
+     "device_status": 0,
+     "port_name": "NAME3   ",
+     "real_device_address": 0
+    }
+   ],
+   "routing_value": 1,
+   "switch_name": "GT@VSW1",
+   "switch_status": 3,
+   "transport_type": 1,
+   "vlan_id": 0
+  },
+  {
+   "authorized_user_array": [],
+   "connected_adapter_array": [],
+   "gvrp_enabled_attribute": 2,
+   "gvrp_request_attribute": 1,
+   "mac_id": 2199024448598,
+   "native_vlan_id": 2049,
+   "port_type": 2,
+   "queue_memory_limit": 8,
+   "real_device_array": [
+    {
+     "controller_name": "        ",
+     "device_error_status": 0,
+     "device_status": 0,
+     "port_name": "        ",
+     "real_device_address": 1600
+    },
+    {
+     "controller_name": "        ",
+     "device_error_status": 0,
+     "device_status": 0,
+     "port_name": "        ",
+     "real_device_address": 1616
+    }
+   ],
+   "routing_value": 1,
+   "switch_name": "GT@VSW2",
+   "switch_status": 3,
+   "transport_type": 2,
+   "vlan_id": 1024
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+api = 'Network_IP_Interface_Query'
+kwargs = {'target': 'maint', 'tcpip_stack': 'tcpip', 'interface_id': 'eth99'}
+result = \
+{
+ "_function_name": "Network_IP_Interface_Query",
+ "_interface_all": "",
+ "_interface_configuration_array": [],
+ "_interface_id": "eth99",
+ "_reason_code": 4,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAACAAAAAQ=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAXgAAABpOZXR3b3JrX0lQX0ludGVyZmFjZV9RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVt\nYWludHRjcGlwX3N0YWNrPXRjcGlwAGludGVyZmFjZV9pZD1ldGg5OQA=\n"
+ },
+ "_target": "maint",
+ "_tcpip_stack": "tcpip"
+}

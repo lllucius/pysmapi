@@ -1,0 +1,26 @@
+api = 'Metadata_Set'
+kwargs = {'target': 'maint', 'metadata_entry_array': [['key1', 'val1'], ['key2', 'val2']]}
+result = \
+{
+ "_function_name": "Metadata_Set",
+ "_metadata_entry_array": [
+  [
+   "key1",
+   "val1"
+  ],
+  [
+   "key2",
+   "val2"
+  ]
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAVwAAAAxNZXRhZGF0YV9TZXQAAAAFbWFpbnQAAAAFbWFpbnQAAAAFbWFpbnQAAAAoAAAAEAAA\nAARrZXkxAAAABHZhbDEAAAAQAAAABGtleTIAAAAEdmFsMg==\n"
+ },
+ "_target": "maint"
+}

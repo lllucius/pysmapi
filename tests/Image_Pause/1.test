@@ -1,0 +1,17 @@
+api = 'Image_Pause'
+kwargs = {'target': 'gt@pong', 'action': 'pause'}
+result = \
+{
+ "_action": "pause",
+ "_function_name": "Image_Pause",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOQAAAAtJbWFnZV9QYXVzZQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwb25nYWN0aW9uPXBh\ndXNlAA==\n"
+ },
+ "_target": "gt@pong"
+}

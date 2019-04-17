@@ -1,0 +1,20 @@
+api = 'Network_IP_Interface_Remove'
+kwargs = {'target': 'maint', 'tcpip_stack': 'tcpip', 'interface_id': 'eth99', 'permanent': 'yes'}
+result = \
+{
+ "_error_data": "DTCIFC2612E Unknown interface: ETH99",
+ "_function_name": "Network_IP_Interface_Remove",
+ "_interface_id": "eth99",
+ "_permanent": "yes",
+ "_reason_code": 12,
+ "_recv": {
+  "py/b64": "AAAAAAAAADQAAAAAAAAACAAAAAwAAAAkRFRDSUZDMjYxMkUgVW5rbm93biBpbnRlcmZhY2U6IEVU\nSDk5\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAbQAAABtOZXR3b3JrX0lQX0ludGVyZmFjZV9SZW1vdmUAAAAFbWFpbnQAAAAFbWFpbnQAAAAF\nbWFpbnR0Y3BpcF9zdGFjaz10Y3BpcABpbnRlcmZhY2VfaWQ9ZXRoOTkAcGVybWFuZW50PXllcwA=\n"
+ },
+ "_target": "maint",
+ "_tcpip_stack": "tcpip"
+}

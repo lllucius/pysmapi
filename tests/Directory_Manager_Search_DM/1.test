@@ -1,0 +1,31 @@
+api = 'Directory_Manager_Search_DM'
+kwargs = {'target': 'maint', 'search_pattern': 'user sys*'}
+result = \
+{
+ "_function_name": "Directory_Manager_Search_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAKwAAAAAAAAAAAAAAAAAAACcAAAAA1NZUwAAACRVU0VSIFNZUyAgICAgIE5PTE9HICAg\nICAgMzJNICAgMzJNIEcAAAAIU1lTQURNSU4AAAAjVVNFUiBTWVNBRE1JTiBTWVNBRE1JTiAgMTZN\nICAgMTZNIEcAAAAIU1lTTUFJTlQAAAAqVVNFUiBTWVNNQUlOVCBOT0xPRyAgICAgIDMyTSAgIDMy\nTSBBQkNERUZH\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_search_pattern": "user sys*",
+ "_send": {
+  "py/b64": "AAAARwAAABtEaXJlY3RvcnlfTWFuYWdlcl9TZWFyY2hfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAF\nbWFpbnQAAAAJdXNlciBzeXMq\n"
+ },
+ "_statement_array": [
+  {
+   "statement": "USER SYS      NOLOG      32M   32M G",
+   "target_id": "SYS"
+  },
+  {
+   "statement": "USER SYSADMIN SYSADMIN  16M   16M G",
+   "target_id": "SYSADMIN"
+  },
+  {
+   "statement": "USER SYSMAINT NOLOG      32M   32M ABCDEFG",
+   "target_id": "SYSMAINT"
+  }
+ ],
+ "_target": "maint"
+}

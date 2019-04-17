@@ -1,0 +1,17 @@
+api = 'Image_Definition_Async_Updates'
+kwargs = {'target': 'maint', 'enabled': 'no'}
+result = \
+{
+ "_enabled": "no",
+ "_function_name": "Image_Definition_Async_Updates",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAASAAAAB5JbWFnZV9EZWZpbml0aW9uX0FzeW5jX1VwZGF0ZXMAAAAFbWFpbnQAAAAFbWFpbnQA\nAAAFbWFpbnRlbmFibGVkPW5vAA==\n"
+ },
+ "_target": "maint"
+}

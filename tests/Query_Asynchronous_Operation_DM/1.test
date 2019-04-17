@@ -1,0 +1,17 @@
+api = 'Query_Asynchronous_Operation_DM'
+kwargs = {'target': 'maint', 'operation_id': 1234}
+result = \
+{
+ "_function_name": "Query_Asynchronous_Operation_DM",
+ "_operation_id": 1234,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAQgAAAB9RdWVyeV9Bc3luY2hyb25vdXNfT3BlcmF0aW9uX0RNAAAABW1haW50AAAABW1haW50\nAAAABW1haW50AAAE0g==\n"
+ },
+ "_target": "maint"
+}

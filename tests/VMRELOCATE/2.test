@@ -1,0 +1,23 @@
+api = 'VMRELOCATE'
+kwargs = {'target': 'gt@pong', 'destination': 'vm2', 'action': 'move', 'force': 'domain storage', 'immediate': 'no', 'max_total': 'nolimit', 'max_quiesce': 'nolimit'}
+result = \
+{
+ "_VMRELOCATE_error_record": [],
+ "_action": "move",
+ "_destination": "vm2",
+ "_force": "domain storage",
+ "_function_name": "VMRELOCATE",
+ "_immediate": "no",
+ "_max_quiesce": "nolimit",
+ "_max_total": "nolimit",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAjwAAAApWTVJFTE9DQVRFAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmdkZXN0aW5hdGlv\nbj12bTIAYWN0aW9uPW1vdmUAZm9yY2U9ZG9tYWluIHN0b3JhZ2UAaW1tZWRpYXRlPW5vAG1heF90\nb3RhbD1ub2xpbWl0AG1heF9xdWllc2NlPW5vbGltaXQA\n"
+ },
+ "_target": "gt@pong"
+}

@@ -1,0 +1,21 @@
+api = 'Virtual_Network_Adapter_Create_Extended_DM'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9100', 'adapter_type': 'qdio', 'devices': '3', 'channel_path_id': '31'}
+result = \
+{
+ "_adapter_type": "qdio",
+ "_channel_path_id": "31",
+ "_devices": "3",
+ "_function_name": "Virtual_Network_Adapter_Create_Extended_DM",
+ "_image_device_number": "9100",
+ "_mac_id": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAlwAAACpWaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9DcmVhdGVfRXh0ZW5kZWRfRE0AAAAFbWFp\nbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwAAAEhpbWFnZV9kZXZpY2VfbnVtYmVyPTkxMDAAYWRhcHRl\ncl90eXBlPXFkaW8AZGV2aWNlcz0zAGNoYW5uZWxfcGF0aF9pZD0zMQA=\n"
+ },
+ "_target": "gt@pong"
+}

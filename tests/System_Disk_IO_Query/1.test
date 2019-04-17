@@ -1,0 +1,19 @@
+api = 'System_Disk_IO_Query'
+kwargs = {'target': 'maint', 'system_disk_io_list': 'rdev=*'}
+result = \
+{
+ "_dasd_information": [],
+ "_error_data": "",
+ "_function_name": "System_Disk_IO_Query",
+ "_reason_code": 3017,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAACAAAC8k=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAPQAAABRTeXN0ZW1fRGlza19JT19RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludAAA\nAAZyZGV2PSo=\n"
+ },
+ "_system_disk_io_list": "rdev=*",
+ "_target": "maint"
+}

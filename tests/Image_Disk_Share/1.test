@@ -1,0 +1,21 @@
+api = 'Image_Disk_Share'
+kwargs = {'target': 'gt@pong', 'target_image_name': 'gt@ping', 'image_disk_number': '557', 'target_image_disk_number': '777', 'read_write_mode': 'MW', 'optional_password': 'MULTIPLE'}
+result = \
+{
+ "_function_name": "Image_Disk_Share",
+ "_image_disk_number": "557",
+ "_optional_password": "MULTIPLE",
+ "_read_write_mode": "MW",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAXAAAABBJbWFnZV9EaXNrX1NoYXJlAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmcAAAAD\nNTU3AAAAB2d0QHBpbmcAAAADNzc3AAAAAk1XAAAACE1VTFRJUExF\n"
+ },
+ "_target": "gt@pong",
+ "_target_image_disk_number": "777",
+ "_target_image_name": "gt@ping"
+}

@@ -1,0 +1,28 @@
+api = 'Image_Volume_Add'
+kwargs = {'target': 'maint', 'image_device_number': '4000', 'image_vol_id': 'LX4000', 'system_config_name': 'SYSTEM', 'system_config_type': 'CONFIG', 'parm_disk_owner': 'PMAINT', 'parm_disk_number': 'CF0', 'parm_disk_password': 'MULTIPLE', 'alt_system_config_name': 'ALT', 'alt_system_config_type': 'CONFIG', 'alt_parm_disk_owner': 'PMAINT', 'alt_parm_disk_number': 'CF0', 'alt_parm_disk_password': 'MULTIPLE'}
+result = \
+{
+ "_alt_parm_disk_number": "CF0",
+ "_alt_parm_disk_owner": "PMAINT",
+ "_alt_parm_disk_password": "MULTIPLE",
+ "_alt_system_config_name": "ALT",
+ "_alt_system_config_type": "CONFIG",
+ "_function_name": "Image_Volume_Add",
+ "_image_device_number": "4000",
+ "_image_vol_id": "LX4000",
+ "_parm_disk_number": "CF0",
+ "_parm_disk_owner": "PMAINT",
+ "_parm_disk_password": "MULTIPLE",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAoAAAABBJbWFnZV9Wb2x1bWVfQWRkAAAABW1haW50AAAABW1haW50AAAABW1haW50AAAABDQw\nMDAAAAAGTFg0MDAwAAAABlNZU1RFTQAAAAZDT05GSUcAAAAGUE1BSU5UAAAAA0NGMAAAAAhNVUxU\nSVBMRQAAAANBTFQAAAAGQ09ORklHAAAABlBNQUlOVAAAAANDRjAAAAAITVVMVElQTEU=\n"
+ },
+ "_system_config_name": "SYSTEM",
+ "_system_config_type": "CONFIG",
+ "_target": "maint"
+}

@@ -1,0 +1,18 @@
+api = 'Image_Disk_Create'
+kwargs = {'target': 'gt@pong', 'image_disk_number': '999', 'image_disk_mode': 'MR'}
+result = \
+{
+ "_function_name": "Image_Disk_Create",
+ "_image_disk_mode": "MR",
+ "_image_disk_number": "999",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPwAAABFJbWFnZV9EaXNrX0NyZWF0ZQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwb25nAAAA\nAzk5OQAAAAJNUg==\n"
+ },
+ "_target": "gt@pong"
+}

@@ -1,0 +1,28 @@
+api = 'Virtual_Network_LAN_Access_Query'
+kwargs = {'target': 'maint', 'lan_name': 'gt@vsw1', 'lan_owner': 'SYSTEM'}
+result = \
+{
+ "_authorized_users_array": [
+  {
+   "name": "GT@PONG",
+   "promiscuity": "NONPROMISCUOUS"
+  },
+  {
+   "name": "GT@PING",
+   "promiscuity": "PROMISCUOUS"
+  }
+ ],
+ "_function_name": "Virtual_Network_LAN_Access_Query",
+ "_lan_name": "gt@vsw1",
+ "_lan_owner": "SYSTEM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAADkAAAAAAAAAAAAAAABHVEBQT05HICBOT05QUk9NSVNDVU9VUwBHVEBQSU5HICBQUk9N\nSVNDVU9VUwA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAATgAAACBWaXJ0dWFsX05ldHdvcmtfTEFOX0FjY2Vzc19RdWVyeQAAAAVtYWludAAAAAVtYWlu\ndAAAAAVtYWludGd0QHZzdzEAU1lTVEVNAA==\n"
+ },
+ "_target": "maint"
+}

@@ -1,0 +1,167 @@
+api = 'Virtual_Network_Vswitch_Query_Byte_Stats'
+kwargs = {'target': 'maint', 'switch_name': '*'}
+result = \
+{
+ "_function_name": "Virtual_Network_Vswitch_Query_Byte_Stats",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAYoAAAAAAAAAAAAAAAA1AERUQ1NNQVBJADAAMAAwADAAMAAwADAAMAAwADIARFRDU01B\nUEkgMDEwMAAxMQAwADAAMTQAMgAwADc4MgAxMDM2AExPSENPU1QgRjAwMAAxNQAwADAAMTEAOAAw\nADEwNzgANzgyADAARVhURVJOADEAMDUwMAAxNDU3ADAAMAAxNjM5ADAAMAAxMTUwNTMANjMxMTg4\nADAAMAAwADAAMAAwADAAMAAyAE0xIEYwMDAANDIyADAAMAA4NwAwADAAMzE5MjcAMTA3MzgAVENQ\nSVAgRjAwMAAxNzUxADAAMAAxNTUwADEAMAAxMjg1ODAANjIwMzMwADAAR1RAVlNXSQAwADAAMAAw\nADAAMAAwADAAMAAwADAAR1RAVlNXMQAwADAAMAAwADAAMAAwADAAMAAwADAAR1RAVlNXMgAyADA2\nNDAAMAAwADAAMAAwADAAMAAwADA2NTAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAw\nADAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAVQAAAChWaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9RdWVyeV9CeXRlX1N0YXRzAAAABW1haW50\nAAAABW1haW50AAAABW1haW50c3dpdGNoX25hbWU9KgA=\n"
+ },
+ "_switch_name": "*",
+ "_target": "maint",
+ "_vswitch_array": [
+  {
+   "bridge_fr_rx": "0",
+   "bridge_fr_rx_dsc": "0",
+   "bridge_fr_rx_err": "0",
+   "bridge_fr_tx": "0",
+   "bridge_fr_tx_dsc": "0",
+   "bridge_fr_tx_err": "0",
+   "bridge_rx": "0",
+   "bridge_tx": "0",
+   "nic_array": [
+    {
+     "nic_fr_rx": "11",
+     "nic_fr_rx_dsc": "0",
+     "nic_fr_rx_err": "0",
+     "nic_fr_tx": "14",
+     "nic_fr_tx_dsc": "2",
+     "nic_id": "DTCSMAPI 0100",
+     "nic_rx": "782",
+     "nic_tx": "1036",
+     "nicr_tx_dsc_err": "0"
+    },
+    {
+     "nic_fr_rx": "15",
+     "nic_fr_rx_dsc": "0",
+     "nic_fr_rx_err": "0",
+     "nic_fr_tx": "11",
+     "nic_fr_tx_dsc": "8",
+     "nic_id": "LOHCOST F000",
+     "nic_rx": "1078",
+     "nic_tx": "782",
+     "nicr_tx_dsc_err": "0"
+    }
+   ],
+   "switch_name": "DTCSMAPI",
+   "uplink_array": [],
+   "vlan_array": []
+  },
+  {
+   "bridge_fr_rx": "0",
+   "bridge_fr_rx_dsc": "0",
+   "bridge_fr_rx_err": "0",
+   "bridge_fr_tx": "0",
+   "bridge_fr_tx_dsc": "0",
+   "bridge_fr_tx_err": "0",
+   "bridge_rx": "0",
+   "bridge_tx": "0",
+   "nic_array": [
+    {
+     "nic_fr_rx": "422",
+     "nic_fr_rx_dsc": "0",
+     "nic_fr_rx_err": "0",
+     "nic_fr_tx": "87",
+     "nic_fr_tx_dsc": "0",
+     "nic_id": "M1 F000",
+     "nic_rx": "31927",
+     "nic_tx": "10738",
+     "nicr_tx_dsc_err": "0"
+    },
+    {
+     "nic_fr_rx": "1751",
+     "nic_fr_rx_dsc": "0",
+     "nic_fr_rx_err": "0",
+     "nic_fr_tx": "1550",
+     "nic_fr_tx_dsc": "1",
+     "nic_id": "TCPIP F000",
+     "nic_rx": "128580",
+     "nic_tx": "620330",
+     "nicr_tx_dsc_err": "0"
+    }
+   ],
+   "switch_name": "EXTERN",
+   "uplink_array": [
+    {
+     "uplink_fr_rx": "1457",
+     "uplink_fr_rx_dsc": "0",
+     "uplink_fr_rx_err": "0",
+     "uplink_fr_tx": "1639",
+     "uplink_fr_tx_dsc": "0",
+     "uplink_fr_tx_dsc_err": "0",
+     "uplink_rx": "115053",
+     "uplink_tx": "631188"
+    }
+   ],
+   "vlan_array": []
+  },
+  {
+   "bridge_fr_rx": "0",
+   "bridge_fr_rx_dsc": "0",
+   "bridge_fr_rx_err": "0",
+   "bridge_fr_tx": "0",
+   "bridge_fr_tx_dsc": "0",
+   "bridge_fr_tx_err": "0",
+   "bridge_rx": "0",
+   "bridge_tx": "0",
+   "nic_array": [],
+   "switch_name": "GT@VSWI",
+   "uplink_array": [],
+   "vlan_array": []
+  },
+  {
+   "bridge_fr_rx": "0",
+   "bridge_fr_rx_dsc": "0",
+   "bridge_fr_rx_err": "0",
+   "bridge_fr_tx": "0",
+   "bridge_fr_tx_dsc": "0",
+   "bridge_fr_tx_err": "0",
+   "bridge_rx": "0",
+   "bridge_tx": "0",
+   "nic_array": [],
+   "switch_name": "GT@VSW1",
+   "uplink_array": [],
+   "vlan_array": []
+  },
+  {
+   "bridge_fr_rx": "0",
+   "bridge_fr_rx_dsc": "0",
+   "bridge_fr_rx_err": "0",
+   "bridge_fr_tx": "0",
+   "bridge_fr_tx_dsc": "0",
+   "bridge_fr_tx_err": "0",
+   "bridge_rx": "0",
+   "bridge_tx": "0",
+   "nic_array": [],
+   "switch_name": "GT@VSW2",
+   "uplink_array": [
+    {
+     "uplink_fr_rx": "0",
+     "uplink_fr_rx_dsc": "0",
+     "uplink_fr_rx_err": "0",
+     "uplink_fr_tx": "0",
+     "uplink_fr_tx_dsc": "0",
+     "uplink_fr_tx_dsc_err": "0",
+     "uplink_rx": "0",
+     "uplink_tx": "0"
+    },
+    {
+     "uplink_fr_rx": "0",
+     "uplink_fr_rx_dsc": "0",
+     "uplink_fr_rx_err": "0",
+     "uplink_fr_tx": "0",
+     "uplink_fr_tx_dsc": "0",
+     "uplink_fr_tx_dsc_err": "0",
+     "uplink_rx": "0",
+     "uplink_tx": "0"
+    }
+   ],
+   "vlan_array": []
+  }
+ ]
+}

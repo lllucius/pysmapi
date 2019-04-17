@@ -1,0 +1,23 @@
+api = 'Virtual_Network_Vswitch_Query_Stats'
+kwargs = {'target': 'maint', 'switch_name': 'GT@VSW1', 'fmt_version': '4'}
+result = \
+{
+ "_fmt_version": "4",
+ "_function_name": "Virtual_Network_Vswitch_Query_Stats",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAB8AAAAAAAAAAAAAAAAAAAAPAAAAB0dUQFZTVzEAAAAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAZAAAACNWaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9RdWVyeV9TdGF0cwAAAAVtYWludAAAAAVt\nYWludAAAAAVtYWludHN3aXRjaF9uYW1lPUdUQFZTVzEAZm10X3ZlcnNpb249NAA=\n"
+ },
+ "_switch_name": "GT@VSW1",
+ "_target": "maint",
+ "_vswitch_array": [
+  {
+   "switch_name": "GT@VSW1"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+api = 'Image_Disk_Delete_DM'
+kwargs = {'target': 'gt@pong', 'image_disk_number': '999', 'data_security_erase': 1}
+result = \
+{
+ "_data_security_erase": 1,
+ "_function_name": "Image_Disk_Delete_DM",
+ "_image_disk_number": "999",
+ "_operation_id": 4294967295,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAABAAAAAAAAAAAAAAAAD/////\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPQAAABRJbWFnZV9EaXNrX0RlbGV0ZV9ETQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwb25n\nAAAAAzk5OQE=\n"
+ },
+ "_target": "gt@pong"
+}

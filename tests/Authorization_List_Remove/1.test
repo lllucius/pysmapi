@@ -1,0 +1,18 @@
+api = 'Authorization_List_Remove'
+kwargs = {'target': 'gt@ping', 'for_id': 'all', 'function_id': 'all'}
+result = \
+{
+ "_for_id": "all",
+ "_function_id": "all",
+ "_function_name": "Authorization_List_Remove",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAASAAAABlBdXRob3JpemF0aW9uX0xpc3RfUmVtb3ZlAAAABW1haW50AAAABW1haW50AAAAB2d0\nQHBpbmcAAAADYWxsAAAAA2FsbA==\n"
+ },
+ "_target": "gt@ping"
+}

@@ -1,0 +1,19 @@
+api = 'Image_Lock_Query_DM'
+kwargs = {'target': 'gt@pong'}
+result = \
+{
+ "_function_name": "Image_Lock_Query_DM",
+ "_image_locked_by": "MAINT",
+ "_locked_dev_array": [],
+ "_locked_type": "IMAGE",
+ "_reason_code": 12,
+ "_recv": {
+  "py/b64": "AAAAAAAAAB8AAAAAAAAAAAAAAAwAAAALSU1BR0UgTUFJTlQAAAAA\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAANAAAABNJbWFnZV9Mb2NrX1F1ZXJ5X0RNAAAABW1haW50AAAABW1haW50AAAAB2d0QHBvbmc=\n"
+ },
+ "_target": "gt@pong"
+}

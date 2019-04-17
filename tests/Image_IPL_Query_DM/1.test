@@ -1,0 +1,19 @@
+api = 'Image_IPL_Query_DM'
+kwargs = {'target': 'gt@pong'}
+result = \
+{
+ "_function_name": "Image_IPL_Query_DM",
+ "_load_parameter": "LOAD",
+ "_parameter_string": "PARM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAACMAAAAAAAAAAAAAAAAAAAADODg4AAAABExPQUQAAAAEUEFSTQ==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_saved_system": "888",
+ "_send": {
+  "py/b64": "AAAAMwAAABJJbWFnZV9JUExfUXVlcnlfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZw==\n"
+ },
+ "_target": "gt@pong"
+}

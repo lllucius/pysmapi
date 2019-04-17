@@ -1,0 +1,27 @@
+api = 'Metadata_Get'
+kwargs = {'target': 'maint', 'metadata_name_list': 'md_name1 md_name2'}
+result = \
+{
+ "_function_name": "Metadata_Get",
+ "_metadata_entry_array": [
+  {
+   "metadata": "",
+   "metadata_entry_name": "md_name1"
+  },
+  {
+   "metadata": "",
+   "metadata_entry_name": "md_name2"
+  }
+ ],
+ "_metadata_name_list": "md_name1 md_name2",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAADgAAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAhtZF9uYW1lMQAAAAAAAAAQAAAACG1kX25h\nbWUyAAAAAA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPQAAAAxNZXRhZGF0YV9HZXQAAAAFbWFpbnQAAAAFbWFpbnQAAAAFbWFpbnRtZF9uYW1lMSBt\nZF9uYW1lMgA=\n"
+ },
+ "_target": "maint"
+}

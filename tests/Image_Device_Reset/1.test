@@ -1,0 +1,17 @@
+api = 'Image_Device_Reset'
+kwargs = {'target': 'gt@pong', 'image_device_number': '3000'}
+result = \
+{
+ "_function_name": "Image_Device_Reset",
+ "_image_device_number": "3000",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOwAAABJJbWFnZV9EZXZpY2VfUmVzZXQAAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwAA\nAAQzMDAw\n"
+ },
+ "_target": "gt@pong"
+}

@@ -1,0 +1,35 @@
+api = 'Virtual_Network_Vswitch_Create_Extended'
+kwargs = {'target': 'maint', 'switch_name': 'gt@vsw2', 'real_device_address': 'NONE', 'port_name': 'name1 name2 name3', 'controller_name': '*', 'connection_value': 'DISCON', 'queue_memory_limit': '8', 'routing_value': '', 'transport_type': 'ETHERNET', 'vlan_id': '1024', 'port_type': 'TRUNK', 'persist': 'NO', 'gvrp_value': 'GVRP', 'native_vlanid': '2049', 'vswitch_type': 'QDIO', 'iptimeout': '5', 'port_selection': 'USERBASED', 'group_name': 'gt$lap', 'vswitch_global': 'LOCAL'}
+result = \
+{
+ "_connection_value": "DISCON",
+ "_controller_name": "*",
+ "_function_name": "Virtual_Network_Vswitch_Create_Extended",
+ "_group_name": "gt$lap",
+ "_gvrp_value": "GVRP",
+ "_iptimeout": "5",
+ "_native_vlanid": "2049",
+ "_persist": "NO",
+ "_port_name": "name1 name2 name3",
+ "_port_selection": "USERBASED",
+ "_port_type": "TRUNK",
+ "_queue_memory_limit": "8",
+ "_real_device_address": "NONE",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_routing_value": "",
+ "_send": {
+  "py/b64": "AAABjwAAACdWaXJ0dWFsX05ldHdvcmtfVnN3aXRjaF9DcmVhdGVfRXh0ZW5kZWQAAAAFbWFpbnQA\nAAAFbWFpbnQAAAAFbWFpbnRzd2l0Y2hfbmFtZT1ndEB2c3cyAHJlYWxfZGV2aWNlX2FkZHJlc3M9\nTk9ORQBwb3J0X25hbWU9bmFtZTEgbmFtZTIgbmFtZTMAY29udHJvbGxlcl9uYW1lPSoAY29ubmVj\ndGlvbl92YWx1ZT1ESVNDT04AcXVldWVfbWVtb3J5X2xpbWl0PTgAdHJhbnNwb3J0X3R5cGU9RVRI\nRVJORVQAdmxhbl9pZD0xMDI0AHBvcnRfdHlwZT1UUlVOSwBwZXJzaXN0PU5PAGd2cnBfdmFsdWU9\nR1ZSUABuYXRpdmVfdmxhbmlkPTIwNDkAdnN3aXRjaF90eXBlPVFESU8AaXB0aW1lb3V0PTUAcG9y\ndF9zZWxlY3Rpb249VVNFUkJBU0VEAGdyb3VwX25hbWU9Z3QkbGFwAHZzd2l0Y2hfZ2xvYmFsPUxP\nQ0FMAA==\n"
+ },
+ "_switch_name": "gt@vsw2",
+ "_target": "maint",
+ "_transport_type": "ETHERNET",
+ "_vlan_id": "1024",
+ "_vswitch_domain": "",
+ "_vswitch_global": "LOCAL",
+ "_vswitch_type": "QDIO"
+}

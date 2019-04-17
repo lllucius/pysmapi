@@ -1,0 +1,43 @@
+api = 'Virtual_Network_Adapter_Query'
+kwargs = {'target': 'gt@pong', 'image_device_number': '*'}
+result = \
+{
+ "_adapter_array": [
+  {
+   "adapter_status": 1,
+   "adapter_type": 2,
+   "image_device_number": "9000",
+   "lan_name": "GT@VSW1 ",
+   "lan_owner": "SYSTEM  ",
+   "network_adapter_devices": 3
+  },
+  {
+   "adapter_status": 1,
+   "adapter_type": 2,
+   "image_device_number": "9100",
+   "lan_name": "GT@VSW1 ",
+   "lan_owner": "SYSTEM  ",
+   "network_adapter_devices": 3
+  },
+  {
+   "adapter_status": 1,
+   "adapter_type": 2,
+   "image_device_number": "9200",
+   "lan_name": "GT@VSW1 ",
+   "lan_owner": "SYSTEM  ",
+   "network_adapter_devices": 3
+  }
+ ],
+ "_function_name": "Virtual_Network_Adapter_Query",
+ "_image_device_number": "*",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAI4AAAAAAAAAAAAAAAAAAAB+AAAAJgAAAAQ5MDAwAgAAAAMBAAAACFNZU1RFTSAgAAAA\nCEdUQFZTVzEgAAAAJgAAAAQ5MTAwAgAAAAMBAAAACFNZU1RFTSAgAAAACEdUQFZTVzEgAAAAJgAA\nAAQ5MjAwAgAAAAMBAAAACFNZU1RFTSAgAAAACEdUQFZTVzEg\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAQwAAAB1WaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9RdWVyeQAAAAVtYWludAAAAAVtYWludAAA\nAAdndEBwb25nAAAAASo=\n"
+ },
+ "_target": "gt@pong"
+}

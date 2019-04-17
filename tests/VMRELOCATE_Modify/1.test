@@ -1,0 +1,19 @@
+api = 'VMRELOCATE_Modify'
+kwargs = {'target': 'gt@pong', 'max_total': '500', 'max_quiesce': '400'}
+result = \
+{
+ "_VMRELOCATE_error_record": "1926",
+ "_function_name": "VMRELOCATE_Modify",
+ "_max_quiesce": "400",
+ "_max_total": "500",
+ "_reason_code": 3010,
+ "_recv": {
+  "py/b64": "AAAAAAAAABEAAAAAAAAACAAAC8IxOTI2AA==\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAUAAAABFWTVJFTE9DQVRFX01vZGlmeQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwb25nbWF4\nX3RvdGFsPTUwMABtYXhfcXVpZXNjZT00MDAA\n"
+ },
+ "_target": "gt@pong"
+}

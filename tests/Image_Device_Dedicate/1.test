@@ -1,0 +1,19 @@
+api = 'Image_Device_Dedicate'
+kwargs = {'target': 'gt@pong', 'image_device_number': '3000', 'real_device_number': '4000', 'readonly': 1}
+result = \
+{
+ "_function_name": "Image_Device_Dedicate",
+ "_image_device_number": "3000",
+ "_readonly": 1,
+ "_real_device_number": "4000",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAARwAAABVJbWFnZV9EZXZpY2VfRGVkaWNhdGUAAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9u\nZwAAAAQzMDAwAAAABDQwMDAB\n"
+ },
+ "_target": "gt@pong"
+}

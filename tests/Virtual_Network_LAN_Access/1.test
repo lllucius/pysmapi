@@ -1,0 +1,21 @@
+api = 'Virtual_Network_LAN_Access'
+kwargs = {'target': 'maint', 'lan_name': 'gt@vsw1', 'lan_owner': 'SYSTEM', 'access_op': 'GRANT', 'access_user': 'gt@pong', 'promiscuity': 'NONPROMISCUOUS'}
+result = \
+{
+ "_access_op": "GRANT",
+ "_access_user": "gt@pong",
+ "_function_name": "Virtual_Network_LAN_Access",
+ "_lan_name": "gt@vsw1",
+ "_lan_owner": "SYSTEM",
+ "_promiscuity": "NONPROMISCUOUS",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAZQAAABpWaXJ0dWFsX05ldHdvcmtfTEFOX0FjY2VzcwAAAAVtYWludAAAAAVtYWludAAAAAVt\nYWludGd0QHZzdzEAU1lTVEVNAEdSQU5UAGd0QHBvbmcATk9OUFJPTUlTQ1VPVVMA\n"
+ },
+ "_target": "maint"
+}

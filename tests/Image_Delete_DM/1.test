@@ -1,0 +1,18 @@
+api = 'Image_Delete_DM'
+kwargs = {'target': 'gt@pong', 'data_security_erase': 1}
+result = \
+{
+ "_data_security_erase": 1,
+ "_function_name": "Image_Delete_DM",
+ "_operation_id": 4294967295,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAABAAAAAAAAAAAAAAAAD/////\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAMQAAAA9JbWFnZV9EZWxldGVfRE0AAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwE=\n"
+ },
+ "_target": "gt@pong"
+}

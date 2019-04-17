@@ -1,0 +1,24 @@
+api = 'Image_Definition_Update_DM'
+kwargs = {'target': 'gt@ping', 'definition_update_directory_keyword_parameter_list': ['BOGUS_KEYWORD=BAD']}
+result = \
+{
+ "_asynch_data": [],
+ "_definition_update_directory_keyword_parameter_list": [
+  "BOGUS_KEYWORD=BAD"
+ ],
+ "_error_data": [
+  "UNKNOWN_DIRECTORY_KEYWORD_PARAMETER=BOGUS_KEYWORD",
+  ""
+ ],
+ "_function_name": "Image_Definition_Update_DM",
+ "_reason_code": 3002,
+ "_recv": {
+  "py/b64": "AAAAAAAAAEIAAAAAAAAACAAAC7oAAAAyVU5LTk9XTl9ESVJFQ1RPUllfS0VZV09SRF9QQVJBTUVU\nRVI9Qk9HVVNfS0VZV09SRAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 8,
+ "_send": {
+  "py/b64": "AAAAUQAAABpJbWFnZV9EZWZpbml0aW9uX1VwZGF0ZV9ETQAAAAVtYWludAAAAAVtYWludAAAAAdn\ndEBwaW5nAAAAEkJPR1VTX0tFWVdPUkQ9QkFEAA==\n"
+ },
+ "_target": "gt@ping"
+}

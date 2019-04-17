@@ -1,0 +1,19 @@
+api = 'Virtual_Channel_Connection_Create'
+kwargs = {'target': 'gt@ping', 'image_device_number': 'f100', 'coupled_image_name': 'gt@ping', 'coupled_image_device_number': 'f200'}
+result = \
+{
+ "_coupled_image_device_number": "f200",
+ "_coupled_image_name": "gt@ping",
+ "_function_name": "Virtual_Channel_Connection_Create",
+ "_image_device_number": "f100",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAXQAAACFWaXJ0dWFsX0NoYW5uZWxfQ29ubmVjdGlvbl9DcmVhdGUAAAAFbWFpbnQAAAAFbWFp\nbnQAAAAHZ3RAcGluZwAAAARmMTAwAAAAB2d0QHBpbmcAAAAEZjIwMA==\n"
+ },
+ "_target": "gt@ping"
+}

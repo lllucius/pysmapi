@@ -1,0 +1,23 @@
+api = 'Image_Volume_Space_Define_DM'
+kwargs = {'target': 'maint', 'function_type': 1, 'image_vol_id': 'TST001', 'region_name': 'RGN001', 'start_cylinder': 1, 'size': 32760, 'device_type': 1}
+result = \
+{
+ "_device_type": 1,
+ "_function_name": "Image_Volume_Space_Define_DM",
+ "_function_type": 1,
+ "_group_name": "",
+ "_image_vol_id": "TST001",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_region_name": "RGN001",
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAXQAAABxJbWFnZV9Wb2x1bWVfU3BhY2VfRGVmaW5lX0RNAAAABW1haW50AAAABW1haW50AAAA\nBW1haW50AQAAAAZSR04wMDEAAAAGVFNUMDAxAAAAAQAAf/gAAAAAAQ==\n"
+ },
+ "_size": 32760,
+ "_start_cylinder": 1,
+ "_target": "maint"
+}

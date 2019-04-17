@@ -1,0 +1,17 @@
+api = 'Directory_Manager_Task_Cancel_DM'
+kwargs = {'target': 'maint', 'operation_id': 1234}
+result = \
+{
+ "_function_name": "Directory_Manager_Task_Cancel_DM",
+ "_operation_id": 1234,
+ "_reason_code": 4,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAABxAAAAAQ=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 452,
+ "_send": {
+  "py/b64": "AAAAQwAAACBEaXJlY3RvcnlfTWFuYWdlcl9UYXNrX0NhbmNlbF9ETQAAAAVtYWludAAAAAVtYWlu\ndAAAAAVtYWludAAABNI=\n"
+ },
+ "_target": "maint"
+}

@@ -1,0 +1,17 @@
+api = 'Shared_Memory_Delete'
+kwargs = {'target': 'gt@ping', 'memory_segment_name': 'SHAREMEM'}
+result = \
+{
+ "_function_name": "Shared_Memory_Delete",
+ "_memory_segment_name": "SHAREMEM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAQQAAABRTaGFyZWRfTWVtb3J5X0RlbGV0ZQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwaW5n\nAAAACFNIQVJFTUVN\n"
+ },
+ "_target": "gt@ping"
+}

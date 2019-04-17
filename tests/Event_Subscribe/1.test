@@ -1,0 +1,30 @@
+api = 'Event_Subscribe'
+kwargs = {'target': 'maint', 'match_key': ''}
+result = \
+{
+ "_function_name": "Event_Subscribe",
+ "_hinfo": {
+  "_cert": "",
+  "_host": "vm1",
+  "_insecure": false,
+  "_iucv": false,
+  "_password": "maint",
+  "_port": 44444,
+  "_ssl": false,
+  "_timeout": 600,
+  "_userid": "maint"
+ },
+ "_match_key": "",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "Axx9ag==\n"
+ },
+ "_request_id": 52198762,
+ "_response_data": "",
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAALgAAAA9FdmVudF9TdWJzY3JpYmUAAAAFbWFpbnQAAAAFbWFpbnQAAAAFbWFpbnQ=\n"
+ },
+ "_socket": null,
+ "_target": "maint"
+}

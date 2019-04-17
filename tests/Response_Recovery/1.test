@@ -1,0 +1,18 @@
+api = 'Response_Recovery'
+kwargs = {'target': 'maint', 'failed_request_id': 1234}
+result = \
+{
+ "_failed_request_id": 1234,
+ "_function_name": "Response_Recovery",
+ "_reason_code": 4,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAABAAAAAQ=\n"
+ },
+ "_request_id": 0,
+ "_response_data": "",
+ "_return_code": 4,
+ "_send": {
+  "py/b64": "AAAANAAAABFSZXNwb25zZV9SZWNvdmVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludAAABNI=\n"
+ },
+ "_target": "maint"
+}

@@ -1,0 +1,18 @@
+api = 'VMRELOCATE_Status'
+kwargs = {'target': 'gt@pong', 'status_target': 'ALL'}
+result = \
+{
+ "_VMRELOCATE_status_array": [],
+ "_function_name": "VMRELOCATE_Status",
+ "_reason_code": 3001,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAABAAAC7k=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 4,
+ "_send": {
+  "py/b64": "AAAARAAAABFWTVJFTE9DQVRFX1N0YXR1cwAAAAVtYWludAAAAAVtYWludAAAAAdndEBwb25nc3Rh\ndHVzX3RhcmdldD1BTEwA\n"
+ },
+ "_status_target": "ALL",
+ "_target": "gt@pong"
+}

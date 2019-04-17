@@ -1,0 +1,22 @@
+api = 'Shared_Memory_Access_Query_DM'
+kwargs = {'target': 'maint', 'memory_segment_name': 'SHAREMEM'}
+result = \
+{
+ "_function_name": "Shared_Memory_Access_Query_DM",
+ "_memory_segment_name": "SHAREMEM",
+ "_name_array": [
+  {
+   "name": "MAINT"
+  }
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAABkAAAAAAAAAAAAAAAAAAAAJAAAABU1BSU5U\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAASAAAAB1TaGFyZWRfTWVtb3J5X0FjY2Vzc19RdWVyeV9ETQAAAAVtYWludAAAAAVtYWludAAA\nAAVtYWludAAAAAhTSEFSRU1FTQ==\n"
+ },
+ "_target": "maint"
+}

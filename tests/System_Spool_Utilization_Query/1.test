@@ -1,0 +1,39 @@
+api = 'System_Spool_Utilization_Query'
+kwargs = {'target': 'maint'}
+result = \
+{
+ "_function_name": "System_Spool_Utilization_Query",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAHIAAAAAAAAAAAAAAAAAAABiNTc1OEsgMTg2ODc4IDMgTTAxUzAxIDEwMDMgNTc1OEsg\nMTg2ODc4IDMgTk9URFVNUCBOT1REUkFJTkVEAE0wMlMwMSAxMDA2IDAgMCAwIE5PVERVTVAgTk9U\nRFJBSU5FRAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPQAAAB5TeXN0ZW1fU3Bvb2xfVXRpbGl6YXRpb25fUXVlcnkAAAAFbWFpbnQAAAAFbWFpbnQA\nAAAFbWFpbnQ=\n"
+ },
+ "_spool_volume_array": [
+  {
+   "drained": "NOTDRAINED",
+   "dump": "NOTDUMP",
+   "pages_in_use": "186878",
+   "percent_used": "3",
+   "rdev": "1003",
+   "total_pages": "5758K",
+   "volid": "M01S01"
+  },
+  {
+   "drained": "NOTDRAINED",
+   "dump": "NOTDUMP",
+   "pages_in_use": "0",
+   "percent_used": "0",
+   "rdev": "1006",
+   "total_pages": "0",
+   "volid": "M02S01"
+  }
+ ],
+ "_target": "maint",
+ "_total_spool_pages": "5758K",
+ "_total_spool_pages_in_use": "186878",
+ "_total_spool_percent_used": "3"
+}

@@ -1,0 +1,22 @@
+api = 'Shared_Memory_Create'
+kwargs = {'target': 'gt@ping', 'memory_segment_name': 'SHAREMEM', 'begin_page': 61440, 'end_page': 61695, 'page_access_descriptor': 1, 'memory_attributes': 1, 'memory_access_identifier': 'maint'}
+result = \
+{
+ "_begin_page": 61440,
+ "_end_page": 61695,
+ "_function_name": "Shared_Memory_Create",
+ "_memory_access_identifier": "maint",
+ "_memory_attributes": 1,
+ "_memory_segment_name": "SHAREMEM",
+ "_page_access_descriptor": 1,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAXAAAABRTaGFyZWRfTWVtb3J5X0NyZWF0ZQAAAAVtYWludAAAAAVtYWludAAAAAdndEBwaW5n\nAAAACFNIQVJFTUVNAAAAAAAA8AAAAAAAAADw/wEBAAAABW1haW50\n"
+ },
+ "_target": "gt@ping"
+}

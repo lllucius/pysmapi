@@ -1,0 +1,19 @@
+api = 'Directory_Manager_Local_Tag_Define_DM'
+kwargs = {'target': 'maint', 'tag_name': 'Tag1', 'tag_ordinal': 1, 'define_action': 1}
+result = \
+{
+ "_define_action": 1,
+ "_function_name": "Directory_Manager_Local_Tag_Define_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUQAAACVEaXJlY3RvcnlfTWFuYWdlcl9Mb2NhbF9UYWdfRGVmaW5lX0RNAAAABW1haW50AAAA\nBW1haW50AAAABW1haW50AAAABFRhZzEAAAABAQ==\n"
+ },
+ "_tag_name": "Tag1",
+ "_tag_ordinal": 1,
+ "_target": "maint"
+}

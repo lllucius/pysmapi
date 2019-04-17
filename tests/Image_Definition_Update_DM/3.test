@@ -1,0 +1,21 @@
+api = 'Image_Definition_Update_DM'
+kwargs = {'target': 'gt@ping', 'definition_update_directory_keyword_parameter_list': ['MDISK=OPERATION=ADD VDEV=999 COUNT=1000 DEVTYPE=XXXX DISKTYPE=AUTOG NAME=LINUX']}
+result = \
+{
+ "_asynch_data": [],
+ "_definition_update_directory_keyword_parameter_list": [
+  "MDISK=OPERATION=ADD VDEV=999 COUNT=1000 DEVTYPE=XXXX DISKTYPE=AUTOG NAME=LINUX"
+ ],
+ "_error_data": [],
+ "_function_name": "Image_Definition_Update_DM",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAjgAAABpJbWFnZV9EZWZpbml0aW9uX1VwZGF0ZV9ETQAAAAVtYWludAAAAAVtYWludAAAAAdn\ndEBwaW5nAAAAT01ESVNLPU9QRVJBVElPTj1BREQgVkRFVj05OTkgQ09VTlQ9MTAwMCBERVZUWVBF\nPVhYWFggRElTS1RZUEU9QVVUT0cgTkFNRT1MSU5VWAA=\n"
+ },
+ "_target": "gt@ping"
+}

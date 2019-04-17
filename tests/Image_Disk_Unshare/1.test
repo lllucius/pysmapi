@@ -1,0 +1,17 @@
+api = 'Image_Disk_Unshare'
+kwargs = {'target': 'gt@pong', 'image_disk_number': '557'}
+result = \
+{
+ "_function_name": "Image_Disk_Unshare",
+ "_image_disk_number": "557",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAOgAAABJJbWFnZV9EaXNrX1Vuc2hhcmUAAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcG9uZwAA\nAAM1NTc=\n"
+ },
+ "_target": "gt@pong"
+}

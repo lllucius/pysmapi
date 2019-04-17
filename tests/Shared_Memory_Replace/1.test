@@ -1,0 +1,18 @@
+api = 'Shared_Memory_Replace'
+kwargs = {'target': 'gt@ping', 'memory_segment_name': 'SHAREMEM', 'memory_access_identifier': 'maint'}
+result = \
+{
+ "_function_name": "Shared_Memory_Replace",
+ "_memory_access_identifier": "maint",
+ "_memory_segment_name": "SHAREMEM",
+ "_reason_code": 12,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAw=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAASwAAABVTaGFyZWRfTWVtb3J5X1JlcGxhY2UAAAAFbWFpbnQAAAAFbWFpbnQAAAAHZ3RAcGlu\nZwAAAAhTSEFSRU1FTQAAAAVtYWludA==\n"
+ },
+ "_target": "gt@ping"
+}

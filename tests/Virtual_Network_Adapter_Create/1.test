@@ -1,0 +1,20 @@
+api = 'Virtual_Network_Adapter_Create'
+kwargs = {'target': 'gt@pong', 'image_device_number': '9000', 'adapter_type': 2, 'network_adapter_devices': 3, 'channel_path_type_id': ''}
+result = \
+{
+ "_adapter_type": 2,
+ "_channel_path_type_id": "",
+ "_function_name": "Virtual_Network_Adapter_Create",
+ "_image_device_number": "9000",
+ "_network_adapter_devices": 3,
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAAwAAAAAAAAAAAAAAAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAUAAAAB5WaXJ0dWFsX05ldHdvcmtfQWRhcHRlcl9DcmVhdGUAAAAFbWFpbnQAAAAFbWFpbnQA\nAAAHZ3RAcG9uZwAAAAQ5MDAwAgAAAAMAAAAA\n"
+ },
+ "_target": "gt@pong"
+}
