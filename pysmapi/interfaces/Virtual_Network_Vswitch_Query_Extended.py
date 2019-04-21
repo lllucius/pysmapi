@@ -121,6 +121,7 @@ class Virtual_Network_Vswitch_Query_Extended(Request):
          EQID_MISMATCH31: "EQID mismatch",
          NO_HIPERSOCKETS_BRIDGE_SUPPORT: "No HiperSockets bridge support",
          HIPERSOCKETS_BRIDGE_ERROR: "HiperSockets bridge error"}
+
     # Uplink NIC error status
     NO_ERROR = 0
     USERID_NOT_LOGGED_ON = 1
