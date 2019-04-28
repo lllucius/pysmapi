@@ -144,6 +144,7 @@ from .System_EQID_Query import *
 from .System_FCP_Free_Query import *
 from .System_Image_Performance_Query import *
 from .Virtual_Network_OSA_Query import *
+from .System_Info_Query import *
 from .System_Information_Query import *
 from .System_Page_Utilization_Query import *
 from .System_Performance_Info_Query import *

@@ -27,13 +27,13 @@ class System_Performance_Info_Query(Request):
         self._monrate = monrate
 
         # Response values
-        self.num_proc = 0
-        self.avg_proc = 0
-        self.page_rate = 0
-        self.total_pages = 0
-        self.total_used = 0
-        self.monitor_rate = 0
-        self.procs = []
+        self._num_proc = 0
+        self._avg_proc = 0
+        self._page_rate = 0
+        self._total_pages = 0
+        self._total_used = 0
+        self._monitor_rate = 0
+        self._procs = []
 
     @property
     def monrate(self):
@@ -111,18 +111,18 @@ class System_Performance_Info_Query(Request):
     def unpack(self, buf):
         offset = (len(self._monrate) > 0)
         fields = b2s(buf[:-1]).split("\x00")
-        print("fiel", len(fields), offset + 5, fields[5:])
-        self.num_proc = int(fields[0])
-        self.avg_proc = int(fields[1])
-        self.page_rate = int(fields[2])
-        self.total_pages = int(fields[3])
-        self.total_used = int(fields[4])
-        self.monitor_rate = fields[5] if offset else 0
-        self.procs = []
+
+        self._num_proc = int(fields[0])
+        self._avg_proc = int(fields[1])
+        self._page_rate = int(fields[2])
+        self._total_pages = int(fields[3])
+        self._total_used = int(fields[4])
+        self._monitor_rate = fields[5] if offset else 0
+        self._procs = []
         for proc in sorted(fields[5 + offset:]):
             # PROC 0000-033% IFL  VM
             entry = Obj()
-            self.procs.append(entry)
+            self._procs.append(entry)
 
             fields = proc.split()
             entry.addr = fields[1][0:4]
