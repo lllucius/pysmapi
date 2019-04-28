@@ -1,0 +1,49 @@
+api = 'System_Performance_Info_Query'
+kwargs = {'target': 'maint'}
+result = \
+{
+ "_avg_proc": 40,
+ "_function_name": "System_Performance_Info_Query",
+ "_monitor_rate": 0,
+ "_monrate": "",
+ "_num_proc": 4,
+ "_page_rate": 61,
+ "_procs": [
+  {
+   "addr": "0000",
+   "pe": "VM",
+   "type": "IFL",
+   "usage": 46
+  },
+  {
+   "addr": "0001",
+   "pe": "VM",
+   "type": "IFL",
+   "usage": 47
+  },
+  {
+   "addr": "0002",
+   "pe": "VM",
+   "type": "IFL",
+   "usage": 36
+  },
+  {
+   "addr": "0003",
+   "pe": "VM",
+   "type": "IFL",
+   "usage": 33
+  }
+ ],
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAAIIAAAAAAAAAAAAAAAAwMDA0ADQwADYxADEwNDg1NzYANDY0Nzc3AFBST0MgMDAwMC0w\nNDYlIElGTCAgVk0AUFJPQyAwMDAxLTA0NyUgSUZMICBWTQBQUk9DIDAwMDItMDM2JSBJRkwgIFZN\nAFBST0MgMDAwMy0wMzMlIElGTCAgVk0A\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAPAAAAB1TeXN0ZW1fUGVyZm9ybWFuY2VfSW5mb19RdWVyeQAAAAVtYWludAAAAAVtYWludAAA\nAAVtYWludA==\n"
+ },
+ "_target": "maint",
+ "_total_pages": 1048576,
+ "_total_used": 464777
+}

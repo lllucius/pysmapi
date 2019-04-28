@@ -80,12 +80,12 @@ WARNING: During testing the following destructive actions will be taken:
   8) VSMGUARD's console spool file will be transfered to {ADMIN}'s reader
      and deleted.
 """)
-"""
+
 yn = input("Continue (y/n)? ").lower().strip()
 if yn != "y":
     print("Quiting...")
     quit()
-"""
+
 print()
 print("Checking environment for various prereqs...")
 print()
@@ -99,7 +99,7 @@ set_hostinfo(hostthis)
 # Make sure we are authorizaed
 #
 gentest("Check_Authentication", None)
-"""
+
 #
 # We need 2 abends dumps available for testing
 #
@@ -1354,7 +1354,7 @@ gentest("Virtual_Network_Vswitch_Delete_Extended", None,
         target=ADMIN,
         switch_name=VSWI,
         persist="NO")
-"""
+
 gentest("Virtual_Network_LAN_Create", "1",
         target=ADMIN,
         lan_name=VSW1,
@@ -1485,7 +1485,7 @@ gentest("Virtual_Network_VLAN_Query_Stats", "1",
 
 gentest("Virtual_Network_OSA_Query", "1",
         target=ADMIN)
-quit()
+
 gentest("Image_Deactivate", "1",
         target=PING,
         force_time="immed")

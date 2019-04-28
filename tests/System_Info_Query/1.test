@@ -1,0 +1,22 @@
+api = 'System_Info_Query'
+kwargs = {'target': 'maint'}
+result = \
+{
+ "_cp_level": "z/VM Version 7 Release 1.0, service level 1801 (64-bit)",
+ "_date_time": "13:42:28 EDT SUNDAY 2019-04-28",
+ "_function_name": "System_Info_Query",
+ "_gen_date_time": "2019-02-22 02:44:15 EDT",
+ "_ipl_date_time": "2019-04-28 13:39:31 EDT",
+ "_reason_code": 0,
+ "_recv": {
+  "py/b64": "AAAAAAAAANsAAAAAAAAAAAAAAABFRFQgV2VzdCAwNC4wMC4wMAAxMzo0MjoyOCBFRFQgU1VOREFZ\nIDIwMTktMDQtMjgAei9WTSBWZXJzaW9uIDcgUmVsZWFzZSAxLjAsIHNlcnZpY2UgbGV2ZWwgMTgw\nMSAoNjQtYml0KQAyMDE5LTAyLTIyIDAyOjQ0OjE1IEVEVAAyMDE5LTA0LTI4IDEzOjM5OjMxIEVE\nVAA0RyBDT05GSUdVUkVEID0gNEcgSU5DID0gMU0gU1RBTkRCWSA9IDAgIFJFU0VSVkVEID0gMAA=\n"
+ },
+ "_request_id": 0,
+ "_return_code": 0,
+ "_send": {
+  "py/b64": "AAAAMAAAABFTeXN0ZW1fSW5mb19RdWVyeQAAAAVtYWludAAAAAVtYWludAAAAAVtYWludA==\n"
+ },
+ "_storage_info": "4G CONFIGURED = 4G INC = 1M STANDBY = 0  RESERVED = 0",
+ "_target": "maint",
+ "_time_zone": "EDT West 04.00.00"
+}
