@@ -27,7 +27,13 @@ class System_Performance_Info_Query(Request):
         self._monrate = monrate
 
         # Response values
-        self._system_performance_info_data = []
+        self.num_proc = 0
+        self.avg_proc = 0
+        self.page_rate = 0
+        self.total_pages = 0
+        self.total_used = 0
+        self.monitor_rate = 0
+        self.procs = []
 
     @property
     def monrate(self):
@@ -38,12 +44,60 @@ class System_Performance_Info_Query(Request):
         self._monrate = value
 
     @property
-    def system_performance_info_data(self):
-        return self._system_performance_info_data
+    def num_proc(self):
+        return self._num_proc
 
-    @system_performance_info_data.setter
-    def system_performance_info_data(self, value):
-        self._system_performance_info_data = value
+    @num_proc.setter
+    def num_proc(self, value):
+        self._num_proc = value
+
+    @property
+    def avg_proc(self):
+        return self._avg_proc
+
+    @avg_proc.setter
+    def avg_proc(self, value):
+        self._avg_proc = value
+
+    @property
+    def page_rate(self):
+        return self._page_rate
+
+    @page_rate.setter
+    def page_rate(self, value):
+        self._page_rate = value
+
+    @property
+    def total_pages(self):
+        return self._total_pages
+
+    @total_pages.setter
+    def total_pages(self, value):
+        self._total_pages = value
+
+    @property
+    def total_used(self):
+        return self._total_used
+
+    @total_used.setter
+    def total_used(self, value):
+        self._total_used = value
+
+    @property
+    def monitor_rate(self):
+        return self._monitor_rate
+
+    @monitor_rate.setter
+    def monitor_rate(self, value):
+        self._monitor_rate = value
+
+    @property
+    def procs(self):
+        return self._procs
+
+    @procs.setter
+    def procs(self, value):
+        self._procs = value
 
     def pack(self):
         buf = ""
