@@ -924,11 +924,21 @@ gentest("System_FCP_Free_Query", "1", expect=[(0,0), (8,8)],
         target=ADMIN,
         fcp_dev=5000)
 
+gentest("System_Info_Query", "1",
+        target=ADMIN)
+
 gentest("System_Information_Query", "1",
         target=ADMIN)
 
 gentest("System_Page_Utilization_Query", "1",
         target=ADMIN)
+
+gentest("System_Performance_Info_Query", "1",
+        target=ADMIN)
+
+gentest("System_Performance_Info_Query", "2",
+        target=ADMIN,
+        monrate="query")
 
 gentest("System_Performance_Information_Query", "1",
         target=ADMIN,
