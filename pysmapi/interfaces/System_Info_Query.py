@@ -90,9 +90,19 @@ class System_Info_Query(Request):
         fields = b2s(buf[:-1]).split("\x00")
 
         self._time_zone = fields[0]
-        self._date_time = fields[1]
+
+        sf = fields[1].split()
+        self._date_time = f"{sf[3]} {sf[0]} {sf[1]}"
+
         self._cp_level = fields[2]
         self._gen_date_time = fields[3]
         self._ipl_date_time = fields[4]
-        self._storage_info = fields[5]
+
+        sf = fields[5].split()
+        self._storage_info = Obj()
+        self._storage_info.storage = sf[0]
+        self._storage_info.configured = sf[3]
+        self._storage_info.inc = sf[6]
+        self._storage_info.standby = sf[9]
+        self._storage_info.reserved = sf[12]
 
