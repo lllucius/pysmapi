@@ -146,6 +146,7 @@ from .System_Image_Performance_Query import *
 from .Virtual_Network_OSA_Query import *
 from .System_Information_Query import *
 from .System_Page_Utilization_Query import *
+from .System_Performance_Info_Query import *
 from .System_Performance_Information_Query import *
 from .System_Performance_Threshold_Enable import *
 from .System_Performance_Threshold_Disable import *
