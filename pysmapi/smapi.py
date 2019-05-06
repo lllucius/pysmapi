@@ -104,28 +104,8 @@ class Obj(object):
 # Host Information
 # ==============================================================================
 class HostInfo(object):
-    def __init__(self, iucv=False, host=None, port=44444, userid=None, password=None, ssl=False, insecure=False, cert=None, timeout=TIMEOUT):
-        if iucv is not True and iucv is not False:
-            raise ValueError("iucv must be True or False")
-
-        if userid is not None and password is None:
-            raise ValueError("password required when userid given")
-        if userid is None and password is not None:
-            raise ValueError("userid required when password given")
-
-        if ssl is not True and ssl is not False:
-            raise ValueError("ssl must be True or False")
-
-        if insecure is not True and insecure is not False:
-            raise ValueError("insecure must be True or False")
-
-        if iucv:
-            self._libc = CDLL(find_library(b"c"), use_errno=True)
-        else:
-            if host is None or port is None:
-                raise ValueError("host and port required for inet connections")
-            if userid is None or password is None:
-                raise ValueError("userid and password required for inet connections")
+    def __init__(self, iucv=False, host=None, port=44444, userid=None, password=None, ssl=False, insecure=False, cafile=None, capath=None, timeout=TIMEOUT):
+        self._validated = False
 
         self._iucv = iucv
         self._host = host
@@ -134,7 +114,8 @@ class HostInfo(object):
         self._password = password
         self._ssl = ssl
         self._insecure = insecure
-        self._cert = cert
+        self._cafile = cafile
+        self._capath = capath
         self._timeout = timeout
 
     @property
@@ -143,6 +124,7 @@ class HostInfo(object):
 
     @iucv.setter
     def iucv(self, value):
+        self._validated = False
         self._iucv = value
 
     @property
@@ -151,6 +133,7 @@ class HostInfo(object):
 
     @host.setter
     def host(self, value):
+        self._validated = False
         self._host = value
 
     @property
@@ -159,22 +142,27 @@ class HostInfo(object):
 
     @port.setter
     def port(self, value):
+        self._validated = False
         self._port = value
 
     @property
     def userid(self):
+        self._validated = False
         return self._userid
 
     @userid.setter
     def userid(self, value):
+        self._validated = False
         self._userid = value
 
     @property
     def password(self):
+        self._validated = False
         return self._password
 
     @password.setter
     def password(self, value):
+        self._validated = False
         self._password = value
 
     @property
@@ -183,23 +171,36 @@ class HostInfo(object):
 
     @ssl.setter
     def ssl(self, value):
+        self._validated = False
         self._ssl = value
 
     @property
-    def cert(self):
-        return self._cert
-
-    @cert.setter
-    def cert(self, value):
-        self._cert = value
-
-    @property
     def insecure(self):
+        self._validated = False
         return self._insecure
 
     @insecure.setter
     def insecure(self, value):
+        self._validated = False
         self._insecure = value
+
+    @property
+    def cafile(self):
+        return self._cafile
+
+    @cafile.setter
+    def cafile(self, value):
+        self._validated = False
+        self._cafile = value
+
+    @property
+    def capath(self):
+        return self._capath
+
+    @capath.setter
+    def capath(self, value):
+        self._validated = False
+        self._capath = value
 
     @property
     def timeout(self):
@@ -207,7 +208,39 @@ class HostInfo(object):
 
     @timeout.setter
     def timeout(self, value):
+        self._validated = False
         self._timeout = value
+
+    def validate(self):
+        if not self._validated:
+            if self._iucv is not True and self._iucv is not False:
+                raise ValueError("iucv must be True or False")
+
+            if self._userid is not None and self._password is None:
+                raise ValueError("password required when userid given")
+
+            if self._userid is None and self._password is not None:
+                raise ValueError("userid required when password given")
+
+            if self._iucv:
+                if not self.__libc:
+                    self._libc = CDLL(find_library(b"c"), use_errno=True)
+            else:
+                if self._host is None or self._port is None:
+                    raise ValueError("host and port required for inet connections")
+
+                if self._userid is None or self._password is None:
+                    raise ValueError("userid and password required for inet connections")
+
+            if self._insecure is not True and self._insecure is not False:
+                raise ValueError("insecure must be True or False")
+
+            if self._ssl is not True and self._ssl is not False:
+                raise ValueError("ssl must be True or False")
+
+            self._validated = True
+
+        return self
 
 # ==============================================================================
 # IUCV structure used for IUCV connections
@@ -275,9 +308,55 @@ class Request(object):
         self._send = b""
         self._recv = b""
 
+    @property
+    def function_name(self):
+        return self._function_name
+
+    @function_name.setter
+    def function_name(self, value):
+        self._function_name = value
+
+    @property
+    def target(self):
+        return self._target
+
+    @target.setter
+    def target(self, value):
+        self._target = value
+
+    @property
+    def request_id(self):
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, value):
+        self._request_id = value
+
+    @property
+    def return_code(self):
+        return self._return_code
+
+    @return_code.setter
+    def return_code(self, value):
+        self._return_code = value
+
+    @property
+    def reason_code(self):
+        return self._reason_code
+
+    @reason_code.setter
+    def reason_code(self, value):
+        self._reason_code = value
+
+    def pack(self):
+        return b""
+
+    def unpack(self, buf):
+        return
+
     def request(self, hostinfo, wait=True, interval=INTERVAL):
-        # Save host info
-        self._hinfo = hostinfo
+        # Save host info and validate
+        self._hinfo = hostinfo.validate()
 
         # Get the request
         _req = self
@@ -409,52 +488,6 @@ class Request(object):
 
         return self
 
-    @property
-    def function_name(self):
-        return self._function_name
-
-    @function_name.setter
-    def function_name(self, value):
-        self._function_name = value
-
-    @property
-    def target(self):
-        return self._target
-
-    @target.setter
-    def target(self, value):
-        self._target = value
-
-    @property
-    def request_id(self):
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, value):
-        self._request_id = value
-
-    @property
-    def return_code(self):
-        return self._return_code
-
-    @return_code.setter
-    def return_code(self, value):
-        self._return_code = value
-
-    @property
-    def reason_code(self):
-        return self._reason_code
-
-    @reason_code.setter
-    def reason_code(self, value):
-        self._reason_code = value
-
-    def pack(self):
-        return b""
-
-    def unpack(self, buf):
-        return
-
     def connect(self):
         if self._hinfo.iucv:
             sa = IUCV()
@@ -479,14 +512,25 @@ class Request(object):
         else:
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             if self._hinfo.ssl:
-                #self.sslctx = ssl.create_default_context()
-
+                hi = self._hinfo
                 self._sslctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-                self._sslctx.check_hostname = False
-#                self._sslctx.verify_mode = ssl.CERT_NONE
-                self._sslctx.verify_mode = ssl.CERT_REQUIRED
-                self._sslctx.load_verify_locations("/root/cert")
-                self._socket = self.sslctx.wrap_socket(self._socket) #, server_hostname=self.inet[0])
+
+                if hi.insecure:
+                    self._sslctx.check_hostname = False
+                    self._sslctx.verify_mode = ssl.CERT_NONE
+                else:
+                    self._sslctx.check_hostname = False
+                    self._sslctx.verify_mode = ssl.CERT_REQUIRED
+
+                if hi.cafile or hi.capath:
+                    self._sslctx.load_verify_locations(hi.cafile, hi.capath)
+                elif not hi.insecure:
+                    self._sslctx.load_default_certs()
+
+                self._socket = self._sslctx.wrap_socket(self._socket)
+
+            if debugging:
+                print(f"Connecting to SMAPI host: {self._hinfo.host}")
 
             self._socket.connect((self._hinfo.host, self._hinfo.port))
 
@@ -573,6 +617,9 @@ class Request(object):
             self._recv += buf
 
         return buf
+
+    def failed(self):
+        return self._return_code != 0 or self._reason_code != 0
 
     def error_string(self):
         from pysmapi.messages import msgdb
