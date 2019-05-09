@@ -15,3 +15,7 @@
 
 from pysmapi.smapi import HostInfo, Request, Obj, set_debug, set_test
 from pysmapi.interfaces import *
+from pysmapi.events import Events
+from pysmapi.notifications import Notifications
+from pysmapi import cp924
+

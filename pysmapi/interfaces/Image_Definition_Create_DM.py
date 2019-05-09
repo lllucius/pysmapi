@@ -40,7 +40,7 @@ class Image_Definition_Create_DM(Request):
 
     @property
     def asynch_data(self):
-        return self._prototype_name
+        return self._asynch_data
 
     @asynch_data.setter
     def asynch_data(self, value):
@@ -48,7 +48,7 @@ class Image_Definition_Create_DM(Request):
 
     @property
     def error_data(self):
-        return self._prototype_name
+        return self._error_data
 
     @error_data.setter
     def error_data(self, value):
@@ -78,7 +78,7 @@ class Image_Definition_Create_DM(Request):
         # asynch_data (string)
         # or
         # error_data (string)
-        array = b2s(buf[offset:offset + alen]).split("\x00")
+        array = b2s(buf[offset:offset + alen - 1]).split("\x00")
         offset += alen
 
         if self.return_code == 592 and self.reason_code == 4:

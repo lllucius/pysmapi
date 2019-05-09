@@ -74,7 +74,7 @@ class Event_Subscribe(Request):
             return
 
         # Get the event length
-        event_type = struct.unpack("!I", self.recv(4))
+        event_type, = struct.unpack("!I", self.recv(4))
         length -= 4
 
         # Get the event data

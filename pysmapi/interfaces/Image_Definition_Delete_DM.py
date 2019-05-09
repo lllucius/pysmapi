@@ -78,7 +78,7 @@ class Image_Definition_Delete_DM(Request):
         # asynch_data (string)
         # or
         # error_data (string)
-        array = b2s(buf[offset:offset + alen]).split("\x00")
+        array = b2s(buf[offset:offset + alen - 1]).split("\x00")
         offset += alen
 
         if self.return_code == 592 and self.reason_code == 4:

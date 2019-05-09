@@ -13,8 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# openssl s_client -showcerts -connect vm1:44446 </dev/null 2>&1 | sed -e '/BEGIN CERT/,/END CERT/p;d'
-
 from ctypes import *
 from ctypes.util import find_library
 from select import select
