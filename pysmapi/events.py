@@ -141,18 +141,11 @@ class Events(threading.Thread):
             self._type0_handler(event_class, event_type, fields)
 
     def handle_type1(self, event_data):
-        # Get the common response values
-        (event_type,
-         request_id,
-         return_code,
-         reason_code) = struct.unpack("!IIII", event_data[:16])
+        # Get and remove the event type
+        event_type, = struct.unpack("!I", event_data[:4])
+        event_data = event_data[4:]
 
-        # Remove the common response values
-        event_data = event_data[16:]
-
-        if event_type == 2:
-            event_request = smapi.System_Performance_Threshold_Enable()
-        elif event_type == 500:
+        if event_type == 500:
             #
             # This event can be triggered by:
             #   Image_Definition_Create_DM
@@ -167,21 +160,23 @@ class Events(threading.Thread):
             # when using the error_string() function.
             #
             event_request = smapi.Image_Definition_Create_DM()
-        elif event_type == 2008 or event_type == 2010:
-            event_request = smapi.Process_ABEND_Dump()
-        elif event_type == 2009:
-            event_request = smapi.Delete_ABEND_Dump()
+
+            # Get the common response values
+            (event_request.request_id,
+             event_request.return_code,
+             event_request.reason_code) = struct.unpack("!III", event_data[:12])
+            event_data = event_data[12:]
+
+            # Go extract the remainder
+            if len(event_data) > 0:
+                event_request.unpack(event_data)
+
+            event_data = event_request
         else:
-            raise ValueError(f"Unrecognized type 1 event received: {event_type}")
+            # All others simply get the remainder of the event data
+            pass
 
-        event_request.request_id = request_id
-        event_request.return_code = return_code
-        event_request.reason_code = reason_code
-
-        if len(event_data) > 0:
-            event_request.unpack(event_data)
-
-        self._type1_handler(event_type, event_request)
+        self._type1_handler(event_type, event_data)
 
     def type0_event(self, event_class, event_type, event_fields):
         pass
