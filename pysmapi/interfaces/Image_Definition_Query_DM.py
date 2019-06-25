@@ -55,10 +55,7 @@ class Image_Definition_Query_DM(Request):
         self._error_data = value
 
     def pack(self):
-        buf = ""
-
-        for plist in self._definition_query_directory_keyword_parameter_list:
-            buf += plist + "\x00"
+        buf = " ".join(self._definition_query_directory_keyword_parameter_list) + "\x00"
 
         # definition_query_directory_keyword_parameter_list_length (int4)
         # definition_query_directory_keyword_parameter_list
